@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav"
+    app:startDestination="@id/workout_Activity_Fragment">
+    <fragment
+        android:id="@+id/workout_Activity_Fragment"
+        android:name="zxc.studio.vpt.Workout_Activity_Fragment"
+        android:label="fragment_workout__activity_"
+        tools:layout="@layout/fragment_workout__activity_" >
+        <action
+            android:id="@+id/action_workout_Activity_Fragment_to_individual_workout_activity"
+            app:destination="@id/individual_workout_activity" />
+    </fragment>
+    <fragment
+        android:id="@+id/social_Activity_Fragment"
+        android:name="zxc.studio.vpt.Social_Activity_Fragment"
+        android:label="fragment_social__activity_"
+        tools:layout="@layout/fragment_social__activity_" >
+        <action
+            android:id="@+id/action_social_Activity_Fragment_to_coach_Main_Activity_Fragmenet"
+            app:destination="@id/coach_Main_Activity_Fragmenet" />
+    </fragment>
+    <fragment
+        android:id="@+id/setting_Actvity_Fragment"
+        android:name="zxc.studio.vpt.Setting_Actvity_Fragment"
+        android:label="fragment_setting__actvity_"
+        tools:layout="@layout/fragment_setting__actvity_" />
+    <fragment
+        android:id="@+id/individual_workout_activity"
+        android:name="zxc.studio.vpt.individual_workout_activity"
+        android:label="fragment_individual_workout_activity"
+        tools:layout="@layout/fragment_individual_workout_activity" >
+        <action
+            android:id="@+id/action_individual_workout_activity_to_workout_Activity_Fragment"
+            app:destination="@id/workout_Activity_Fragment" />
+        <argument
+            android:name="selectedworkout"
+            app:argType="zxc.studio.vpt.models.Workout"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_individual_workout_activity_to_single_exercise_fragment"
+            app:destination="@id/single_exercise_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coach_Main_Activity_Fragmenet"
+        android:name="zxc.studio.vpt.Coach_Main_Activity_Fragmenet"
+        android:label="fragment_coach__main__activity__fragmenet"
+        tools:layout="@layout/fragment_coach__main__activity__fragmenet" >
+        <action
+            android:id="@+id/action_coach_Main_Activity_Fragmenet_to_social_Activity_Fragment"
+            app:destination="@id/social_Activity_Fragment" />
+        <action
+            android:id="@+id/action_coach_Main_Activity_Fragmenet_to_coach_Workout_Activity_fragment"
+            app:destination="@id/coach_Workout_Activity_fragment" />
+        <argument
+            android:name="selected_athlete"
+            app:argType="zxc.studio.vpt.models.Athlete"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/single_exercise_fragment"
+        android:name="zxc.studio.vpt.single_exercise_fragment"
+        android:label="fragment_single_exercise_fragment"
+        tools:layout="@layout/fragment_single_exercise_fragment" >
+        <action
+            android:id="@+id/action_single_exercise_fragment_to_individual_workout_activity"
+            app:destination="@id/individual_workout_activity" />
+        <argument
+            android:name="selected_exercise"
+            app:argType="zxc.studio.vpt.models.Exercise" />
+    </fragment>
+    <fragment
+        android:id="@+id/coach_Workout_Activity_fragment"
+        android:name="zxc.studio.vpt.Coach_Workout_Activity_fragment"
+        android:label="fragment_coach__workout__activity_fragment"
+        tools:layout="@layout/fragment_coach__workout__activity_fragment" >
+        <action
+            android:id="@+id/action_coach_Workout_Activity_fragment_to_coach_Main_Activity_Fragmenet"
+            app:destination="@id/coach_Main_Activity_Fragmenet" />
+    </fragment>
+</navigation>

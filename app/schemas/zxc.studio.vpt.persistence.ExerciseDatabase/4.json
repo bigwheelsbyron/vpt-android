@@ -1,0 +1,134 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 4,
+    "identityHash": "58dfbbb550bef3e30e5ad122a87efbd7",
+    "entities": [
+      {
+        "tableName": "Exercise",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`exercise_athlete_id` TEXT, `exercise_coach_id` TEXT, `exercise_classification` TEXT, `exercise_completedBoolean` TEXT, `exercise_completedDate` TEXT, `exercise_difficulty` TEXT, `exercise_distance` TEXT, `exercise_duration` TEXT, `exercise_id` TEXT, `exercise_name` TEXT, `exercise_note` TEXT, `exercise_reps` TEXT, `exercise_rpe` TEXT, `exercise_sequence` TEXT, `exercise_uom` TEXT, `exercise_weight` TEXT, `exercise_workout_id` TEXT, `exercise_programme_id` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "exercise_athlete_id",
+            "columnName": "exercise_athlete_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_coach_id",
+            "columnName": "exercise_coach_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_classification",
+            "columnName": "exercise_classification",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_completedBoolean",
+            "columnName": "exercise_completedBoolean",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_completedDate",
+            "columnName": "exercise_completedDate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_difficulty",
+            "columnName": "exercise_difficulty",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_distance",
+            "columnName": "exercise_distance",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_duration",
+            "columnName": "exercise_duration",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_id",
+            "columnName": "exercise_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_name",
+            "columnName": "exercise_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_note",
+            "columnName": "exercise_note",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_reps",
+            "columnName": "exercise_reps",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_rpe",
+            "columnName": "exercise_rpe",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_sequence",
+            "columnName": "exercise_sequence",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_uom",
+            "columnName": "exercise_uom",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_weight",
+            "columnName": "exercise_weight",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_workout_id",
+            "columnName": "exercise_workout_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "exercise_programme_id",
+            "columnName": "exercise_programme_id",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '58dfbbb550bef3e30e5ad122a87efbd7')"
+    ]
+  }
+}

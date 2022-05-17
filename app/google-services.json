@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "860400438213",
+    "firebase_url": "https://vptdatabase.firebaseio.com",
+    "project_id": "vptdatabase",
+    "storage_bucket": "vptdatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860400438213:android:fd6ef09d8006044f2659ac",
+        "android_client_info": {
+          "package_name": "zxc.studio.vpt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860400438213-bg9em0oib4622ushac2lvp7lqqr564po.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "zxc.studio.vpt",
+            "certificate_hash": "ea15fa9cf01bdc98a1636523c29e00fddcd7f37f"
+          }
+        },
+        {
+          "client_id": "860400438213-f94reikemq8oer75acgl0vm86897k8os.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBEwFcboqAEL_m5q0uM2zY9tzQceUdfwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860400438213-f94reikemq8oer75acgl0vm86897k8os.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "860400438213-7smm82sfhou2uiaa2hm7ht0sfu1pqvis.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "vpt.vpt"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

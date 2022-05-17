@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imageViewVPTSign"
+        android:layout_width="142dp"
+        android:layout_height="99dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/vpt" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/subtractsubtract" />
+
+    <LinearLayout
+        android:id="@+id/linearlayout_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="158dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="158dp"
+        android:alpha="1"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Sign Up"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView_email"
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:textColor="#3E3E3E"
+            android:layout_height="wrap_content"
+            android:text="Email" />
+
+        <EditText
+            android:id="@+id/editText_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginBottom="8dp"
+            android:hint="Email address"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView_password"
+            android:layout_width="match_parent"
+            android:textColor="#3E3E3E"
+            android:layout_height="wrap_content"
+            android:text="Password" />
+
+        <EditText
+            android:id="@+id/editText_password"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView_firstname"
+            android:layout_width="match_parent"
+            android:textColor="#3E3E3E"
+            android:layout_height="wrap_content"
+            android:text="First Name" />
+
+        <EditText
+            android:id="@+id/editText_firstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView_lastname"
+            android:layout_width="match_parent"
+            android:textColor="#3E3E3E"
+            android:layout_height="wrap_content"
+            android:text="Last Name" />
+
+        <EditText
+            android:id="@+id/editText_lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Last Name"
+            android:inputType="textPersonName" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_agree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#3E3E3E"
+                android:gravity="right"
+                android:text="I agree to the" />
+
+            <TextView
+                android:id="@+id/textView_toc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:text=" the terms and conditions."
+                android:textColor="@color/Blue_Crayola" />
+
+            <CheckBox
+                android:id="@+id/checkBox_toc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="I agree" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:text="Cancel" />
+
+            <Button
+                android:id="@+id/button_agree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:layout_marginBottom="5dp"
+                android:text="Sign Up"
+                android:background="@drawable/button"
+                android:textColor="@color/grayedout" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_toc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="167dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="167dp"
+        android:alpha="0"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="User Agreement"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_opening"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_ChangesTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Changes to the Agreement"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_changesText"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_ThirdPartyText"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Third Party Agreements" />
+
+                <TextView
+                    android:id="@+id/textView_thirdparty"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_entireagreement"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Entire Agreement"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_entireagreementtext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_offer"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Offer and Acceptance"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_tocoffertext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_toctermination"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Account Termination"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_tocterminationtext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_banning"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Temporary and Permanent Banning"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_banningtext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/textView_data"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Data"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_dattext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_cost"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Cost"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/textView_costtext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textView_commercial"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Commercial Use"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_commercialtext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/textView_warranty"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Warranty"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_warrantytext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textView_acl"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Australian Consumer Law"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_acltext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_ip"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Intellectual Property Rights"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/iptext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_ugl"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="User Guidelines"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/ugltext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Placeholder text"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp" />
+                />
+
+                <Button
+                    android:id="@+id/button_okayTOC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button"
+                    android:layout_margin="5dp"
+                    android:text="Okay" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

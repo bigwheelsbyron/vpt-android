@@ -1,0 +1,106 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 4,
+    "identityHash": "d81168db7e63bd8a4a23db0d3038a6f2",
+    "entities": [
+      {
+        "tableName": "exercises",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Exercise ID` TEXT, `Exercise Name` TEXT, `Exercise Note` TEXT, `Weight` INTEGER NOT NULL, `Reps` INTEGER NOT NULL, `Completed` INTEGER, `Workout_ID` TEXT, `Sequence` INTEGER NOT NULL, `duration` INTEGER NOT NULL, `distance` INTEGER NOT NULL, `RPE` INTEGER NOT NULL, `Classificiation` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exerciseID",
+            "columnName": "Exercise ID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ExerciseName",
+            "columnName": "Exercise Name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ExerciseNote",
+            "columnName": "Exercise Note",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Weight",
+            "columnName": "Weight",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Reps",
+            "columnName": "Reps",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "CompleteBinary",
+            "columnName": "Completed",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Workout_ID",
+            "columnName": "Workout_ID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Sequence",
+            "columnName": "Sequence",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Duration",
+            "columnName": "duration",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Distance",
+            "columnName": "distance",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "RPE",
+            "columnName": "RPE",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Classification",
+            "columnName": "Classificiation",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd81168db7e63bd8a4a23db0d3038a6f2')"
+    ]
+  }
+}

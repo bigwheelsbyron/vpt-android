@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#C6F8FF</color>
+    <color name="colorPrimaryDark">#C6F8FF</color>
+    <color name="colorAccent">#C6F8FF</color>
+    <color name="backgroundMain">#FFFFFF</color>
+    <color name="opaque_red">#f00</color>
+    <color name="translucent_red">#80ff0000</color>
+    <color name="Rich_Black_FOGRA_39">#080708</color>
+    <color name="Blue_Crayola">#3772FF</color>
+    <color name="Orange">#F77F00</color>
+    <color name="Platinum">#E6E8E6</color>
+    <color name="Minion_Yellow">#FDE74C</color>
+    <color name="vpt_purple">#481862</color>
+    <color name="baby_blue">#73D5FF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="vpt_blue_medium">#C6F8FF</color>
+    <color name="vpt_blue_dark">#A3F4FF</color>
+    <color name="vpt_blue_light">#E2FEFF</color>
+    <color name="my_spinner_text_color">#000000</color>
+    <color name="grayedout">#a6a6a6</color>
+
+
+
+
+</resources>

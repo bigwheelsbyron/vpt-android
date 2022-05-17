@@ -1,0 +1,1119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Setting_Actvity_Fragment">
+
+
+    <LinearLayout
+        android:id="@+id/view_userDetails"
+        android:background="@drawable/exerciseviewborder"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:alpha="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tex123123123tView_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Your Details"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@drawable/exerciseviewborder"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="First Name:"/>
+
+                <EditText
+                    android:id="@+id/user_editText_FirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Name" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Last Name:"/>
+
+                <EditText
+                    android:id="@+id/user_editText_LastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Name" />
+
+            </LinearLayout>
+
+            <Button
+                android:text="Save Changes"
+                android:id="@+id/user_savechangesbutton"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/button"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/exerciseviewborder"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Email:"/>
+
+                <TextView
+                    android:id="@+id/textViewEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_weight="1"
+                    android:text="Name" />
+
+                <Button
+                    android:text="Change"
+                    android:id="@+id/accountSettings_changeemail"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/button"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Coach:"/>
+
+                <TextView
+                    android:id="@+id/textViewCoach"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="Name" />
+
+                <Button
+                    android:text="Remove"
+                    android:background="@drawable/button"
+                    android:padding="10dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:id="@+id/accountSettings_removeCoach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_Help"
+        android:background="@drawable/exerciseviewborder"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="200dp"
+        android:alpha="0"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Help"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_openi123ng"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:justificationMode="inter_word"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="The data provided by users for account creation, such as email addresses, Apple, or Google accounts, is not used by VPT for any purposes other than account verifaction. VPT uses Google to authenticate all account information and does not have access to passwords. VPT does not give away or sell your information in any shape or form. User provided information is purely for the use of the users, this includes workouts and any personal information given.
+VPT is a tool provided for the benefit of the users and is not monetised in any way. The user's data is not utilised for any purpose other than lets trainers and athletes track their workouts. Data is owned by VPT however will never be given to any third parties, with the exception of Apple and Google for the purposes of account verification, data storage and data use."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/exerciseviewborder"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:alpha="0"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Feedback"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/suggestionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Suggestion" />
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="@drawable/button"
+            android:layout_margin="5dp"
+            android:text="Submit"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/view_aboutus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="200dp"
+        android:alpha="0"
+        android:orientation="vertical"
+        android:background="@drawable/exerciseviewborder"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView123"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="About Us"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_opening"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:justificationMode="inter_word"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="VPT is a for free platform that facilitates easy, fast and smart sharing, tracking and reviewing of workouts. The platform was designed as a thank you to the weightlifting and powerlifting communities that give so much without asking for anything in return. Sporting communities are often made up by volunteers who gives thousands of hours for the benefit of others, and this app is a way for me to give and to support those who give. VPT's conception was made when my former weightlifting coach showed how he used excel to create and track workouts for over ten athletes. Asking powerlifting friends who coached, they all had similar methods because no free and simple app allowed them to do it. VPT is a gift to the lifting community and the sporting community as a whole. It is free and always will be. We don't use your data in anyway, we don't profit out of this app at all. It is a gift to those who want to use it. A thank you to the community that has helped so many find a home and will continue to do so in the future. "
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_tocs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="200dp"
+        android:alpha="0"
+        android:background="@drawable/exerciseviewborder"
+        android:padding="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textwqqView_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="User Agreement"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_open15151ing"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:justificationMode="inter_word"
+                    android:text="Please carefully read the entire agreement (the “Agreement”) prior to accepting the terms of service and using VPT (the “App”, “Web App”, “the service”). If you do not agree with the entire Agreement, do not accept these Terms of Use, and do not use the App or Web App or otherwise engage with the service. To agree to the Agreement, you must be of the age of majority in your country and state of residence. If you are not age of majority your legal guardian or parent must accept the Terms. "
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_ChangesTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Changes to the Agreement"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_changesText"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:justificationMode="inter_word"
+                    android:text="Where required, VPT will make amendments to the Agreement. Upon changes to the Agreement, VPT will advise you inside the app or webapp of the changes made. When this occurs, ongoing use of the app or webapp will constitute acceptance of the terms of the Agreement."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_ThirdPartyText"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Third Party Agreements" />
+
+                <TextView
+                    android:id="@+id/textView_thirdparty"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:justificationMode="inter_word"
+                    android:text="VPT uses third party products, programs, and services to produce the App. By agreeing to the Agreement, you are also agreeing that some of your data will be covered by these third-party Agreements. These third parties include, but are not limited to, Google, Samsung, and Apple. "
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_entireagreement"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Entire Agreement"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_entireagreementtext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:justificationMode="inter_word"
+                    android:text="This Agreement, and associated third party agreements, constitutes the entire Agreement. No other agreements or amendments, in writing by any representative or agent of VPT or otherwise, constitute any amendments to this Agreement."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_offer"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Offer and Acceptance"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_tocoffertext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:justificationMode="inter_word"
+                    android:text="This Agreement is an invitation to treat. By creating an account, you are producing an offer to utilise the platform. VPT will accept your offer upon the finalisation of your account."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_toctermination"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Account Termination"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_tocterminationtext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:justificationMode="inter_word"
+                    android:text="This Agreement; the associated contract; the associated service provided; and any other potential relationship between VPT and you can be terminated by either party at either time, without notice and without explanation. For a user to end terminate the contract, they must delete their account. Upon deletion of an account, the Agreement will end, and all associated services provided for the user will cease."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_banning"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Temporary and Permanent Banning"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_banningtext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:justificationMode="inter_word"
+                    android:text="VPT can, at their own discretion and without cause or notice, in addition to terminating a user’s account also temporarily or permanent ban them from VPT."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/textView_data"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Data"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_dattext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:justificationMode="inter_word"
+                    android:text="VPT may use third party programs to store data. Where the data is stored by a third party, the associated data ownership rules of that third party will be considered for all VPT users’ data. Notwithstanding this, all data associated with VPT belongs to VPT. Users are allowed access to data associated with their account under this Agreement. Without limiting termination clause, the termination of the account will cease any use of data associated with the account. VPT does not share your data with any third parties for any purposes other than the purpose of storage. VPT does not use your data for any purpose other than providing the service."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_cost"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Cost"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/textView_costtext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="VPT is a free service."
+                    android:justificationMode="inter_word"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textView_commercial"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Commercial Use"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_commercialtext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="VPT is free for commercial use. There is no separate written agreement for commercial use. Without limiting any other section within the Agreement; Businesses, Governments, and other organisations can use VPT without any need for an additional express agreement."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:justificationMode="inter_word"
+                    android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/textView_warranty"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Warranty"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_warrantytext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="VPT provides no warranties for the service or your data. VPT does not provide any representations that the service is fit for any particular purpose, nor is it free of defects."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:justificationMode="inter_word"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textView_acl"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Australian Consumer Law"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_acltext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="All rights under Australian Consumer Law are full and not infringed by this Agreement. Where there is any inconsistency between the two, Australia Consumer Law will be prioritised."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:justificationMode="inter_word"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_ip"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="Intellectual Property Rights"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/iptext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="All property of VPT, including but not limited to, the VPT logo and branding, are property of VPT."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:justificationMode="inter_word"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/textView_ugl"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="User Guidelines"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/ugltext"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:justificationMode="inter_word"
+                    android:text="Without limiting any other part of the Agreement, the user agrees to use VPT without harassing, threatening, or otherwise acting in an anti-social manner to other users. The user agrees to not participate in any offensive, illegal, or other behaviour on the platform. Without limiting termination clause, failure to act in line with these guidelines will be grounds for the termination of a users’ account without notice or explanation."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp" />
+                />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_privacy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/exerciseviewborder"
+        android:padding="10dp"
+        android:alpha="0"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tex123tView123"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Privacy"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView123_opening"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:justificationMode="inter_word"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:text="The data provided by users for account creation, such as email addresses, Apple, or Google accounts, is not used by VPT for any purposes other than account verifaction. VPT uses Google to authenticate all account information and does not have access to passwords. VPT does not give away or sell your information in any shape or form. User provided information is purely for the use of the users, this includes workouts and any personal information given.
+VPT is a tool provided for the benefit of the users and is not monetised in any way. The user's data is not utilised for any purpose other than lets trainers and athletes track their workouts. Data is owned by VPT however will never be given to any third parties, with the exception of Apple and Google for the purposes of account verification, data storage and data use."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_accountsecurity"
+        android:layout_width="match_parent"
+        android:background="@drawable/exerciseviewborder"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="95dp"
+        android:padding="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:alpha="0"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tex123tVi12ew123"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Account Settings"
+            android:textColor="#000000"
+            android:layout_marginBottom="5dp"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@drawable/exerciseviewborder"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Email"/>
+
+                    <EditText
+                        android:id="@+id/accountSettings_emailEditText"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Password"/>
+
+                    <EditText
+                        android:id="@+id/accountSettings_passwordEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/incorrectDetailsAccountSettings"
+                android:layout_height="0dp"
+                android:alpha="0"
+                android:text="Incorrect Details"
+                android:textColor="@color/opaque_red"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:background="@drawable/exerciseviewborder"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/exerciseviewborder"
+                    android:padding="10dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Change email"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="New email"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_marginLeft="27dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/editText_accountsettings_newemail"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/changeEmailButton_accountsettings"
+                        android:layout_gravity="center"
+                        android:padding="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/button"
+                        android:text="Change Email"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/exerciseviewborder"
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Change password"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="New Password"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/editText_accountsettings_newpassword"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:id="@+id/changePasswordButton_accountsettings"
+                        android:padding="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/button"
+                        android:text="Change Password"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/exerciseviewborder"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Delete Account"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="7dp"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:textAlignment="viewEnd"
+                            android:layout_weight=".5"
+                            android:text="I am sure I want to delete my account."
+                            tools:ignore="RtlCompat" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+
+                            <CheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:id="@+id/deleteAccount_checkbox"
+                                android:gravity="center"
+                                android:layout_gravity="center" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/deleteAccountButton_accountsettings"
+                        android:textColor="@color/grayedout"
+                        android:enabled="false"
+                        android:background="@drawable/button"
+                        android:text="Delete Account"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:alpha="1"
+        android:orientation="vertical"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_userDetails">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_UserDetails_View"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button"
+                    android:text="User Details" />
+
+                <Button
+                    android:id="@+id/button_Help_View"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button"
+                    android:text="Help" />
+
+                <Button
+                    android:id="@+id/button_Feedback_View"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button"
+                    android:text="Feedback and Suggestions" />
+
+                <Button
+                    android:id="@+id/button_About_View"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button"
+                    android:text="About Us" />
+
+                <Button
+                    android:id="@+id/button_TOC_View"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button"
+                    android:text="Terms and Conditions" />
+
+                <Button
+                    android:id="@+id/button_Privacy_View"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button"
+                    android:text="Privacy Policy" />
+
+                <Button
+                    android:id="@+id/button_Account_View"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button"
+                    android:text="Account Security" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,86 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 4,
+    "identityHash": "db5a665306ae941fc8316eba5fd95165",
+    "entities": [
+      {
+        "tableName": "Workout",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`workout_athlete_id` TEXT, `workout_coach_id` TEXT, `workout_completedDate` INTEGER, `workout_dateFor` INTEGER, `workout_food` INTEGER NOT NULL, `workout_mood` INTEGER NOT NULL, `workout_sleep` REAL NOT NULL, `workout_weight` REAL NOT NULL, `workout_id` TEXT, `workout_programme_id` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "workout_athlete_id",
+            "columnName": "workout_athlete_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "workout_coach_id",
+            "columnName": "workout_coach_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "workout_completedDate",
+            "columnName": "workout_completedDate",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "workout_dateFor",
+            "columnName": "workout_dateFor",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "workout_food",
+            "columnName": "workout_food",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workout_mood",
+            "columnName": "workout_mood",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workout_sleep",
+            "columnName": "workout_sleep",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workout_weight",
+            "columnName": "workout_weight",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workout_id",
+            "columnName": "workout_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "workout_programme_id",
+            "columnName": "workout_programme_id",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'db5a665306ae941fc8316eba5fd95165')"
+    ]
+  }
+}
