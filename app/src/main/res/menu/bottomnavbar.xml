@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
 
     <item
-        android:title="workouts"
+        android:title="Workouts"
         android:id="@+id/workout_Activity_Fragment"
+        android:iconTint="@color/vpt_purple"
         android:icon="@drawable/ic_baseline_fitness_center_24"/>
     <item
         android:id="@+id/social_Activity_Fragment"
-        android:title="social"
+        android:title="Social"
         android:icon="@drawable/ic_baseline_timeline_24"/>
     <item
         android:id="@+id/setting_Actvity_Fragment"
-        android:title="settings"
+        android:title="Settings"
         android:icon="@drawable/ic_baseline_settings_24"/>
 
 </menu>

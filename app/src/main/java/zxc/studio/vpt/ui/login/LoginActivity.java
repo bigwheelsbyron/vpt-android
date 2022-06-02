@@ -3,7 +3,10 @@ package zxc.studio.vpt.ui.login;
 import static zxc.studio.vpt.utilities.functions.dpToPx;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -11,6 +14,8 @@ import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -18,8 +23,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -28,6 +35,7 @@ import android.widget.Toast;
 import zxc.studio.vpt.R;
 
 import zxc.studio.vpt.sign_up;
+import zxc.studio.vpt.ui.elements.colourManager;
 import zxc.studio.vpt.workout_activity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -43,7 +51,7 @@ import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventList
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "Login_activity";
-    private LoginViewModel loginViewModel;
+//    private LoginViewModel loginViewModel;
     private FirebaseAuth mAuth;
     private EditText usernameEditText;
     private EditText passwordEditText;
@@ -52,14 +60,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView forgotPassword;
     private ProgressBar loadingProgressBar;
     private LinearLayout signupLayout;
+    private ImageView subtractBottom;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        colourManager.applyColourSchemeSubtractStandard(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setUpFirebase();
         setIDS();
-        viewModels();
         setListeners();
     }
 
@@ -68,33 +77,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void setIDS(){
-        usernameEditText = findViewById(R.id.username);
-        passwordEditText = findViewById(R.id.password);
-        loginButton = findViewById(R.id.login);
-        signupButton = findViewById(R.id.signupButton);
-        loadingProgressBar = findViewById(R.id.loading);
-        signupLayout = findViewById(R.id.linearlayout_signup);
-        forgotPassword = findViewById(R.id.forgotPassword);
-    }
-
-    private void viewModels(){
-        loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
-                .get(LoginViewModel.class);
-        loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
-            @Override
-            public void onChanged(@Nullable LoginFormState loginFormState) {
-                if (loginFormState == null) {
-                    return;
-                }
-                loginButton.setEnabled(loginFormState.isDataValid());
-                if (loginFormState.getUsernameError() != null) {
-                    usernameEditText.setError(getString(loginFormState.getUsernameError()));
-                }
-                if (loginFormState.getPasswordError() != null) {
-                    passwordEditText.setError(getString(loginFormState.getPasswordError()));
-                }
-            }
-        });
+        usernameEditText = findViewById(R.id.loginActivity_editText_emailInput);
+        passwordEditText = findViewById(R.id.loginActivity_editText_passwordInput);
+        loginButton = findViewById(R.id.loginActivity_button_emailLogin);
+        signupButton = findViewById(R.id.loginActivity_button_emailSignUp);
+        loadingProgressBar = findViewById(R.id.loginActivity_progressBar_loginProcessing);
+        signupLayout = findViewById(R.id.loginActivity_linearLayout_loginDetails);
+        forgotPassword = findViewById(R.id.loginActivity_button_forgotPassword);
     }
 
     private void setListeners(){
@@ -130,15 +119,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
-            case R.id.login: {
+            case R.id.loginActivity_button_emailLogin: {
                 login();
                 break;
             }
-            case R.id.signupButton: {
+            case R.id.loginActivity_button_emailSignUp: {
                 signup();
                 break;
             }
-            case R.id.forgotPassword: {
+            case R.id.loginActivity_button_forgotPassword: {
                 forgotPasswordPressed();
                 break;
             }

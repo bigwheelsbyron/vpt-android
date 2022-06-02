@@ -8,7 +8,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_workouts_fragment"
+        android:id="@+id/workoutsFragment_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
@@ -26,14 +26,13 @@
         app:layout_constraintTop_toTopOf="parent"></androidx.recyclerview.widget.RecyclerView>
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/workoutsFragment_thisWeeksWorkout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="This Week's Workouts"
         android:textColor="@color/Rich_Black_FOGRA_39"
         android:textSize="30sp"
-
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView_workouts_fragment"
+        app:layout_constraintBottom_toTopOf="@+id/workoutsFragment_recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

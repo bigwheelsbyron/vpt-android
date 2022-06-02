@@ -23,7 +23,7 @@ public class Social_Activity_Fragment extends Fragment implements View.OnClickLi
     public Social_Activity_Fragment() {
         // Required empty public constructor
     }
-    public static Social_Activity_Fragment newInstance(String param1, String param2) {
+    public static Social_Activity_Fragment newInstance() {
         Social_Activity_Fragment fragment = new Social_Activity_Fragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -40,11 +40,20 @@ public class Social_Activity_Fragment extends Fragment implements View.OnClickLi
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_social__activity_, container, false);
         mSocialToCoachMainButton = view.findViewById(R.id.button_socialmainview);
         mSocialToCoachMainButton.setOnClickListener(this);
+        setupUI(view);
         return view;
+    }
+
+    private void setupUI(View view){
+        hideLogout();
+    }
+
+    private void hideLogout(){
+        workout_activity activity = (workout_activity) getActivity();
+        activity.hideLogout();
     }
 
     @Override

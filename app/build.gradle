@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
 
 
@@ -9,7 +10,7 @@ android {
         applicationId "zxc.studio.vpt"
         minSdkVersion 20
         targetSdkVersion 31
-        versionCode 8
+        versionCode 10
         versionName '1.0.6'
         multiDexEnabled true
         javaCompileOptions {
@@ -73,4 +74,11 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:26.1.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth'
+    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "io.grpc:grpc-okhttp:1.32.2"
+}
+repositories {
+    mavenCentral()
 }

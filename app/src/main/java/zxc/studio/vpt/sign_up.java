@@ -159,7 +159,6 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
         mViewText_acl=findViewById(R.id.textView_acltext);
         mViewText_ip=findViewById(R.id.iptext);
         mViewText_userguide=findViewById(R.id.ugltext);
-        vptSign=findViewById(R.id.imageViewVPTSign);
         mLayoutSignUp.bringToFront();
     }
 

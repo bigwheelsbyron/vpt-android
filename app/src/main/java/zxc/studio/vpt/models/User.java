@@ -39,7 +39,7 @@ public class User implements Parcelable {
         user_firstName = in.readString();
         user_id = in.readString();
         user_lastName = in.readString();
-//        user_sex = in.readString();
+        user_sex = in.readString();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {

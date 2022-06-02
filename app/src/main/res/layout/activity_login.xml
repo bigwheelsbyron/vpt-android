@@ -3,15 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
-    android:id="@+id/container"
+    android:id="@+id/loginActivity_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/AppTheme.NoActionBar"
     tools:context="zxc.studio.vpt.ui.login.LoginActivity">
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/loginActivity_image_SubtractTop"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="9dp"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:rotation="180"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/loginActivity_image_SubtractBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/backgroundsubtract" />
+
+    <ImageView
+        android:id="@+id/loginActivity_image_SubtractBottom"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,42 +36,76 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/subtractsubtract" />
+        app:srcCompat="@drawable/subtractshape" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="142dp"
-        android:layout_height="99dp"
+    <LinearLayout
+        android:id="@+id/loginActivity_linearLayout_VPTSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
-        app:srcCompat="@drawable/vpt" />
+        app:layout_constraintVertical_bias="0.00">
+
+        <TextView
+            android:id="@+id/loginActivity_textView_VPTSignV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto"
+            android:text="V"
+            android:textColor="@color/baby_blue"
+            android:textSize="85dp" />
+
+        <TextView
+            android:id="@+id/loginActivity_textView_VPTSignP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto"
+            android:text="P"
+            android:textColor="@color/baby_blue"
+            android:textSize="85dp" />
+
+        <TextView
+            android:id="@+id/loginActivity_textView_VPTSignT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-32dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto"
+            android:text="T"
+            android:textColor="@color/baby_blue"
+            android:textSize="85dp" />
+
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/loginActivity_textView_loginOrSignUp"
         android:layout_width="wrap_content"
         android:layout_height="31dp"
-        android:text="Log in or Sign Up"
+        android:fontFamily="@font/roboto"
+        android:text="@string/text_loginSignUp"
         android:textColor="@color/Rich_Black_FOGRA_39"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearlayout_signup"
+        app:layout_constraintBottom_toTopOf="@+id/loginActivity_linearLayout_loginDetails"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
-        app:layout_constraintStart_toStartOf="@+id/linearlayout_signup"
+        app:layout_constraintHorizontal_bias=".1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96" />
+        app:layout_constraintVertical_bias=".95" />
 
     <LinearLayout
-        android:id="@+id/linearlayout_signup"
+        android:id="@+id/loginActivity_linearLayout_loginDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="268dp"
-        android:layout_marginBottom="220dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="220dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,12 +115,13 @@
         app:layout_constraintVertical_bias="0.0">
 
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/loginActivity_editText_emailInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:alpha=".7"
+            android:fontFamily="@font/roboto"
             android:hint="@string/prompt_email"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
@@ -81,13 +133,14 @@
             app:layout_constraintVertical_bias="0.406" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/loginActivity_editText_passwordInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:alpha=".7"
+            android:fontFamily="@font/roboto"
             android:hint="@string/prompt_password"
             android:imeActionLabel="@string/action_sign_in_short"
             android:imeOptions="actionDone"
@@ -101,7 +154,7 @@
             app:layout_constraintVertical_bias="0.467" />
 
         <Button
-            android:id="@+id/login"
+            android:id="@+id/loginActivity_button_emailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -110,6 +163,7 @@
             android:layout_marginEnd="108dp"
             android:background="@drawable/button"
             android:enabled="true"
+            android:fontFamily="@font/roboto"
             android:text="@string/action_sign_in"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -117,9 +171,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.613" />
 
-
         <Button
-            android:id="@+id/signupButton"
+            android:id="@+id/loginActivity_button_emailSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="108dp"
@@ -127,23 +180,26 @@
             android:layout_marginEnd="108dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/button"
-            android:text="Sign Up" />
+            android:fontFamily="@font/roboto"
+            android:text="@string/action_sign_up" />
 
         <TextView
+            android:id="@+id/loginActivity_button_forgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:id="@+id/forgotPassword"
-            android:textColor="@color/Rich_Black_FOGRA_39"
-            android:textSize="16dp"
-            android:clickable="true"
             android:layout_gravity="center"
-            android:text="Forgot Password"/>
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/roboto"
+            android:text="@string/action_forgot_password"
+            android:textColor="@color/Rich_Black_FOGRA_39"
+            android:textSize="16dp" />
 
     </LinearLayout>
 
     <ProgressBar
-        android:id="@+id/loading"
+        android:id="@+id/loginActivity_progressBar_loginProcessing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

@@ -31,7 +31,7 @@ public class single_exercise_fragment extends Fragment implements View.OnTouchLi
 
     private static final String TAG = "NotesActivity";
     private EditText mEditText;
-    private Exercise mInitialExercise;
+    private Exercise mExercise;
     private GestureDetector mGestureDectector;
     private ImageButton mBackArrow;
     private Button mCommitNotes;
@@ -43,7 +43,6 @@ public class single_exercise_fragment extends Fragment implements View.OnTouchLi
     private String workoutVariable = "WxnB4sEqJVrHDLZF0S9x";
     private String exerciseID = "IE78anCsFfCRsLpAljyC";
     private String [] exerciseNameSuggestions;
-    private int id = 99;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DocumentReference exerciseRef = db.collection("users").document(username).collection("workouts").document(workoutVariable).collection("exercises").document(exerciseID);
 
@@ -52,7 +51,7 @@ public class single_exercise_fragment extends Fragment implements View.OnTouchLi
         // Required empty public constructor
     }
 
-    public static single_exercise_fragment newInstance(String param1, String param2) {
+    public static single_exercise_fragment newInstance() {
         single_exercise_fragment fragment = new single_exercise_fragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -67,7 +66,13 @@ public class single_exercise_fragment extends Fragment implements View.OnTouchLi
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_single_exercise_fragment, container, false);
-        //view.setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        setIDS(view);
+        setProperties();
+        setListeners();
+        return view;
+    }
+
+    private void setIDS(View view){
         mEditText=view.findViewById(R.id.ExerciseNote);
         mBackArrow=view.findViewById(R.id.toolbar_back_arrow);
         mCommitNotes=view.findViewById(R.id.ButtonCommitNotes);
@@ -75,23 +80,63 @@ public class single_exercise_fragment extends Fragment implements View.OnTouchLi
         mWeightEditText=view.findViewById(R.id.weightEditText);
         mWeightOrRpe=view.findViewById(R.id.kgorrpetextView);
         mExerciseNameEditText=view.findViewById(R.id.editTextNewExerciseName);
-        getIncomingIntent();
-        updateVariables();
+    }
+
+    private void setListeners(){
         mEditText.setOnTouchListener(this);
         mGestureDectector = new GestureDetector(getContext(),this);
         mBackArrow.setOnClickListener(this);
         mCommitNotes.setOnClickListener(this);
-        setExerciseProperties(mInitialExercise);
+    }
+
+    private void setProperties(){
+        setUserDetails();
+        setExerciseDetails();
+        setExerciseProperties();
         addNameSuggestions();
-        return view;
+    }
+
+    private void setExerciseDetails(){
+        updateVariables();
+        addNameSuggestions();
+    }
+
+    private void updateVariables() {
+        mExercise = getArguments().getParcelable("selected_exercise");
+        workoutVariable = mExercise.getExercise_workout_id();
+        exerciseID = mExercise.getExercise_id();
+        exerciseRef = db.collection("users").document(username).collection("workouts").document(workoutVariable).collection("exercises").document(exerciseID);
+    }
+
+    private void setUserDetails(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        username = user.getUid();
+    }
+
+    private void addNameSuggestions(){
+        exerciseNameSuggestions = new String[]{"Front Squat","Bench","Deadlift","Bent Over Rows","Pull Ups"};
+        ArrayAdapter<String> adapater = new ArrayAdapter<String>(getContext(), R.layout.spinner_item,exerciseNameSuggestions);
+        mExerciseNameEditText.setAdapter(adapater);
+    }
+
+    private void setExerciseProperties(){
+        mEditText.setText(mExercise.getExercise_note());
+        mRepsEditText.setText(""+mExercise.getExercise_reps());
+        mExerciseNameEditText.setText(mExercise.getExercise_name());
+        if (mExercise.getExercise_weight() == 0 && mExercise.getExercise_rpe() == 0){
+            mWeightEditText.setText(mExercise.getExercise_weight()+"");
+        } else if  (mExercise.getExercise_weight() >= 0 && mExercise.getExercise_rpe() == 0) {
+            mWeightEditText.setText(mExercise.getExercise_weight()+"");
+        } else if (mExercise.getExercise_weight() == 0 && mExercise.getExercise_rpe() >= 0){
+            mWeightEditText.setText(mExercise.getExercise_rpe()+"");
+            mWeightOrRpe.setText("RPE");
+        }
     }
 
     @Override
     public void onClick(View view) {
 
     }
-
-
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -141,48 +186,6 @@ public class single_exercise_fragment extends Fragment implements View.OnTouchLi
     @Override
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
         return false;
-    }
-
-
-
-
-
-
-
-    private void addNameSuggestions(){
-        exerciseNameSuggestions = new String[]{
-                "Front Squat","Bench","Deadlift","Bent Over Rows","Pull Ups"
-        };
-        ArrayAdapter<String> adapater = new ArrayAdapter<String>(getContext(), R.layout.spinner_item,exerciseNameSuggestions);
-        mExerciseNameEditText.setAdapter(adapater);
-    }
-
-    private void updateVariables() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        username = user.getUid();
-        workoutVariable = mInitialExercise.getExercise_workout_id();
-        exerciseID = mInitialExercise.getExercise_id();
-        exerciseRef = db.collection("users").document(username).collection("workouts").document(workoutVariable).collection("exercises").document(exerciseID);
-    }
-
-    private void setExerciseProperties(Exercise exercise){
-        mEditText.setText(exercise.getExercise_note());
-        mRepsEditText.setText(""+exercise.getExercise_reps());
-        mExerciseNameEditText.setText(exercise.getExercise_name());
-        if (exercise.getExercise_weight() == 0 && exercise.getExercise_rpe() == 0){
-            mWeightEditText.setText(exercise.getExercise_weight()+"");
-        } else if  (exercise.getExercise_weight() >= 0 && exercise.getExercise_rpe() == 0) {
-            mWeightEditText.setText(exercise.getExercise_weight()+"");
-        } else if (exercise.getExercise_weight() == 0 && exercise.getExercise_rpe() >= 0){
-            mWeightEditText.setText(exercise.getExercise_rpe()+"");
-            mWeightOrRpe.setText("RPE");
-        }
-    }
-
-    private void getIncomingIntent(){
-        Log.d(TAG, "getIncomingIntent: ");
-        mInitialExercise = getArguments().getParcelable("selected_exercise");
-        Log.d(TAG, "getIncomingIntent: ");
     }
 
 

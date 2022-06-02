@@ -1,5 +1,6 @@
 package zxc.studio.vpt;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -33,6 +34,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+
+import zxc.studio.vpt.API.FirebaseAPI;
+import zxc.studio.vpt.models.Suggestion;
+import zxc.studio.vpt.models.User;
+import zxc.studio.vpt.utilities.DateFunctions;
+import zxc.studio.vpt.utilities.LocalStorageService;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -96,6 +103,23 @@ public class Setting_Actvity_Fragment extends Fragment implements View.OnClickLi
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_setting__actvity_, container, false);
+        setupUI(view);
+        setData();
+        return view;
+    }
+
+    private void setupUI(View view){
+        showLogoutButton();
+        setIDS(view);
+        setListeners();
+    }
+
+    private void showLogoutButton(){
+        workout_activity activity = (workout_activity) getActivity();
+        activity.showLogout();
+    }
+
+    private void setIDS(View view){
         buttonUserDetailsView=view.findViewById(R.id.button_UserDetails_View);
         buttonHelpView=view.findViewById(R.id.button_Help_View);
         buttonFeedbackView=view.findViewById(R.id.button_Feedback_View);
@@ -129,9 +153,6 @@ public class Setting_Actvity_Fragment extends Fragment implements View.OnClickLi
         incorrectDetails=view.findViewById(R.id.incorrectDetailsAccountSettings);
         currentCoach=view.findViewById(R.id.textViewCoach);
         currentEmail=view.findViewById(R.id.textViewEmail);
-        setListeners();
-        setData();
-        return view;
     }
 
     private void setListeners(){
@@ -153,124 +174,62 @@ public class Setting_Actvity_Fragment extends Fragment implements View.OnClickLi
     }
 
     private void setData(){
-        final SharedPreferences userDetails = this.getActivity().getSharedPreferences("userDetails", Context.MODE_PRIVATE);
-        firstNameEditText.setText(userDetails.getString("Name_First",""));
-        lastNameEditText.setText(userDetails.getString("Name_Last",""));
-        currentEmail.setText(userDetails.getString("email",""));
-        currentCoach.setText(userDetails.getString("coach_First","") + " " + userDetails.getString("coach_Last",""));
+        LocalStorageService storageService = new LocalStorageService(this.getActivity());
+        User user = storageService.getUser();
+        firstNameEditText.setText(user.getUser_firstName());
+        lastNameEditText.setText(user.getUser_lastName());
+        currentEmail.setText(user.getUser_email());
+        currentCoach.setText(user.getUser_coach());
     }
 
-    private void submitSuggestion(String suggestion){
-        final SharedPreferences userDetails = this.getActivity().getSharedPreferences("userDetails", Context.MODE_PRIVATE);
-        DocumentReference newSuggestion =  db.collection("community").document("suggestion").collection("suggestions").document();
-        Map<String, Object> setData = new HashMap<>();
-        setData.put("id",userDetails.getString("uid",""));
-        setData.put("body",suggestion);
-        setData.put("date", Calendar.getInstance().getTime());
-        setData.put("title","");
-        newSuggestion.set(setData);
-    }
 
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.button_UserDetails_View: {
-                accountView.setAlpha(0);
-                privacyView.setAlpha(0);
-                tocsView.setAlpha(0);
-                feedbackView.setAlpha(0);
-                helpView.setAlpha(0);
-                aboutView.setAlpha(0);
-                userDetailsView.setAlpha(1);
-                userDetailsView.bringToFront();
+                showUserDetailsView();
                 break;
             }
             case R.id.button_Help_View: {
-                accountView.setAlpha(0);
-                privacyView.setAlpha(0);
-                tocsView.setAlpha(0);
-                feedbackView.setAlpha(0);
-                helpView.setAlpha(1);
-                helpView.bringToFront();
-                aboutView.setAlpha(0);
-                userDetailsView.setAlpha(0);
+                showHelpView();
                 break;
             }
             case R.id.button_Feedback_View: {
-                accountView.setAlpha(0);
-                privacyView.setAlpha(0);
-                tocsView.setAlpha(0);
-                feedbackView.setAlpha(1);
-                feedbackView.bringToFront();
-                helpView.setAlpha(0);
-                aboutView.setAlpha(0);
-                userDetailsView.setAlpha(0);
+                showFeedbackView();
                 break;
             }
             case R.id.button_About_View: {
-                accountView.setAlpha(0);
-                privacyView.setAlpha(0);
-                tocsView.setAlpha(0);
-                feedbackView.setAlpha(0);
-                helpView.setAlpha(0);
-                aboutView.setAlpha(1);
-                aboutView.bringToFront();
-                userDetailsView.setAlpha(0);
+                showAboutView();
                 break;
             }
             case R.id.button_TOC_View: {
-                accountView.setAlpha(0);
-                privacyView.setAlpha(0);
-                tocsView.setAlpha(1);
-                tocsView.bringToFront();
-                feedbackView.setAlpha(0);
-                helpView.setAlpha(0);
-                aboutView.setAlpha(0);
-                userDetailsView.setAlpha(0);
+                showTOCView();
                 break;
             }
             case R.id.button_Privacy_View: {
-                accountView.setAlpha(0);
-                privacyView.setAlpha(1);
-                privacyView.bringToFront();
-                tocsView.setAlpha(0);
-                feedbackView.setAlpha(0);
-                helpView.setAlpha(0);
-                aboutView.setAlpha(0);
-                userDetailsView.setAlpha(0);
+                showPrivacyView();
                 break;
             }
             case R.id.button_Account_View: {
-                accountView.setAlpha(1);
-                accountView.bringToFront();
-                privacyView.setAlpha(0);
-                tocsView.setAlpha(0);
-                feedbackView.setAlpha(0);
-                helpView.setAlpha(0);
-                aboutView.setAlpha(0);
-                userDetailsView.setAlpha(0);
+                showAccountView();
                 break;
             }
             case R.id.submitButton:{
-                String text = suggestionEditText.getText().toString();
-                suggestionEditText.setText(" ");
-                submitSuggestion(text);
+                suggestion();
                 break;
             }
             case R.id.accountSettings_removeCoach:{
-                RemoveCoach();
+                removeCoach();
                 break;
             }
             case R.id.accountSettings_changeemail:{
-                Log.d(TAG, "onClick: change email");
-                accountView.setAlpha(1);
-                accountView.bringToFront();
-                privacyView.setAlpha(0);
-                tocsView.setAlpha(0);
-                feedbackView.setAlpha(0);
-                helpView.setAlpha(0);
-                aboutView.setAlpha(0);
-                userDetailsView.setAlpha(0);
+                changeEmailUserDetailsButton();
+                break;
+            }
+            case R.id.changeEmailButton_accountsettings:{
+                reauthenticateUser("email");
+                emailVerification.setText("");
+                passwordVerification.setText("");
                 break;
             }
             case R.id.user_savechangesbutton:{
@@ -293,19 +252,13 @@ public class Setting_Actvity_Fragment extends Fragment implements View.OnClickLi
                 break;
             }
             case R.id.deleteAccountButton_accountsettings:{
-                Reauthenticateuser("delete");
-                emailVerification.setText("");
-                passwordVerification.setText("");
-                break;
-            }
-            case R.id.changeEmailButton_accountsettings:{
-                Reauthenticateuser("changeEmail");
+                reauthenticateUser("delete");
                 emailVerification.setText("");
                 passwordVerification.setText("");
                 break;
             }
             case R.id.changePasswordButton_accountsettings:{
-                Reauthenticateuser("changePassword");
+                reauthenticateUser("password");
                 emailVerification.setText("");
                 passwordVerification.setText("");
                 break;
@@ -318,24 +271,144 @@ public class Setting_Actvity_Fragment extends Fragment implements View.OnClickLi
         }
     }
 
-    private void RemoveCoach(){
-        final SharedPreferences userDetails = this.getActivity().getSharedPreferences("userDetails", Context.MODE_PRIVATE);
-        db.collection("users").document(user.getUid()).update("coach","");
-        db.collection("users").document(userDetails.getString("coach","")).collection("currentAthletes").document(user.getUid()).delete();
+    private void showUserDetailsView(){
+        accountView.setAlpha(0);
+        privacyView.setAlpha(0);
+        tocsView.setAlpha(0);
+        feedbackView.setAlpha(0);
+        helpView.setAlpha(0);
+        aboutView.setAlpha(0);
+        userDetailsView.setAlpha(1);
+        userDetailsView.bringToFront();
     }
 
-    private void CheckBoxClicked(){
-        if (deleteAccountCheckbox.isChecked()){
-            buttonDeleteAccount.setEnabled(true);
-            buttonDeleteAccount.setTextColor(Color.parseColor("#080708"));
-        } if (!deleteAccountCheckbox.isChecked()) {
-            buttonDeleteAccount.setEnabled(false);
-            buttonDeleteAccount.setTextColor(Color.parseColor("#a6a6a6"));
+    private void showHelpView(){
+        accountView.setAlpha(0);
+        privacyView.setAlpha(0);
+        tocsView.setAlpha(0);
+        feedbackView.setAlpha(0);
+        helpView.setAlpha(1);
+        helpView.bringToFront();
+        aboutView.setAlpha(0);
+        userDetailsView.setAlpha(0);
+    }
+
+    private void showFeedbackView(){
+        accountView.setAlpha(0);
+        privacyView.setAlpha(0);
+        tocsView.setAlpha(0);
+        feedbackView.setAlpha(1);
+        feedbackView.bringToFront();
+        helpView.setAlpha(0);
+        aboutView.setAlpha(0);
+        userDetailsView.setAlpha(0);
+    }
+
+    private void showAboutView(){
+        accountView.setAlpha(0);
+        privacyView.setAlpha(0);
+        tocsView.setAlpha(0);
+        feedbackView.setAlpha(0);
+        helpView.setAlpha(0);
+        aboutView.setAlpha(1);
+        aboutView.bringToFront();
+        userDetailsView.setAlpha(0);
+    }
+
+    private void showTOCView(){
+        accountView.setAlpha(0);
+        privacyView.setAlpha(0);
+        tocsView.setAlpha(1);
+        tocsView.bringToFront();
+        feedbackView.setAlpha(0);
+        helpView.setAlpha(0);
+        aboutView.setAlpha(0);
+        userDetailsView.setAlpha(0);
+    }
+
+    private void showPrivacyView(){
+        accountView.setAlpha(0);
+        privacyView.setAlpha(1);
+        privacyView.bringToFront();
+        tocsView.setAlpha(0);
+        feedbackView.setAlpha(0);
+        helpView.setAlpha(0);
+        aboutView.setAlpha(0);
+        userDetailsView.setAlpha(0);
+    }
+
+    private void showAccountView(){
+        accountView.setAlpha(1);
+        accountView.bringToFront();
+        privacyView.setAlpha(0);
+        tocsView.setAlpha(0);
+        feedbackView.setAlpha(0);
+        helpView.setAlpha(0);
+        aboutView.setAlpha(0);
+        userDetailsView.setAlpha(0);
+    }
+
+    private void suggestion(){
+        String text = suggestionEditText.getText().toString();
+        suggestionEditText.setText(" ");
+        submitSuggestion(text);
+    }
+
+    private void submitSuggestion(String suggestionText){
+        Suggestion suggestion = new Suggestion(user.getUid(),suggestionText, DateFunctions.getCurrentDateAndTime());
+        FirebaseAPI.newSuggestion(suggestion);
+    }
+
+    private void removeCoach(){
+        db.collection("users").document(user.getUid()).update("coach","");
+        LocalStorageService storageService = new LocalStorageService(this.getActivity());
+        User user = storageService.getUser();
+        db.collection("users").document(user.getUser_coach()).collection("currentAthletes").document(user.getUser_firebase_id()).delete();
+    }
+
+    private void changeEmailUserDetailsButton(){
+        accountView.setAlpha(1);
+        accountView.bringToFront();
+        privacyView.setAlpha(0);
+        tocsView.setAlpha(0);
+        feedbackView.setAlpha(0);
+        helpView.setAlpha(0);
+        aboutView.setAlpha(0);
+        userDetailsView.setAlpha(0);
+        newEmail.requestFocus();
+    }
+
+    private void reauthenticateUser(String changeType){
+        resetColours();
+        String email = emailVerification.getText().toString();
+        String password = passwordVerification.getText().toString();
+        if (emailAndPasswordArentEmpty(email,password)){
+            AuthCredential credential = EmailAuthProvider.getCredential(email,password);
+            user.reauthenticate(credential).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    if (changeType.equals("delete")){
+                        deleteAccount();
+                    }
+                    if (changeType.equals("email")){
+                        changeEmail();
+                    }
+                    if (changeType.equals("password")){
+                        changePassword();
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    failedAuthentication();
+                }
+            });
+        } else {
+            missingEntry();
         }
     }
 
-
-    private void Reauthenticateuser(String followup){
+    private void resetColours(){
         ColorStateList colorStateList = ColorStateList.valueOf(Color.LTGRAY);
         ViewCompat.setBackgroundTintList(emailVerification,colorStateList);
         ViewCompat.setBackgroundTintList(passwordVerification,colorStateList);
@@ -343,72 +416,50 @@ public class Setting_Actvity_Fragment extends Fragment implements View.OnClickLi
         params.height = 0;
         incorrectDetails.setLayoutParams(params);
         incorrectDetails.setAlpha(0);
-        String email = emailVerification.getText().toString();
-        String password = passwordVerification.getText().toString();
-        if (email.length() > 0 && password.length()>0){
-            AuthCredential credential = EmailAuthProvider.getCredential(email,password);
-            user.reauthenticate(credential).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void unused) {
-                    Log.d(TAG, "onSuccess: success");
-                    if (followup.equals("delete")){
-                        DeleteAccount();
-                    } if (followup.equals("changeEmail")){
-                        ChangeEmail();
-                    } if (followup.equals("changePassword")){
-                        ChangePassword();
-                    } else {
+    }
 
-                    }
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.d(TAG, "onFailure: failure");
-                    Log.d(TAG, "onFailure: " + e);
-                    ViewGroup.LayoutParams params = incorrectDetails.getLayoutParams();
-                    params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                    incorrectDetails.setLayoutParams(params);
-                    incorrectDetails.setText("Incorrect Details");
-                    incorrectDetails.setAlpha(1);
-                    ColorStateList colorStateListRed = ColorStateList.valueOf(Color.RED);
-                    ViewCompat.setBackgroundTintList(emailVerification,colorStateListRed);
-                    ViewCompat.setBackgroundTintList(passwordVerification,colorStateListRed);
-                    emailVerification.requestFocus();
-                }
-            });
-        } else {
-            ColorStateList colorStateListRed = ColorStateList.valueOf(Color.RED);
-            ViewGroup.LayoutParams params1 = incorrectDetails.getLayoutParams();
-            params1.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-            incorrectDetails.setLayoutParams(params1);
-            incorrectDetails.setText("Please provide your details.");
-            incorrectDetails.setAlpha(1);
-            if (email.length() == 0){
-                ViewCompat.setBackgroundTintList(emailVerification,colorStateListRed);
-                emailVerification.requestFocus();
-            } if (password.length() == 0){
-                ViewCompat.setBackgroundTintList(passwordVerification,colorStateListRed);
-                passwordVerification.requestFocus();
-            }
-            if (email.length() == 0 && password.length() == 0){
-                ViewCompat.setBackgroundTintList(emailVerification,colorStateListRed);
-                ViewCompat.setBackgroundTintList(passwordVerification,colorStateListRed);
-                emailVerification.requestFocus();
-            }
+    private boolean emailAndPasswordArentEmpty(String username, String password){
+        return (username.length() != 0 && password.length() !=0);
+    }
+
+    private void missingEntry(){
+        ColorStateList colorStateListRed = ColorStateList.valueOf(Color.RED);
+        ViewGroup.LayoutParams params1 = incorrectDetails.getLayoutParams();
+        params1.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        incorrectDetails.setLayoutParams(params1);
+        incorrectDetails.setText("Please provide your details.");
+        incorrectDetails.setAlpha(1);
+        if (passwordVerification.getText().toString().length() == 0){
+            ViewCompat.setBackgroundTintList(passwordVerification,colorStateListRed);
+            passwordVerification.requestFocus();
+        }
+        if (emailVerification.getText().toString().length() == 0){
+            ViewCompat.setBackgroundTintList(emailVerification,colorStateListRed);
+            emailVerification.requestFocus();
         }
     }
 
-    public void DeleteAccount(){
+    private void failedAuthentication(){
+        ViewGroup.LayoutParams params = incorrectDetails.getLayoutParams();
+        params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        incorrectDetails.setLayoutParams(params);
+        incorrectDetails.setText("Incorrect Details");
+        incorrectDetails.setAlpha(1);
+        ColorStateList colorStateListRed = ColorStateList.valueOf(Color.RED);
+        ViewCompat.setBackgroundTintList(emailVerification,colorStateListRed);
+        ViewCompat.setBackgroundTintList(passwordVerification,colorStateListRed);
+        emailVerification.requestFocus();
+    }
+
+
+    public void deleteAccount(){
         Log.d(TAG, "DeleteAccount:");
     }
 
-    public void ChangeEmail(){
-        ColorStateList colorStateListRed = ColorStateList.valueOf(Color.RED);
-        ColorStateList colorStateList = ColorStateList.valueOf(Color.LTGRAY);
-        ViewCompat.setBackgroundTintList(newEmail,colorStateList);
+    public void changeEmail(){
+        resetColours();
         String newEmailString = newEmail.getText().toString();
-        if (newEmailString.length() > 0){
+        if (validEmail(newEmailString)){
             user.updateEmail(newEmailString).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
@@ -423,17 +474,23 @@ public class Setting_Actvity_Fragment extends Fragment implements View.OnClickLi
                 }
             });
         } else {
-            newEmail.requestFocus();
-            ViewCompat.setBackgroundTintList(newEmail,colorStateListRed);
+            missingNewEmail();
         }
     }
 
-    public void ChangePassword(){
+    public Boolean validEmail(String newEmailString){
+        return (newEmailString.length() > 0);
+    }
+
+    private void missingNewEmail(){
         ColorStateList colorStateListRed = ColorStateList.valueOf(Color.RED);
-        ColorStateList colorStateList = ColorStateList.valueOf(Color.LTGRAY);
-        ViewCompat.setBackgroundTintList(newPassword,colorStateList);
+        ViewCompat.setBackgroundTintList(newEmail,colorStateListRed);
+    }
+
+    public void changePassword(){
+        resetColours();
         String newPasswordString = newPassword.getText().toString();
-        if (newPasswordString.length() > 0){
+        if (validPassword(newPasswordString)){
             user.updatePassword(newPasswordString).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
@@ -447,8 +504,26 @@ public class Setting_Actvity_Fragment extends Fragment implements View.OnClickLi
                 }
             });
         } else {
-            newPassword.requestFocus();
-            ViewCompat.setBackgroundTintList(newPassword,colorStateListRed);
+            missingNewPassword();
+        }
+    }
+
+    public Boolean validPassword(String newPasswordString){
+        return (newPasswordString.length() > 0);
+    }
+
+    private void missingNewPassword(){
+        ColorStateList colorStateListRed = ColorStateList.valueOf(Color.RED);
+        ViewCompat.setBackgroundTintList(newPassword,colorStateListRed);
+    }
+
+    private void CheckBoxClicked(){
+        if (deleteAccountCheckbox.isChecked()){
+            buttonDeleteAccount.setEnabled(true);
+            buttonDeleteAccount.setTextColor(Color.parseColor("#080708"));
+        } if (!deleteAccountCheckbox.isChecked()) {
+            buttonDeleteAccount.setEnabled(false);
+            buttonDeleteAccount.setTextColor(Color.parseColor("#a6a6a6"));
         }
     }
 

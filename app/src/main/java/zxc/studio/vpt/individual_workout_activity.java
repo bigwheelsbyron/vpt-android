@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -43,9 +44,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+import zxc.studio.vpt.API.FirebaseAPI;
+import zxc.studio.vpt.Factories.ExerciseFactory;
 import zxc.studio.vpt.adapters.ExerciseRecyclerAdapter;
 import zxc.studio.vpt.models.Exercise;
 import zxc.studio.vpt.models.Workout;
+import zxc.studio.vpt.utilities.DateFunctions;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,19 +59,14 @@ import zxc.studio.vpt.models.Workout;
 public class individual_workout_activity extends Fragment implements ExerciseRecyclerAdapter.OnNoteListener,View.OnClickListener{
 
     private static final String TAG = "MainActivity";
-
-    //UI Components
-    private RecyclerView mRecyclerView;
-
-    //Variables
+    private RecyclerView recyclerView;
     private static ArrayList<Exercise> mExercise = new ArrayList<>();
     private static ExerciseRecyclerAdapter mExerciseAdapter;
-    private Button mFinishWorkout;
-    private Button mBack;
-    private Button addNew;
+    private Button finishWorkoutButton;
+    private Button backButton;
+    private Button addNewExerciseButton;
     private TextView mCoach_Notes;
     private static Workout mWorkout;
-    private ImageView vptMenu;
     private TextView noexercises;
     private String username = "Byron";
     private String workoutVariable = " ";
@@ -79,12 +78,10 @@ public class individual_workout_activity extends Fragment implements ExerciseRec
     private LinearLayout mWorkoutDetails;
     private CollectionReference workoutRef = db.collection("Notebook").document(username).collection("workouts").document(workoutVariable).collection("exercises");
 
-
     public individual_workout_activity() {
-        // Required empty public constructor
     }
 
-    public static individual_workout_activity newInstance(String param1, String param2) {
+    public static individual_workout_activity newInstance() {
         individual_workout_activity fragment = new individual_workout_activity();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -98,56 +95,79 @@ public class individual_workout_activity extends Fragment implements ExerciseRec
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_individual_workout_activity, container, false);
-        mBack=view.findViewById(R.id.button_workout_activity_fragment);
-        mRecyclerView=view.findViewById(R.id.recyclerView_exercises);
-        mFinishWorkout=view.findViewById(R.id.button_finish_workout);
+        setIDS(view);
+        setProperties();
+        setListeners();
+        initRecyclerView();
+        return view;
+    }
+
+    private void setIDS(View view){
+        backButton=view.findViewById(R.id.button_workout_activity_fragment);
+        recyclerView=view.findViewById(R.id.recyclerView_exercises);
+        finishWorkoutButton=view.findViewById(R.id.button_finish_workout);
         mCoach_Notes=view.findViewById(R.id.coaches_notes);
-        addNew=view.findViewById(R.id.button_add_new_exercise_fragment);
+        addNewExerciseButton=view.findViewById(R.id.button_add_new_exercise_fragment);
         noexercises=view.findViewById(R.id.noexercises_text);
         mMood=view.findViewById(R.id.textview_Mood);
         mWeight=view.findViewById(R.id.textview_Weight);
         mSleep=view.findViewById(R.id.textview_Sleep);
         mCalories=view.findViewById(R.id.textview_Calories);
         mWorkoutDetails=view.findViewById(R.id.layout_details);
-//        mBack.setOnClickListener(this);
+    }
+
+    private void setProperties(){
+        if (firebaseSignedIn()){
+            setUserDetails();
+            setWorkoutDetails();
+        } else {
+        }
+    }
+
+    private boolean firebaseSignedIn(){
+        return (FirebaseAuth.getInstance().getCurrentUser() != null);
+    }
+
+    private void setUserDetails(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         username = user.getUid();
-        initRecyclerView();
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            if (getIncomingIntent()){
-                setNewWorkoutProperties();
-            }
-            else {
-                setWorkoutProperties();
-                setListeners();
-                loadWorkout();
-            }
-        }        else{
-            if (getIncomingIntent() == false){
-                Log.d(TAG, "onCreate: fire user doesn't exist");
-                setWorkoutProperties();
-                setListeners();
-                loadWorkout();
-            } else{
-                setNewWorkoutProperties();
-            }
-        }
+    }
+
+    private void setWorkoutDetails(){
+        setWorkout();
+        setDate();
+        setWorkoutProperties();
+        loadWorkout();
+    }
+
+    private void setDate(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         sdf.applyPattern("E MMM dd yyyy");
         String a = sdf.format(mWorkout.getWorkout_dateFor());
         mCoach_Notes.setText(a);
+    }
 
+    private void setWorkout(){
+        Workout argWorkout = getArguments().getParcelable("selected_workout");
+        mWorkout = argWorkout;
+        workoutVariable = mWorkout.getWorkout_id();
+        workoutRef = db.collection("users").document(username).collection("workouts").document(workoutVariable).collection("Exercises");
+    }
 
-
-
-
-        return view;
+    private void setWorkoutProperties(){
+        mMood.setText(String.valueOf(mWorkout.getWorkout_mood()));
+        mSleep.setText(String.valueOf(mWorkout.getWorkout_sleep()));
+        mWeight.setText(String.valueOf(mWorkout.getWorkout_weight()));
+        mCalories.setText(String.valueOf(mWorkout.getWorkout_food()));
+        if (!workoutVariable.equals("Blank")){
+            noexercises.setAlpha(0);
+        }
     }
 
     public void loadWorkout(){
         mExercise.clear();
+        Log.d(TAG, "loadWorkout: " + workoutRef.getPath());
         workoutRef.get().addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
@@ -156,28 +176,29 @@ public class individual_workout_activity extends Fragment implements ExerciseRec
         }).addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                    Exercise exercise = documentSnapshot.toObject(Exercise.class);
-                    insertExercise(exercise);
-                }
-                sortArrayList();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d(TAG, "onFailure: " + e);
+                addExercisesFromFirebase(queryDocumentSnapshots);
             }
         });
     }
 
+    private void addExercisesFromFirebase(QuerySnapshot queryDocumentSnapshots){
+        Log.d(TAG, "addExercisesFromFirebase: ");
+        for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+            Exercise exercise = documentSnapshot.toObject(Exercise.class);
+            Log.d(TAG, "addExercisesFromFirebase: " + exercise);
+            insertExercise(exercise);
+        }
+        sortArrayList();
+    }
+
     private void sortArrayList() {
-        Log.d(TAG, "sortArrayList: ");
         Collections.sort(mExercise, new Comparator<Exercise>() {
             @Override
             public int compare(Exercise o1, Exercise o2) {
                 return Integer.compare(o1.getExercise_sequence(), o2.getExercise_sequence());
             }
         });
+        Log.d(TAG, "sortArrayList: " + mExercise);
         mExerciseAdapter.notifyDataSetChanged();
     }
 
@@ -185,69 +206,30 @@ public class individual_workout_activity extends Fragment implements ExerciseRec
         mExercise.add(exercise);
     }
 
-    private boolean getIncomingIntent(){
-        Workout argWorkout = getArguments().getParcelable("selected_workout");
-        if (argWorkout != null){
-            mWorkout = argWorkout;
-            return false;
-        }
-        return true;
-    }
-
-    private void setWorkoutProperties(){
-        workoutVariable = mWorkout.getWorkout_id();
-        mMood.setText(String.valueOf(mWorkout.getWorkout_mood()));
-        mSleep.setText(String.valueOf(mWorkout.getWorkout_sleep()));
-        mWeight.setText(String.valueOf(mWorkout.getWorkout_weight()));
-        mCalories.setText(String.valueOf(mWorkout.getWorkout_food()));
-        workoutRef = db.collection("users").document(username).collection("workouts").document(workoutVariable).collection("exercises");
-        Log.d(TAG, "setWorkoutProperties: " + workoutRef.getPath());
-        if (!workoutVariable.equals("Blank")){
-            noexercises.setAlpha(0);
-        }
-    }
-
-    private void setNewWorkoutProperties(){
-        mCoach_Notes.setText("mWorkout.getCoaches_Notes()");
-    }
-
     private void setListeners(){
         mWorkoutDetails.setOnClickListener(this);
-        mFinishWorkout.setOnClickListener(this);
-        mBack.setOnClickListener(this);
-        addNew.setOnClickListener(this);
+        finishWorkoutButton.setOnClickListener(this);
+        backButton.setOnClickListener(this);
+        addNewExerciseButton.setOnClickListener(this);
     }
 
     private void initRecyclerView(){
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(linearLayoutManager);
         mExerciseAdapter = new ExerciseRecyclerAdapter(mExercise,this);
-        mRecyclerView.setAdapter(mExerciseAdapter);
-    }
-
-    @Override
-    public void onNoteClick(int position) {
-//        Bundle bundle = new Bundle();
-//        bundle.putString("message", "From Activity");
-//        bundle.putParcelable("selected_exercise",mExercise.get(position));
-//        NavController navController = Navigation.findNavController(getActivity(), R.id.frag);
-//        navController.navigate(R.id.action_individual_workout_activity_to_single_exercise_fragment,bundle);
-        Log.d(TAG, "onNoteClick: " + position);
-        Intent intent = new Intent(getContext(),NotesActivity.class);
-        intent.putExtra("selected_exercise",mExercise.get(position));
-        startActivity(intent);
+        recyclerView.setAdapter(mExerciseAdapter);
     }
 
     public void onChangedCheckBox(int position, boolean isChecked) {
         mExercise.get(position).setExercise_completedBoolean(isChecked);
         if (isChecked){
-            mExercise.get(position).setExercise_completedDate(Calendar.getInstance().getTime());
-        }
-        else {
-            Date completedDate = getCompletedDate();
+            Date completedDate = DateFunctions.getCurrentDateAndTime();
             mExercise.get(position).setExercise_completedDate(completedDate);
         }
-        Log.d(TAG, "onChangedCheckBox: " + mExercise.get(position).getExercise_completedDate());
+        else {
+            Date baselineCompletedDate = DateFunctions.getBaselineCompletedDate();
+            mExercise.get(position).setExercise_completedDate(baselineCompletedDate);
+        }
     }
 
     public static void updateMainActivityFragmentExercise(Exercise exercise){
@@ -270,54 +252,80 @@ public class individual_workout_activity extends Fragment implements ExerciseRec
         mCalories.setText(calories);
     }
 
-    private void updateFirebase(){
-        Log.d(TAG, "updateFirebase: " + mWorkout.getWorkout_weight());
-        if (mWorkout.getWorkout_id().equals("Blank")){
-            DocumentReference newworkoutRef = db.collection("users").document(username).collection("workouts").document();
-            mWorkout.setWorkout_id(newworkoutRef.getId());
-            mWorkout.setWorkout_completedDate(Calendar.getInstance().getTime());
-            mWorkout.setWorkout_athlete_id(username);
-            mWorkout.setWorkout_coach_id(username);
-            newworkoutRef.set(mWorkout);
-            for (int i = 0; i < mExercise.size(); i++){
-                Exercise exercise = mExercise.get(i);
-                DocumentReference docRef = newworkoutRef.collection("exercises").document();
-                exercise.setExercise_workout_id(newworkoutRef.getId());
-                exercise.setExercise_id(docRef.getId());
-                docRef.set(exercise);
-//                statsUpdate(exercise);
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()){
+            case R.id.button_add_new_exercise_fragment:{
+                addNewExercise();
+                break;
             }
-        } else {
-            for (int i = 0; i < mExercise.size(); i++){
-                Exercise exercise = mExercise.get(i);
-                Log.d(TAG, "updateFirebase: not blank " + exercise);
-                if (exercise.getExercise_id().equals("Blank")){
-                    String workoutID = mWorkout.getWorkout_id();
-                    DocumentReference docRef = workoutRef.document();
-                    exercise.setExercise_workout_id(workoutID);
-                    exercise.setExercise_id(docRef.getId());
-                    docRef.set(exercise);
-                } else {
-                    DocumentReference docRef = workoutRef.document(exercise.getExercise_id());
-                    docRef.update("exercise_completedBoolean",exercise.getExercise_completedBoolean(),
-                            "exercise_completedDate",exercise.getExercise_completedDate(),"exercise_difficulty",exercise.getExercise_difficulty(),
-                            "exercise_distance",exercise.getExercise_distance(),"exercise_duration",exercise.getExercise_duration(),
-                            "exercise_name",exercise.getExercise_name(),"exercise_note",exercise.getExercise_note(),"exercise_reps",exercise.getExercise_reps(),
-                            "exercise_rpe",exercise.getExercise_rpe(),"exercise_sequence",exercise.getExercise_sequence(),"exercise_uom",exercise.getExercise_uom(),
-                            "exercise_weight",exercise.getExercise_weight());
-                }
-//                statsUpdate(exercise);
+            case R.id.button_finish_workout:{
+                finishWorkout();
+                break;
             }
-            DocumentReference workoutRef = db.collection("users").document(username).collection("workouts").document(mWorkout.getWorkout_id());
-            Date currentTime = Calendar.getInstance().getTime();
-            Map<String, Object> completedData = new HashMap<>();
-            completedData.put("workout_completedDate",currentTime);
-            completedData.put("workout_food",mWorkout.getWorkout_food());
-            completedData.put("workout_mood",mWorkout.getWorkout_mood());
-            completedData.put("workout_sleep",mWorkout.getWorkout_sleep());
-            completedData.put("workout_weight",mWorkout.getWorkout_weight());
-            workoutRef.set(completedData, SetOptions.merge());
+            case R.id.button_workout_activity_fragment:{
+                moveToWorkoutFragment();
+                break;
+            }
+            case R.id.layout_details:{
+                Intent intent = new Intent(getContext(),workoutoutDetails.class);
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                sdf.applyPattern("E MMM dd yyyy");
+                String a = sdf.format(mWorkout.getWorkout_dateFor());
+                intent.putExtra("workout_date",a);
+                intent.putExtra("weight",mWorkout.getWorkout_weight());
+                intent.putExtra("workout_sleep",mWorkout.getWorkout_sleep());
+                intent.putExtra("workout_food",mWorkout.getWorkout_food());
+                intent.putExtra("workout_mood",mWorkout.getWorkout_mood());
+                startActivity(intent);
+                break;
+            }
         }
+    }
+
+    private void addNewExercise(){
+        newExerciseToArray();
+        noexercises.setAlpha(0);
+    }
+
+    private void newExerciseToArray(){
+        int sequence = getSequence();
+        Exercise exercise = ExerciseFactory.newExercise(username,sequence,mWorkout.getWorkout_id(),mWorkout.getWorkout_programme_id());
+        insertExercise(exercise);
+        mExerciseAdapter.notifyDataSetChanged();
+    }
+
+    private int getSequence(){
+        int sequence = 1;
+        if (mExercise.size() > 0){
+            Exercise lastExercise = mExercise.get(mExercise.size()-1);
+            int lastSeq = lastExercise.getExercise_sequence();
+            sequence = lastSeq+1;
+        }
+        return sequence;
+    }
+
+    private void finishWorkout(){
+        mWorkout.setWorkout_completedDate(DateFunctions.getCurrentDateAndTime());
+        updateFirebase();
+        moveToWorkoutFragment();
+    }
+
+    private void updateFirebase(){
+        if (hasAWorkoutID()){
+            FirebaseAPI.updateExistingWorkout(mExercise,mWorkout);
+        } else {
+            FirebaseAPI.createNewWorkout(mExercise,mWorkout);
+        }
+    }
+
+    private void moveToWorkoutFragment(){
+        NavController navController = Navigation.findNavController(getActivity(), R.id.frag);
+        navController.navigate(R.id.action_individual_workout_activity_to_workout_Activity_Fragment);
+    }
+
+    private boolean hasAWorkoutID(){
+        return (!mWorkout.getWorkout_id().equals("Blank"));
     }
 
     private void statsUpdate(Exercise exercise){
@@ -460,37 +468,6 @@ public class individual_workout_activity extends Fragment implements ExerciseRec
         fbref.set(Records);
     }
 
-    private void addNewExercise(){
-        int sequence = 1;
-        if (mExercise.size() > 0){
-            Exercise lastExercise = mExercise.get(mExercise.size()-1);
-            int lastSeq = lastExercise.getExercise_sequence();
-            sequence = lastSeq+1;
-        }
-        Log.d(TAG, "addNewExercise: " + sequence);
-        Exercise exercise = new Exercise();
-        exercise.setExercise_athlete_id(username);
-        exercise.setExercise_coach_id(username);
-        exercise.setExercise_classification("Strength");
-        exercise.setExercise_completedBoolean(false);
-        exercise.setExercise_completedDate(getCompletedDate());
-        exercise.setExercise_difficulty(0);
-        exercise.setExercise_distance(0);
-        exercise.setExercise_duration(0);
-        exercise.setExercise_id("Blank");
-        exercise.setExercise_name("New Exercise");
-        exercise.setExercise_note("New Note");
-        exercise.setExercise_reps(0);
-        exercise.setExercise_rpe(0);
-        exercise.setExercise_sequence(sequence);
-        exercise.setExercise_uom("kg");
-        exercise.setExercise_weight(0);
-        exercise.setExercise_workout_id(mWorkout.getWorkout_id());
-        exercise.setExercise_programme_id(mWorkout.getWorkout_programme_id());
-        insertExercise(exercise);
-        mExerciseAdapter.notifyDataSetChanged();
-    }
-
     private Date getCompletedDate(){
         Calendar c = Calendar.getInstance();
         c.set(Calendar.YEAR, 2000);
@@ -501,37 +478,10 @@ public class individual_workout_activity extends Fragment implements ExerciseRec
     }
 
     @Override
-    public void onClick(View view) {
-        switch(view.getId()){
-            case R.id.button_workout_activity_fragment:{
-                NavController navController = Navigation.findNavController(getActivity(), R.id.frag);
-                navController.navigate(R.id.action_individual_workout_activity_to_workout_Activity_Fragment);
-            }
-            case R.id.button_add_new_exercise_fragment:{
-                addNewExercise();
-                noexercises.setAlpha(0);
-                break;
-            }
-            case R.id.button_finish_workout:{
-                Log.d(TAG, "onClick: ");
-                updateFirebase();
-                NavController navController = Navigation.findNavController(getActivity(), R.id.frag);
-                navController.navigate(R.id.action_individual_workout_activity_to_workout_Activity_Fragment);
-                break;
-            }
-            case R.id.layout_details:{
-                Intent intent = new Intent(getContext(),workoutoutDetails.class);
-                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-                sdf.applyPattern("E MMM dd yyyy");
-                String a = sdf.format(mWorkout.getWorkout_dateFor());
-                intent.putExtra("workout_date",a);
-                intent.putExtra("weight",mWorkout.getWorkout_weight());
-                intent.putExtra("workout_sleep",mWorkout.getWorkout_sleep());
-                intent.putExtra("workout_food",mWorkout.getWorkout_food());
-                intent.putExtra("workout_mood",mWorkout.getWorkout_mood());
-                startActivity(intent);
-                break;
-            }
-        }
+    public void onNoteClick(int position) {
+        Intent intent = new Intent(getContext(),NotesActivity.class);
+        intent.putExtra("selected_exercise",mExercise.get(position));
+        startActivity(intent);
     }
+
 }

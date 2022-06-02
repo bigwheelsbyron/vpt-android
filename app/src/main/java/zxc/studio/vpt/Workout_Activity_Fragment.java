@@ -36,7 +36,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 
+import zxc.studio.vpt.Factories.WorkoutFactory;
 import zxc.studio.vpt.adapters.WorkoutRecyclerAdapter;
+import zxc.studio.vpt.models.DateRange;
 import zxc.studio.vpt.models.Workout;
 import zxc.studio.vpt.ui.login.LoginActivity;
 import zxc.studio.vpt.utilities.ItemDeco;
@@ -50,19 +52,18 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
 
     private static final String TAG = "workout_activity_fragt";
 
-    private RecyclerView mRecyclerView;
-    private Button mMove;
-    private ArrayList<Workout> mWorkouts = new ArrayList<>();
-    private WorkoutRecyclerAdapter mWorkoutAdapter;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private String username = "Byron";
-    private CollectionReference workoutsRef = db.collection("Notebook").document(username).collection("workouts");
+    private RecyclerView recyclerView;
+    private ArrayList<Workout> workoutsArray = new ArrayList<>();
+    private WorkoutRecyclerAdapter workoutAdapter;
+    private FirebaseFirestore firebaseDB = FirebaseFirestore.getInstance();
+    private String usernameString = "Byron";
+    private CollectionReference workoutsFirebaseRef = firebaseDB.collection("Notebook").document(usernameString).collection("workouts");
 
     public Workout_Activity_Fragment() {
         // Required empty public constructor
     }
 
-    public static Workout_Activity_Fragment newInstance(String param1, String param2) {
+    public static Workout_Activity_Fragment newInstance() {
         Workout_Activity_Fragment fragment = new Workout_Activity_Fragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -72,98 +73,123 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mWorkouts.clear();
+        removeWorkouts();
+    }
+
+    private void removeWorkouts(){
+        workoutsArray.clear();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_workout__activity_, container, false);
-        userTest();
-        final SharedPreferences userDetails = this.getActivity().getSharedPreferences("userDetails", Context.MODE_PRIVATE);
-        mRecyclerView = view.findViewById(R.id.recyclerView_workouts_fragment);
-        initRecyclerView();
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            Log.d(TAG, "onCreateView: user exists");
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            username = user.getUid();
-            Log.d(TAG, "onCreateView: " + username);
-            workoutsRef = db.collection("users").document(username).collection("workouts");
-            Calendar sundayOne = Calendar.getInstance();
-            sundayOne.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-            Calendar sundayTwo = Calendar.getInstance();
-            sundayTwo.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-            sundayTwo.add(Calendar.DATE,7);
-            sundayCheck(sundayOne.getTime(),sundayTwo.getTime());
-            db.collection("users").document(username).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                @Override
-                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    Log.d(TAG, "onSuccess: " + documentSnapshot.getData());
-                    SharedPreferences.Editor editor = userDetails.edit();
-                    editor.putString("Name_First", (String) documentSnapshot.getData().get("Name_First"));
-                    editor.putString("uid", (String) documentSnapshot.getData().get("uid"));
-                    editor.putString("Name_Last", (String) documentSnapshot.getData().get("Name_Last"));
-                    editor.putString("coach", (String) documentSnapshot.getData().get("coach"));
-                    editor.putString("email", (String) documentSnapshot.getData().get("email"));
-                    editor.putString("coach_First", (String) documentSnapshot.getData().get("coach_Name_First"));
-                    editor.putString("coach_Last", (String) documentSnapshot.getData().get("coach_Name_Last"));
-                    username = (String) documentSnapshot.getData().get("uid");
-                    editor.commit();
-                }
-            });
-        }
-        else {
-            Log.d(TAG, "onCreate: fire user doesn't exist");
-        }
+        setupUI(view);
         return view;
     }
 
-
-
-    private void userTest() {
-//        if (FirebaseAuth.getInstance().getCurrentUser() == null){
-//            Intent intent = new Intent(this, LoginActivity.class);
-//            startActivity(intent);
-//        }
+    private void setupUI(View view){
+        setIDS(view);
+        signedInUser();
+        hideLogout();
+        setUpRecyclerView();
     }
 
-    public void sundayCheck(final Date startdate, final Date enddate){
+    private void signedInUser() {
+        if (firebaseSignedIn()){
+            Log.d(TAG, "signedInUser: user signed in");
+            getWorkouts();
+        } else {
+            Log.d(TAG, "signedInUser: no user signed in");
+        }
+//        TODO: Need to make like a trial account type set up
+    }
+
+    private void hideLogout(){
+        workout_activity activity = (workout_activity) getActivity();
+        activity.hideLogout();
+    }
+
+    private boolean firebaseSignedIn(){
+        return (FirebaseAuth.getInstance().getCurrentUser() != null);
+    }
+
+    private void setIDS(View view){
+        recyclerView = view.findViewById(R.id.workoutsFragment_recyclerView);
+    }
+
+    private void setUpRecyclerView(){
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        ItemDeco itemDeco=new ItemDeco(20);
+        recyclerView.addItemDecoration(itemDeco);
+        workoutAdapter = new WorkoutRecyclerAdapter(workoutsArray,this);
+        recyclerView.setAdapter(workoutAdapter);
+    }
+
+    private void getWorkouts(){
+        workoutsFirebaseRef = firebaseDB.collection("users").document(usernameString).collection("workouts");
+        DateRange dateRange = getWorkoutDateRange();
+        dateRange = sundayCheck(dateRange);
+        findWorkouts(dateRange);
+    }
+
+    private DateRange getWorkoutDateRange(){
+        Calendar sundayOne = Calendar.getInstance();
+        sundayOne.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+        Calendar sundayTwo = Calendar.getInstance();
+        sundayTwo.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+        sundayTwo.add(Calendar.DATE,7);
+        DateRange dateRange = new DateRange(sundayOne.getTime(),sundayTwo.getTime());
+        return dateRange;
+    }
+
+    private DateRange sundayCheck(DateRange dateRange){
+        Date startRangeDate = dateRange.getStartingDate();
+        Date endRangeDate = dateRange.getEndingDate();
         Calendar c = Calendar.getInstance();
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+        Log.d(TAG, "sundayCheck: before start" + dateRange.getStartingDate());
+        Log.d(TAG, "sundayCheck: before end" + dateRange.getEndingDate());
         if (dayOfWeek == 1){
-            c.setTime(startdate);
+            c.setTime(startRangeDate);
             c.add(Calendar.DATE,-7);
-            Date startDate = c.getTime();
-            c.setTime(enddate);
+            dateRange.setStartingDate(c.getTime());
+            c.setTime(endRangeDate);
             c.add(Calendar.DATE,-7);
-            Date endDate = c.getTime();
-            findWorkouts(startDate, endDate);
+            dateRange.setEndingDate(c.getTime());
         } else {
-            findWorkouts(startdate, enddate);
+
         }
+        Log.d(TAG, "sundayCheck: after start" + dateRange.getStartingDate());
+        Log.d(TAG, "sundayCheck: after end" + dateRange.getEndingDate());
+        return dateRange;
     }
 
-    public void findWorkouts(final Date startdate, final Date enddate){
-        Log.d(TAG, "findWorkouts: " + startdate);
-        Log.d(TAG, "findWorkouts: " + enddate);
-        Log.d(TAG, "findWorkouts: " + workoutsRef.getPath());
-        workoutsRef.whereGreaterThan("workout_dateFor",startdate).whereLessThan("workout_dateFor",enddate).get().addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d(TAG, "onFailure: ");
+    private void findWorkouts(DateRange dateRange){
+        Date startDate = dateRange.getStartingDate();
+        Date endDate = dateRange.getEndingDate();
+        Log.d(TAG, "findWorkouts: " + startDate);
+        Log.d(TAG, "findWorkouts: " + endDate);
+        workoutsFirebaseRef.whereGreaterThan("workout_dateFor",startDate).whereLessThan("workout_dateFor",endDate).get()
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d(TAG, "onFailure: ");
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                            Workout workout = documentSnapshot.toObject(Workout.class);
+                            workout.setWorkout_id(documentSnapshot.getId());
+                            insertWorkouts(workout);
+                            Log.d(TAG, "onSuccess for workout: " + workout.getWorkout_id());
+                        }
+                        missingWorkoutDates(startDate);
+                        sortArrayList();
+                    }
             }
-        }).addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                    Workout workout = documentSnapshot.toObject(Workout.class);
-                    workout.setWorkout_id(documentSnapshot.getId());
-                    insertWorkouts(workout);
-                    Log.d(TAG, "onSuccess for workout: " + workout);
-                }
-                missingWorkoutDates(startdate);
-                sortArrayList();
-            }
-        });
+            );
     }
 
     private Date incrementDateByOne(Date date) {
@@ -191,8 +217,8 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
         dates.add(android.text.format.DateFormat.format("yyyy-MM-dd",saturday).toString());
         dates.add(android.text.format.DateFormat.format("yyyy-MM-dd",sunday).toString());
         ArrayList<String> existingDates = new ArrayList<>();
-        for (int i = 0;i<mWorkouts.size();i++){
-            Date longdate = mWorkouts.get(i).getWorkout_dateFor();
+        for (int i = 0;i<workoutsArray.size();i++){
+            Date longdate = workoutsArray.get(i).getWorkout_dateFor();
             Log.d(TAG, "missingWorkoutDates: " + longdate);
             String date = (android.text.format.DateFormat.format("yyyy-MM-dd",longdate).toString());
             for (int x = 0;x<7;x++) {
@@ -213,7 +239,6 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
         c.set(Calendar.MONTH, Calendar.JANUARY);
         c.set(Calendar.DAY_OF_MONTH, 1);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date completedDate = c.getTime();
         Date date = c.getTime();
         for (int i = 0;i<dates.size();i++){
             String shortDate = dates.get(i).toString();
@@ -222,45 +247,24 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            Workout workout = new Workout();
-            workout.setWorkout_athlete_id(username);
-            workout.setWorkout_coach_id(username);
-            workout.setWorkout_completedDate(completedDate);
-            workout.setWorkout_dateFor(date);
-            workout.setWorkout_food(0);
-            workout.setWorkout_mood(0);
-            workout.setWorkout_sleep(0);
-            workout.setWorkout_weight(0);
-            workout.setWorkout_id("Blank");
-            workout.setWorkout_programme_id("Programme ID");
+            Workout workout = WorkoutFactory.newWorkout(usernameString,date);
             insertWorkouts(workout);
         }
     }
 
     private void insertWorkouts(Workout mWorkout){
-        mWorkouts.add(mWorkout);
+        workoutsArray.add(mWorkout);
     }
 
     private void sortArrayList() {
-        Collections.sort(mWorkouts, new Comparator<Workout>() {
+        Collections.sort(workoutsArray, new Comparator<Workout>() {
             @Override
             public int compare(Workout o1, Workout o2) {
                 return o1.getWorkout_dateFor().compareTo(o2.getWorkout_dateFor());
             }
         });
-        mWorkoutAdapter.notifyDataSetChanged();
+        workoutAdapter.notifyDataSetChanged();
     }
-
-    private void initRecyclerView(){
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(linearLayoutManager);
-        ItemDeco itemDeco=new ItemDeco(20);
-        mRecyclerView.addItemDecoration(itemDeco);
-        mWorkoutAdapter = new WorkoutRecyclerAdapter(mWorkouts,this);
-        mRecyclerView.setAdapter(mWorkoutAdapter);
-    }
-
-
 
     @Override
     public void onClick(View view) {
@@ -276,7 +280,7 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
     public void onNoteClick(int position) {
         Bundle bundle = new Bundle();
         bundle.putString("message", "From Activity");
-        bundle.putParcelable("selected_workout",mWorkouts.get(position));
+        bundle.putParcelable("selected_workout",workoutsArray.get(position));
         NavController navController = Navigation.findNavController(getActivity(), R.id.frag);
         navController.navigate(R.id.action_workout_Activity_Fragment_to_individual_workout_activity,bundle);
     }
