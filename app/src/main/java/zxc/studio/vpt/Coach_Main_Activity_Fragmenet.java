@@ -254,7 +254,7 @@ public class Coach_Main_Activity_Fragmenet extends Fragment implements View.OnCl
         Bundle bundle = new Bundle();
         bundle.putString("message", "From Activity");
         bundle.putParcelable("selected_athlete",mAthletes.get(position));
-        NavController navController = Navigation.findNavController(getActivity(), R.id.frag);
+        NavController navController = Navigation.findNavController(getActivity(), R.id.mainDetailsFragment);
         navController.navigate(R.id.action_coach_Main_Activity_Fragmenet_to_coach_Workout_Activity_fragment,bundle);
     }
 

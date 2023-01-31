@@ -473,7 +473,7 @@ public class Coach_Workout_Activity_fragment extends Fragment implements newWork
                 datePicker.show(getFragmentManager(), "date picker");
                 break;
             } case R.id.button_coach_workout_fragment:{
-                NavController navController = Navigation.findNavController(getActivity(), R.id.frag);
+                NavController navController = Navigation.findNavController(getActivity(), R.id.mainDetailsFragment);
                 navController.navigate(R.id.action_coach_Workout_Activity_fragment_to_coach_Main_Activity_Fragmenet);
             }
         }

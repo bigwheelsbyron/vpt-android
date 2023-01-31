@@ -188,10 +188,6 @@ public class userstats extends AppCompatActivity implements View.OnClickListener
     //private void SetData(Map<Integer, Map<String,Integer>> setData,Map<Integer, String> dataDates) {
     private void SetData(String exerciseName, String type) {
         HashMap<String, ArrayList<String>> exerciseData = masterStrengthArray.get(exerciseName);
-
-        ArrayList<String> dataReps = exerciseData.get("dataReps");
-        ArrayList<String> dateUOM = exerciseData.get("dateUOM");
-        ArrayList<String> dataRPEs = exerciseData.get("dataRPEs");
         ArrayList<String> dataDifficulties = exerciseData.get("dataDifficulties");
         ArrayList<String> dateData = exerciseData.get("dateData");
         ArrayList<String> dataWeights = exerciseData.get("dataWeights");
@@ -206,56 +202,8 @@ public class userstats extends AppCompatActivity implements View.OnClickListener
                 String date = dateData.get(i);
                 xAxesDates.add(date);
                 yAxesDifficulties.add(new Entry(i,difficulty));
-                yAxesWeights.add(new Entry(i,weight));
             }
             LineDataSet lineDataSet1 = new LineDataSet(yAxesDifficulties,type);
-            lineDataSet1.setDrawCircles(false);
-            lineDataSet1.setColor(Color.BLUE);
-            lineDataSet1.setAxisDependency(YAxis.AxisDependency.LEFT);
-            LineDataSet lineDataSet2 = new LineDataSet(yAxesWeights,type);
-            lineDataSet2.setDrawCircles(false);
-            lineDataSet2.setColor(Color.RED);
-            lineDataSet2.setAxisDependency(YAxis.AxisDependency.RIGHT);
-            lineDataSets.add(lineDataSet1);
-            lineDataSets.add(lineDataSet2);
-            lineChart.setData(new LineData(lineDataSets));
-        }
-        if (type.equals("RPE")){
-            for (int i = 0;i<dateData.size();i++){
-                int rpe = Integer.parseInt(dataRPEs.get(i));
-                String date = dateData.get(i);
-                xAxesDates.add(date);
-                yAxesWeights.add(new Entry(i,rpe));
-            }
-            LineDataSet lineDataSet1 = new LineDataSet(yAxesWeights,type);
-            lineDataSet1.setDrawCircles(false);
-            lineDataSet1.setColor(Color.BLUE);
-            lineDataSet1.setAxisDependency(YAxis.AxisDependency.LEFT);
-            lineDataSets.add(lineDataSet1);
-            lineChart.setData(new LineData(lineDataSets));
-        }
-        if (type.equals("Reps")){
-            for (int i = 0;i<dateData.size();i++){
-                int reps = Integer.parseInt(dataReps.get(i));
-                String date = dateData.get(i);
-                xAxesDates.add(date);
-                yAxesWeights.add(new Entry(i,reps));
-            }
-            LineDataSet lineDataSet1 = new LineDataSet(yAxesWeights,type);
-            lineDataSet1.setDrawCircles(false);
-            lineDataSet1.setColor(Color.BLUE);
-            lineDataSet1.setAxisDependency(YAxis.AxisDependency.LEFT);
-            lineDataSets.add(lineDataSet1);
-            lineChart.setData(new LineData(lineDataSets));
-        }
-        if (type.equals("Weight")){
-            for (int i = 0;i<dateData.size();i++){
-                int weight = Integer.parseInt(dataWeights.get(i));
-                String date = dateData.get(i);
-                xAxesDates.add(date);
-                yAxesWeights.add(new Entry(i,weight));
-            }
-            LineDataSet lineDataSet1 = new LineDataSet(yAxesWeights,type);
             lineDataSet1.setDrawCircles(false);
             lineDataSet1.setColor(Color.BLUE);
             lineDataSet1.setAxisDependency(YAxis.AxisDependency.LEFT);

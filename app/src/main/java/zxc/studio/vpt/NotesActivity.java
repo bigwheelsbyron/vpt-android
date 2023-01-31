@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -28,24 +30,40 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class NotesActivity extends AppCompatActivity implements View.OnTouchListener, GestureDetector.OnGestureListener,
         GestureDetector.OnDoubleTapListener, View.OnClickListener{
+
     private static final String TAG = "NotesActivity";
+
     private EditText mEditText;
+    private EditText mRepsEditText;
+    private EditText mWeightEditText;
+    private EditText mRPEEditText;
+    private EditText mDifficultyEditText;
+
     private Exercise mInitialExercise;
+
     private GestureDetector mGestureDectector;
+
     private ImageButton mBackArrow;
     private Button mCommitNotes;
-    private EditText mRepsEditText;
+    private Button mCameraButton;
+    private Button mNotesShowHideButton;
+
     private AutoCompleteTextView mExerciseNameEditText;
-    private EditText mWeightEditText;
+
+
     private TextView mWeightOrRpe;
     private String username = "Byron";
     private String workoutVariable = "WxnB4sEqJVrHDLZF0S9x";
     private String exerciseID = "IE78anCsFfCRsLpAljyC";
     private String [] exerciseNameSuggestions;
-    private int id = 99;
+
+
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DocumentReference exerciseRef = db.collection("users").document(username).collection("workouts").document(workoutVariable).collection("exercises").document(exerciseID);
 
+
+    
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,20 +101,23 @@ public class NotesActivity extends AppCompatActivity implements View.OnTouchList
         mWeightEditText=findViewById(R.id.weightEditText);
         mWeightOrRpe=findViewById(R.id.kgorrpetextView);
         mExerciseNameEditText=findViewById(R.id.editTextNewExerciseName);
+        mCameraButton=findViewById(R.id.activity_notes_button_camera);
+        mNotesShowHideButton=findViewById(R.id.activity_notes_button_noteshow);
+        mDifficultyEditText=findViewById(R.id.difficultyEditText);
+        mRPEEditText=findViewById(R.id.rpeEditText);
     }
     
     private void setExerciseProperties(Exercise exercise){
-        mEditText.setText(exercise.getExercise_note());
+        if (exercise.getExercise_note()==null){
+
+        } else {
+            mEditText.setText(exercise.getExercise_note());
+        }
         mRepsEditText.setText(""+exercise.getExercise_reps());
         mExerciseNameEditText.setText(exercise.getExercise_name());
-        if (exercise.getExercise_weight() == 0 && exercise.getExercise_rpe() == 0){
-            mWeightEditText.setText(exercise.getExercise_weight()+"");
-        } else if  (exercise.getExercise_weight() >= 0 && exercise.getExercise_rpe() == 0) {
-            mWeightEditText.setText(exercise.getExercise_weight()+"");
-        } else if (exercise.getExercise_weight() == 0 && exercise.getExercise_rpe() >= 0){
-            mWeightEditText.setText(exercise.getExercise_rpe()+"");
-            mWeightOrRpe.setText("RPE");
-        }
+        mWeightEditText.setText(exercise.getExercise_weight()+"");
+        mDifficultyEditText.setText(exercise.getExercise_difficulty()+"");
+        mRPEEditText.setText(exercise.getExercise_rpe()+"");
     }
 
     private void getIncomingIntent(){
@@ -158,14 +179,13 @@ public class NotesActivity extends AppCompatActivity implements View.OnTouchList
         }
     };
 
-
-
-
     private void setListeners(){
         mEditText.setOnTouchListener(this);
         mGestureDectector = new GestureDetector(this,this);
         mBackArrow.setOnClickListener(this);
         mCommitNotes.setOnClickListener(this);
+        mCameraButton.setOnClickListener(this);
+        mNotesShowHideButton.setOnClickListener(this);
     }
     private void updateExercise(){
         mInitialExercise.setExercise_reps(Integer.parseInt(String.valueOf(mRepsEditText.getText())));
@@ -174,6 +194,7 @@ public class NotesActivity extends AppCompatActivity implements View.OnTouchList
         mInitialExercise.setExercise_name(String.valueOf(mExerciseNameEditText.getText()));
         individual_workout_activity.updateMainActivityFragmentExercise(mInitialExercise);
     }
+
     @Override
     public void onClick(View v) {
         switch(v.getId()){
@@ -184,6 +205,23 @@ public class NotesActivity extends AppCompatActivity implements View.OnTouchList
             case R.id.ButtonCommitNotes:{
                 updateExercise();
                 finish();
+                break;
+            }
+            case R.id.activity_notes_button_camera:{
+                Log.d(TAG, "onClick: camera button");
+                break;
+            }
+            case R.id.activity_notes_button_noteshow:{
+                Log.d(TAG, "onClick: notes show or hide button");
+                ViewGroup.LayoutParams params = mEditText.getLayoutParams();
+                if (params.height == 0){
+                    ViewGroup.LayoutParams params1 = mEditText.getLayoutParams();
+                    params1.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                    mEditText.setLayoutParams(params1);
+                } else {
+                    params.height=0;
+                    mEditText.setLayoutParams(params);
+                }
                 break;
             }
         }

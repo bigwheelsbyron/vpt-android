@@ -33,7 +33,7 @@ public class Social_Activity_Fragment extends Fragment implements View.OnClickLi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        NavController navController = Navigation.findNavController(getActivity(), R.id.frag);
+        NavController navController = Navigation.findNavController(getActivity(), R.id.mainDetailsFragment);
         navController.navigate(R.id.action_social_Activity_Fragment_to_coach_Main_Activity_Fragmenet);
     }
 
@@ -60,7 +60,7 @@ public class Social_Activity_Fragment extends Fragment implements View.OnClickLi
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.button_socialmainview:{
-                NavController navController = Navigation.findNavController(getActivity(), R.id.frag);
+                NavController navController = Navigation.findNavController(getActivity(), R.id.mainDetailsFragment);
                 navController.navigate(R.id.action_social_Activity_Fragment_to_coach_Main_Activity_Fragmenet);
             }
         }

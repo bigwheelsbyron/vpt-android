@@ -16,6 +16,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -109,42 +110,31 @@ public class workout_activity extends AppCompatActivity implements View.OnClickL
     public void setIDS(){
         logoutButton = findViewById(R.id.logout_button_main);
     }
-
     public void setListeners(){
         logoutButton.setOnClickListener(this);
     }
-
     private void applyUserColorSchemeBackgroundObjects(){
         colourManager.applyColourSchemeSubtractCustom(this);
     }
-
     private void applyUserColorSchemeForegroundObjects(){
         colourManager.applyColourSchemeCustom(this);
     }
-
     private void resizeSubtract(){
         Display display = getWindowManager().getDefaultDisplay();
         DisplayMetrics outMetrics = new DisplayMetrics();
         display.getMetrics(outMetrics);
-        float density  = getResources().getDisplayMetrics().density;
-        float dpHeight = outMetrics.heightPixels / density;
-        float dpWidth  = outMetrics.widthPixels / density;
-        Log.d(TAG, "onCreate: " + dpHeight);
-        Log.d(TAG, "onCreate: " + dpWidth);
         mSubstractBottom = findViewById(R.id.mainScreenSubtractBottom);
-        mSubstractBottom.getLayoutParams().width = (int) outMetrics.widthPixels;
-        mSubstractBottom.getLayoutParams().height = (int) ((int) outMetrics.heightPixels*.2);
+        mSubstractBottom.getLayoutParams().width = outMetrics.widthPixels;
+        mSubstractBottom.getLayoutParams().height = (int) (outMetrics.heightPixels*.2);
         mSubstractTop = findViewById(R.id.mainScreenSubtractTop);
-        mSubstractTop.getLayoutParams().width = (int) outMetrics.widthPixels;
-        mSubstractTop.getLayoutParams().height = (int) ((int) outMetrics.heightPixels*.2);
+        mSubstractTop.getLayoutParams().width = outMetrics.widthPixels;
+        mSubstractTop.getLayoutParams().height = (int) (outMetrics.heightPixels*.2);
     }
-
     private void setUpNavBar(){
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
-        NavController navController = Navigation.findNavController(this,R.id.frag);
+        NavController navController = Navigation.findNavController(this,R.id.mainDetailsFragment);
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
     }
-
     private void getUserDetailsFirebase(){
         DocumentReference userDocument = db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
         userDocument.get().addOnFailureListener(new OnFailureListener() {
@@ -162,15 +152,14 @@ public class workout_activity extends AppCompatActivity implements View.OnClickL
         });
 
     }
-
     public void hideLogout(){
         logoutButton.setAlpha(0);
+        logoutButton.setEnabled(false);
     }
-
     public void showLogout(){
         logoutButton.setAlpha(1);
+        logoutButton.setEnabled(true);
     }
-
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
@@ -182,6 +171,22 @@ public class workout_activity extends AppCompatActivity implements View.OnClickL
                 break;
             }
         }
+    }
+
+    public void changeHeaderColour(Color colour){
+        colourManager.applyColourSchemeHeaderTemporary(this, colour);
+    }
+    public void changeTitleColour(Color colour){
+        colourManager.applyColourSchemeTitleTemporary(this, colour);
+    }
+    public void changeBorderColour(Color colour){
+        colourManager.applyColourSchemeBorderTemporary(this, colour);
+    }
+    public void changeSubtractColour(Color colour){
+        colourManager.applyColourSchemeSubtractTemporary(this, colour);
+    }
+    public void changeBackgroundColour(Color colour){
+        colourManager.applyColourSchemeBackgroundTemporary(this, colour);
     }
 
 }

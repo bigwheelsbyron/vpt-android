@@ -92,7 +92,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="105dp"
+                        android:layout_width="85dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
                         android:gravity="left"
@@ -102,9 +102,9 @@
 
                     <TextView
                         android:id="@+id/textview_Mood"
-                        android:layout_width="40dp"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
+                        android:gravity="left"
                         android:text="0"
                         android:textColor="@color/Rich_Black_FOGRA_39"
                         android:textSize="15sp" />
@@ -119,7 +119,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="105dp"
+                        android:layout_width="85dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
                         android:gravity="left"
@@ -129,9 +129,9 @@
 
                     <TextView
                         android:id="@+id/textview_Sleep"
-                        android:layout_width="40dp"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
+                        android:gravity="left"
                         android:text="0.0"
                         android:textColor="@color/Rich_Black_FOGRA_39"
                         android:textSize="15sp" />
@@ -155,7 +155,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="105dp"
+                        android:layout_width="85dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
                         android:gravity="left"
@@ -165,10 +165,10 @@
 
                     <TextView
                         android:id="@+id/textview_Weight"
-                        android:layout_width="40dp"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="0.0"
+                        android:gravity="left"
+                        android:text="102.3"
                         android:textColor="@color/Rich_Black_FOGRA_39"
                         android:textSize="15sp" />
 
@@ -182,7 +182,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="105dp"
+                        android:layout_width="85dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
                         android:gravity="left"
@@ -192,10 +192,10 @@
 
                     <TextView
                         android:id="@+id/textview_Calories"
-                        android:layout_width="40dp"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="0"
+                        android:gravity="left"
+                        android:text="1500"
                         android:textColor="@color/Rich_Black_FOGRA_39"
                         android:textSize="15sp" />
 

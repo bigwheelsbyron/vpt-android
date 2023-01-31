@@ -41,6 +41,7 @@ import zxc.studio.vpt.adapters.WorkoutRecyclerAdapter;
 import zxc.studio.vpt.models.DateRange;
 import zxc.studio.vpt.models.Workout;
 import zxc.studio.vpt.ui.login.LoginActivity;
+import zxc.studio.vpt.utilities.DateFunctions;
 import zxc.studio.vpt.utilities.ItemDeco;
 
 /**
@@ -127,7 +128,7 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
     }
 
     private void getWorkouts(){
-        workoutsFirebaseRef = firebaseDB.collection("users").document(usernameString).collection("workouts");
+        workoutsFirebaseRef = firebaseDB.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("workouts");
         DateRange dateRange = getWorkoutDateRange();
         dateRange = sundayCheck(dateRange);
         findWorkouts(dateRange);
@@ -166,10 +167,11 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
     }
 
     private void findWorkouts(DateRange dateRange){
-        Date startDate = dateRange.getStartingDate();
-        Date endDate = dateRange.getEndingDate();
-        Log.d(TAG, "findWorkouts: " + startDate);
-        Log.d(TAG, "findWorkouts: " + endDate);
+        Date startDate = DateFunctions.dateAndTimeToDate(dateRange.getStartingDate());
+        Date endDate = DateFunctions.dateAndTimeToDate(dateRange.getEndingDate());
+        Log.d(TAG, "findWorkouts: startDate" + startDate);
+        Log.d(TAG, "findWorkouts: endDate" + endDate);
+        Log.d(TAG, "findWorkouts: " + workoutsFirebaseRef.getPath());
         workoutsFirebaseRef.whereGreaterThan("workout_dateFor",startDate).whereLessThan("workout_dateFor",endDate).get()
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -201,6 +203,7 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
     }
 
     private void missingWorkoutDates(Date longStartDate){
+
         Date monday = incrementDateByOne(longStartDate);
         Date tuesday = incrementDateByOne(monday);
         Date wednesday = incrementDateByOne(tuesday);
@@ -217,6 +220,7 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
         dates.add(android.text.format.DateFormat.format("yyyy-MM-dd",saturday).toString());
         dates.add(android.text.format.DateFormat.format("yyyy-MM-dd",sunday).toString());
         ArrayList<String> existingDates = new ArrayList<>();
+        Log.d(TAG, "missingWorkoutDates: " + workoutsArray.size());
         for (int i = 0;i<workoutsArray.size();i++){
             Date longdate = workoutsArray.get(i).getWorkout_dateFor();
             Log.d(TAG, "missingWorkoutDates: " + longdate);
@@ -270,7 +274,7 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.button_workout_activity_fragment:{
-                NavController navController = Navigation.findNavController(getActivity(), R.id.frag);
+                NavController navController = Navigation.findNavController(getActivity(), R.id.mainDetailsFragment);
                 navController.navigate(R.id.action_workout_Activity_Fragment_to_individual_workout_activity);
             }
         }
@@ -281,7 +285,7 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
         Bundle bundle = new Bundle();
         bundle.putString("message", "From Activity");
         bundle.putParcelable("selected_workout",workoutsArray.get(position));
-        NavController navController = Navigation.findNavController(getActivity(), R.id.frag);
+        NavController navController = Navigation.findNavController(getActivity(), R.id.mainDetailsFragment);
         navController.navigate(R.id.action_workout_Activity_Fragment_to_individual_workout_activity,bundle);
     }
 }

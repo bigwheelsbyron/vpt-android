@@ -14,6 +14,7 @@ import zxc.studio.vpt.models.Athlete;
 import java.util.ArrayList;
 
 public class athleteListAdapter extends RecyclerView.Adapter<athleteListAdapter.ViewHolder> {
+
     private ArrayList<Athlete> mAthletes;
     private OnNoteListenerAthlete mOnNoteListener;
 
@@ -22,7 +23,6 @@ public class athleteListAdapter extends RecyclerView.Adapter<athleteListAdapter.
         this.mAthletes=mAthletes;
         this.mOnNoteListener = onNoteListener;
     }
-
 
     @NonNull
     @Override

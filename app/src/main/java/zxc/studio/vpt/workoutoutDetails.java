@@ -21,7 +21,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import zxc.studio.vpt.databinding.ActivityWorkoutoutDetailsBinding;
 
 public class workoutoutDetails extends AppCompatActivity implements View.OnClickListener {
 
@@ -59,11 +58,11 @@ public class workoutoutDetails extends AppCompatActivity implements View.OnClick
     }
 
     private void setData(){
-        mDate = getIntent().getStringExtra("date");
-        mMood =  getIntent().getIntExtra("mood",0);
-        mSleep = getIntent().getFloatExtra("sleep",0);
-        mWeight = getIntent().getFloatExtra("weight",0);
-        mCalories = getIntent().getIntExtra("food",0);
+        mDate = getIntent().getStringExtra("workout_date");
+        mMood =  getIntent().getIntExtra("workout_mood",0);
+        mSleep = getIntent().getFloatExtra("workout_sleep",0);
+        mWeight = getIntent().getFloatExtra("workout_weight",0);
+        mCalories = getIntent().getIntExtra("workout_food",0);
         Log.d(TAG, "setData: " + mCalories);
         Log.d(TAG, "setData: " + mDate);
         Log.d(TAG, "setData: " + mSleep);

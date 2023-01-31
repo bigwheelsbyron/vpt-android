@@ -63,7 +63,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <fragment
-        android:id="@+id/frag"
+        android:id="@+id/mainDetailsFragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"

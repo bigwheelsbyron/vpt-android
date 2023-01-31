@@ -6,11 +6,14 @@
     <item
         android:title="Workouts"
         android:id="@+id/workout_Activity_Fragment"
-        android:iconTint="@color/vpt_purple"
         android:icon="@drawable/ic_baseline_fitness_center_24"/>
     <item
         android:id="@+id/social_Activity_Fragment"
         android:title="Social"
+        android:icon="@drawable/ic_baseline_groups_24"/>
+    <item
+        android:id="@+id/history_Actvity_Fragment"
+        android:title="History"
         android:icon="@drawable/ic_baseline_timeline_24"/>
     <item
         android:id="@+id/setting_Actvity_Fragment"

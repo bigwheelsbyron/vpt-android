@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/singleexerciseview"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+    tools:context=".activity_historyDates">
+
+    <LinearLayout
+        android:id="@+id/historyDates_activity_LinearLayout_fullLayout"
+        android:layout_width="386dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/singleexerciseview"
+        android:orientation="vertical"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:id="@+id/historyDates_activity_LinearLayout_dateOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/singleexerciseview"
+            android:orientation="vertical"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/historyDates_activity_TextView_dateOptions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/roboto"
+                android:paddingBottom="10dp"
+                android:text="Date Options:"
+                android:textColor="@color/Rich_Black_FOGRA_39"
+                android:textSize="16dp" />
+
+            <LinearLayout
+                android:id="@+id/historyDates_activity_LinearLayout_pickDateRange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/historyDates_activity_TextView_pickDateRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Pick a Date Range:"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="14dp" />
+
+                <LinearLayout
+                    android:id="@+id/historyDates_activity_LinearLayout_pickStartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/historyDates_activity_TextView_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="Start"
+                        android:textColor="@color/Rich_Black_FOGRA_39"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/historyDates_activity_TextView_pickStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="start_Date"
+                        android:textColor="@color/Rich_Black_FOGRA_39"
+                        android:textSize="14dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/historyDates_activity_LinearLayout_pickEndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/historyDates_activity_TextView_end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="End"
+                        android:textColor="@color/Rich_Black_FOGRA_39"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/historyDates_activity_TextView_pickEnd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="end_Date"
+                        android:textColor="@color/Rich_Black_FOGRA_39"
+                        android:textSize="14dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/historyDates_activity_LinearLayout_pickDateOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/historyDates_activity_TextView_pickDatePeriod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Pick a Date Period:"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/historyDates_activity_TextView_periodOptions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Last Month"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="14dp" />
+
+                <LinearLayout
+                    android:id="@+id/historyDates_activity_LinearLayout_periodOptionsExpandable"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/historyDates_activity_TextView_periodOptionsLastMonth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Last Month"
+                        android:textColor="@color/Rich_Black_FOGRA_39" />
+
+                    <TextView
+                        android:id="@+id/historyDates_activity_TextView_periodOptionsLastTwoMonth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Last Two Months"
+                        android:textColor="@color/Rich_Black_FOGRA_39" />
+
+                    <TextView
+                        android:id="@+id/historyDates_activity_TextView_periodOptionsLastQuarter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Last Quarter"
+                        android:textColor="@color/Rich_Black_FOGRA_39" />
+
+                    <TextView
+                        android:id="@+id/historyDates_activity_TextView_periodOptionsLastHalfYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Last Half Year"
+                        android:textColor="@color/Rich_Black_FOGRA_39" />
+
+                    <TextView
+                        android:id="@+id/historyDates_activity_TextView_periodOptionsLastYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Last Year"
+                        android:textColor="@color/Rich_Black_FOGRA_39" />
+
+                    <TextView
+                        android:id="@+id/historyDates_activity_TextView_periodOptionsAll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="All"
+                        android:textColor="@color/Rich_Black_FOGRA_39" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/historyDates_activity_LinearLayout_frequencyOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/singleexerciseview"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/historyDates_activity_TextView_frequencyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingBottom="2dp"
+                android:text="Frequency:"
+                android:textColor="@color/Rich_Black_FOGRA_39"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/historyDates_activity_TextView_frequencyOptions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/roboto"
+                android:text="Daily"
+                android:textColor="@color/Rich_Black_FOGRA_39"
+                android:textSize="14dp" />
+
+            <LinearLayout
+                android:id="@+id/historyDates_activity_LinearLayout_frequencyOptionsExpandable"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/historyDates_activity_TextView_frequencyOptionsDaily"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Daily"
+                    android:textColor="@color/Rich_Black_FOGRA_39" />
+
+                <TextView
+                    android:id="@+id/historyDates_activity_TextView_frequencyOptionsWeekly"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Weekly"
+                    android:textColor="@color/Rich_Black_FOGRA_39" />
+
+                <TextView
+                    android:id="@+id/historyDates_activity_TextView_frequencyOptionsFortnightly"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Fortnightly"
+                    android:textColor="@color/Rich_Black_FOGRA_39" />
+
+                <TextView
+                    android:id="@+id/historyDates_activity_TextView_frequencyOptionsMonthly"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Monthly"
+                    android:textColor="@color/Rich_Black_FOGRA_39" />
+
+                <TextView
+                    android:id="@+id/historyDates_activity_TextView_frequencyOptionsQuarterly"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Quarterly"
+                    android:textColor="@color/Rich_Black_FOGRA_39" />
+                />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/historyDates_activity_LinearLayout_chartOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/singleexerciseview"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/historyDates_activity_TextView_chartOptions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/roboto"
+                android:paddingBottom="10dp"
+                android:text="Chart Options:"
+                android:textColor="@color/Rich_Black_FOGRA_39"
+                android:textSize="16dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/historyDates_activity_recyclerView_exercises"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/singleexerciseview"
+                android:padding="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

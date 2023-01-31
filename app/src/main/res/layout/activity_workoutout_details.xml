@@ -63,7 +63,7 @@
 
                     <EditText
                         android:id="@+id/moodValue"
-                        android:layout_width="55dp"
+                        android:layout_width="76dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/Rich_Black_FOGRA_39"
                         android:textSize="20dp"
@@ -86,7 +86,7 @@
 
                     <EditText
                         android:id="@+id/sleepValue"
-                        android:layout_width="55dp"
+                        android:layout_width="76dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/Rich_Black_FOGRA_39"
                         android:textSize="20dp"
@@ -117,7 +117,7 @@
 
                     <EditText
                         android:id="@+id/weightValue"
-                        android:layout_width="55dp"
+                        android:layout_width="76dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/Rich_Black_FOGRA_39"
                         android:textSize="20dp"
@@ -140,12 +140,12 @@
 
                     <EditText
                         android:id="@+id/caloriesValue"
-                        android:layout_width="55dp"
+                        android:layout_width="76dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/Rich_Black_FOGRA_39"
                         android:textSize="20dp"
                         android:gravity="right"
-                        android:text="0"/>
+                        android:text="150000"/>
 
                 </LinearLayout>
 

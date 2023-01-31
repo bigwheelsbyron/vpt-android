@@ -10,7 +10,15 @@
         android:roundIcon="@mipmap/finallaunchericon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreenActivity"></activity>
+        <activity
+            android:name=".layout_historychart_layoutformat"
+            android:exported="false" />
+        <activity
+            android:name=".activity_dataclassification_selection"
+            android:exported="false" />
+
+        <activity android:name=".SplashScreenActivity" />
+
         <activity
             android:name=".workoutoutDetails"
             android:label=" "
@@ -34,7 +42,8 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".workout_activity"
+        <activity
+            android:name=".workout_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,14 +51,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activity_historyDates"
+            android:label=" "
+            android:theme="@style/Theme.AppCompat.Dialog" />
+
         <activity
             android:name=".NotesActivity"
             android:label=" "
             android:theme="@style/Theme.AppCompat.Dialog" />
+
         <activity
             android:name=".CoachMainActivity"
             android:windowSoftInputMode="adjustPan" />
+
         <activity android:name=".CoachFrontPage" />
+
         <activity
             android:name=".requestForm"
             android:label=" "

@@ -273,7 +273,7 @@ public class individual_workout_activity extends Fragment implements ExerciseRec
                 sdf.applyPattern("E MMM dd yyyy");
                 String a = sdf.format(mWorkout.getWorkout_dateFor());
                 intent.putExtra("workout_date",a);
-                intent.putExtra("weight",mWorkout.getWorkout_weight());
+                intent.putExtra("workout_weight",mWorkout.getWorkout_weight());
                 intent.putExtra("workout_sleep",mWorkout.getWorkout_sleep());
                 intent.putExtra("workout_food",mWorkout.getWorkout_food());
                 intent.putExtra("workout_mood",mWorkout.getWorkout_mood());
@@ -320,7 +320,7 @@ public class individual_workout_activity extends Fragment implements ExerciseRec
     }
 
     private void moveToWorkoutFragment(){
-        NavController navController = Navigation.findNavController(getActivity(), R.id.frag);
+        NavController navController = Navigation.findNavController(getActivity(), R.id.mainDetailsFragment);
         navController.navigate(R.id.action_individual_workout_activity_to_workout_Activity_Fragment);
     }
 
