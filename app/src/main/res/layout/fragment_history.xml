@@ -7,88 +7,77 @@
     tools:context=".history">
 
     <LinearLayout
-        android:id="@+id/linearLayout7"
+        android:id="@+id/historyFragment_linearLayout_historyPage"
         android:layout_width="match_parent"
-        android:alpha="1"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:paddingTop="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/historyFragment_textView_historyLabel">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.github.mikephil.charting.charts.CombinedChart
+        <Button
+            android:id="@+id/historyFragment_button_calendarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/historyFragment_calendarViewButton_LABEL"
+            android:layout_gravity="end"
+            android:clickable="false"
+            android:alpha="1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-            android:id="@+id/historyFragment_LineChart_exerciseGraph"
+
+        <LinearLayout
+            android:id="@+id/historyFragment_linearLayout_historyAndManage"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp">
+
+            <TextView
+                android:id="@+id/historyFragment_textView_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/historyFragment_history_LABEL"
+                android:textColor="@color/Rich_Black_FOGRA_39"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/historyFragment_textView_manage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_marginEnd="35dp"
+                android:text="@string/historyFragment_manageChart_LABEL" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/historyFragment_linearLayout_chart"
+            android:layout_width="match_parent"
+            android:alpha="1"
             android:layout_height="match_parent"
-            android:layout_weight=".50"
-            android:background="@drawable/exerciseviewborder">
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="15dp">
 
-        </com.github.mikephil.charting.charts.CombinedChart>
+            <com.github.mikephil.charting.charts.CombinedChart
 
-    </LinearLayout>
+                android:id="@+id/historyFragment_LineChart_exerciseGraph"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/exerciseviewborder">
 
-    <TextView
-        android:id="@+id/historyFragment_textView_historyLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="95dp"
-        android:text="History"
-        android:textColor="@color/Rich_Black_FOGRA_39"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            </com.github.mikephil.charting.charts.CombinedChart>
 
-    <LinearLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:paddingTop="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="15dp"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/historyFragment_textView_historyLabel">
+        </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
 
     </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/historyFragment_textView_dateRangeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:text="Manage Chart"
-        app:layout_constraintBottom_toBottomOf="@+id/historyFragment_textView_historyLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/historyFragment_textView_historyLabel" />
 
-    <Button
-        android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calendar View"
-        android:alpha="0"
-        app:layout_constraintBottom_toTopOf="@+id/historyFragment_textView_dateRangeLabel"
-        app:layout_constraintEnd_toEndOf="@+id/historyFragment_textView_dateRangeLabel"
-        app:layout_constraintStart_toStartOf="@+id/historyFragment_textView_dateRangeLabel"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

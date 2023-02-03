@@ -24,24 +24,14 @@
             android:label=" "
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name=".userstats"
-            android:label="@string/title_activity_userstats"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".settingsActivity"
-            android:label="@string/title_activity_settings"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".templateActivity"
             android:label=" "
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
             android:name=".sign_up"
-            android:label="@string/title_activity_sign_up"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:name=".ui.login.LoginActivity"/>
         <activity
             android:name=".workout_activity"
             android:exported="true">
@@ -61,12 +51,6 @@
             android:name=".NotesActivity"
             android:label=" "
             android:theme="@style/Theme.AppCompat.Dialog" />
-
-        <activity
-            android:name=".CoachMainActivity"
-            android:windowSoftInputMode="adjustPan" />
-
-        <activity android:name=".CoachFrontPage" />
 
         <activity
             android:name=".requestForm"

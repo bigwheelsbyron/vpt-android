@@ -9,6 +9,7 @@
     android:id="@+id/signUpActivity_container">
 
     <LinearLayout
+        android:id="@+id/signUpActivity_linearLayout_VPTSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,48 +20,48 @@
         app:layout_constraintVertical_bias="0.00">
 
         <TextView
-            android:id="@+id/textViewVPTSignLoginV"
+            android:id="@+id/signUpActivity_textView_VPTSignV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/roboto"
-            android:text="V"
+            android:text="@string/vptSign_v"
             android:textColor="@color/baby_blue"
-            android:textSize="85dp" />
+            android:textSize="85sp" />
 
         <TextView
-            android:id="@+id/textViewVPTSignLoginP"
+            android:id="@+id/signUpActivity_textView_VPTSignP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-15dp"
+            android:layout_marginStart="-15dp"
             android:layout_weight="1"
             android:fontFamily="@font/roboto"
-            android:text="P"
+            android:text="@string/vptSign_P"
             android:textColor="@color/baby_blue"
-            android:textSize="85dp" />
+            android:textSize="85sp" />
 
         <TextView
-            android:id="@+id/textViewVPTSignLoginT"
+            android:id="@+id/signUpActivity_textView_VPTSignT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-32dp"
             android:layout_weight="1"
             android:fontFamily="@font/roboto"
-            android:text="T"
+            android:text="@string/vptSign_T"
             android:textColor="@color/baby_blue"
             android:textSize="85dp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearlayout_signup"
+        android:id="@+id/signUpActivity_linearLayout_signUpDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="158dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="158dp"
-        android:alpha="1"
+        android:alpha="0"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,60 +69,60 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView_signup"
+            android:id="@+id/signUpActivity_textView_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Sign Up"
+            android:text="@string/signUpActivity_signUp_LABEL"
             android:textColor="#000000"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/textView_email"
+            android:id="@+id/signUpActivity_textView_email"
             android:layout_width="match_parent"
             android:layout_marginTop="8dp"
             android:textColor="#3E3E3E"
             android:layout_height="wrap_content"
-            android:text="Email" />
+            android:text="@string/signUpActivity_email_LABEL" />
 
         <EditText
-            android:id="@+id/editText_email"
+            android:id="@+id/signUpActivity_editText_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:layout_marginBottom="8dp"
-            android:hint="Email address"
-            android:inputType="textPersonName" />
+            android:hint="@string/signUpActivity_emailAddressHint_LABEL"
+            android:inputType="textEmailAddress" />
 
         <TextView
-            android:id="@+id/textView_password"
+            android:id="@+id/signUpActivity_textView_password"
             android:layout_width="match_parent"
             android:textColor="#3E3E3E"
             android:layout_height="wrap_content"
-            android:text="Password" />
+            android:text="@string/signUpActivity_password_label" />
 
         <EditText
-            android:id="@+id/editText_password"
+            android:id="@+id/signUpActivity_editText_password"
             android:layout_width="match_parent"
             android:layout_marginBottom="8dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Password"
-            android:inputType="textPersonName" />
+            android:hint="@string/signUpActivity_passwordHint_LABEL"
+            android:inputType="textPassword" />
 
         <TextView
-            android:id="@+id/textView_firstname"
+            android:id="@+id/signUpActivity_textView_firstname"
             android:layout_width="match_parent"
             android:textColor="#3E3E3E"
             android:layout_height="wrap_content"
-            android:text="First Name" />
+            android:text="@string/signUpActivity_firstName_LABEL" />
 
         <EditText
             android:id="@+id/editText_firstname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="First Name"
+            android:hint="@string/signUpActivity_firstNameHint_LABEL"
             android:inputType="textPersonName" />
 
         <TextView
@@ -129,62 +130,66 @@
             android:layout_width="match_parent"
             android:textColor="#3E3E3E"
             android:layout_height="wrap_content"
-            android:text="Last Name" />
+            android:text="@string/signUpActivity_lastName_LABEL" />
 
         <EditText
             android:id="@+id/editText_lastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Last Name"
+            android:hint="@string/signUpActivity_lastNameHint_LABEL"
             android:inputType="textPersonName" />
 
         <LinearLayout
+            android:id="@+id/signUpActivity_linearLayout_TOCS"
             android:layout_width="match_parent"
             android:layout_marginBottom="8dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView_agree"
+                android:id="@+id/signUpActivity_textView_agree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="#3E3E3E"
-                android:gravity="right"
-                android:text="I agree to the" />
+                android:gravity="end"
+                android:text="@string/signUpActivity_iAgreeToThe_LABEL" />
 
             <TextView
-                android:id="@+id/textView_toc"
+                android:id="@+id/signUpActivity_textView_toc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:text=" the terms and conditions."
-                android:textColor="@color/Blue_Crayola" />
+                android:text="@string/signUpActivity_theTermsAndConditions_LABEL"
+                android:textColor="@color/Blue_Crayola"
+                android:focusable="true" />
 
             <CheckBox
                 android:id="@+id/checkBox_toc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="I agree" />
+                android:text="@string/signUpActivity_iAgreeCheckBox_LABEL" />
+
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/signUpActivity_linearLayout_cancelSignUp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button_cancel"
+                android:id="@+id/signUpActivity_button_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/button"
-                android:text="Cancel" />
+                android:text="@string/signUpActivity_cancelButton_LABEL" />
 
             <Button
                 android:id="@+id/button_agree"
@@ -195,7 +200,7 @@
                 android:layout_weight="1"
                 android:enabled="false"
                 android:layout_marginBottom="5dp"
-                android:text="Sign Up"
+                android:text="@string/signUpActivity_signUpButton_LABEL"
                 android:background="@drawable/button"
                 android:textColor="@color/grayedout" />
         </LinearLayout>
@@ -203,14 +208,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearlayout_toc"
+        android:id="@+id/signUpActivity_linearlayout_toc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
         android:layout_marginTop="167dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="167dp"
-        android:alpha="0"
+        android:alpha="1"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -222,10 +227,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="User Agreement"
+            android:text="@string/signUpActivity_userAgreement"
             android:textColor="#000000"
             android:textSize="20sp" />
-
 
         <ScrollView
             android:layout_width="match_parent"
@@ -234,47 +238,47 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView_opening"
+                    android:id="@+id/signUpActivity_textView_openingText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocsOpening_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp"/>
 
                 <TextView
-                    android:id="@+id/textView_ChangesTextView"
+                    android:id="@+id/signUpActivity_textView_changesTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Changes to the Agreement"
+                    android:text="@string/signUpActivity_changesTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_changesText"
+                    android:id="@+id/signUpActivity_textView_changesText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocs_PLACEHOLDER"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp"/>
 
                 <TextView
-                    android:id="@+id/textView_ThirdPartyText"
+                    android:id="@+id/signUpActivity_textView_ThirdPartyTitle"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/Rich_Black_FOGRA_39"
@@ -283,290 +287,291 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Third Party Agreements" />
+                    android:text="@string/signUpActivity_thirdPartyTitle_LABEL" />
 
                 <TextView
-                    android:id="@+id/textView_thirdparty"
+                    android:id="@+id/signUpActivity_textView_thirdPartyText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocs_PLACEHOLDER"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp"/>
 
                 <TextView
-                    android:id="@+id/textView_entireagreement"
+                    android:id="@+id/signUpActivity_textView_entireAgreementTitle"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Entire Agreement"
+                    android:text="@string/signUpActivity_entireAgreementTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_entireagreementtext"
+                    android:id="@+id/signUpActivity_textView_entireAgreementText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocs_PLACEHOLDER"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp"/>
 
                 <TextView
-                    android:id="@+id/textView_offer"
+                    android:id="@+id/signUpActivity_textView_offerTitle"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Offer and Acceptance"
+                    android:text="@string/signUpActivity_offerAndAcceptanceTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_tocoffertext"
+                    android:id="@+id/signUpActivity_textView_offerText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocs_PLACEHOLDER"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp"/>
 
                 <TextView
-                    android:id="@+id/textView_toctermination"
+                    android:id="@+id/signUpActivity_textView_terminationTitle"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Account Termination"
+                    android:text="@string/signUpActivity_terminationTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_tocterminationtext"
+                    android:id="@+id/signUpActivity_textView_terminationText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocs_PLACEHOLDER"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp"/>
 
                 <TextView
-                    android:id="@+id/textView_banning"
+                    android:id="@+id/signUpActivity_textView_banningTitle"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Temporary and Permanent Banning"
+                    android:text="@string/signUpActivity_banningTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_banningtext"
+                    android:id="@+id/signUpActivity_textView_banningText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocs_PLACEHOLDER"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
+
                 <TextView
-                    android:id="@+id/textView_data"
+                    android:id="@+id/signUpActivity_textView_dataTitle"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Data"
+                    android:text="@string/signUpActivity_dataTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_dattext"
+                    android:id="@+id/signUpActivity_textView_dataText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocs_PLACEHOLDER"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp"/>
 
                 <TextView
-                    android:id="@+id/textView_cost"
+                    android:id="@+id/signUpActivity_textView_costTitle"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Cost"
+                    android:text="@string/signUpActivity_costTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp"/>
 
                 <TextView
-                    android:id="@+id/textView_costtext"
+                    android:id="@+id/signUpActivity_textView_costText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocs_PLACEHOLDER"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_commercial"
+                    android:id="@+id/signUpActivity_textView_commercialTitle"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Commercial Use"
+                    android:text="@string/signUpActivity_commercialTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_commercialtext"
+                    android:id="@+id/signUpActivity_textView_commercialText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocs_PLACEHOLDER"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
                 <TextView
-                    android:id="@+id/textView_warranty"
+                    android:id="@+id/signUpActivity_textView_warrantyTitle"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Warranty"
+                    android:text="@string/signUpActivity_warrantyTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_warrantytext"
+                    android:id="@+id/signUpActivity_textView_warrantyText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocs_PLACEHOLDER"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_acl"
+                    android:id="@+id/signUpActivity_textView_aclTitle"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Australian Consumer Law"
+                    android:text="@string/signUpActivity_aclTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_acltext"
+                    android:id="@+id/signUpActivity_textView_aclText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocs_PLACEHOLDER"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp"/>
 
                 <TextView
-                    android:id="@+id/textView_ip"
+                    android:id="@+id/signUpActivity_textView_ipTitle"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Intellectual Property Rights"
+                    android:text="@string/signUpActivity_ipTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/iptext"
+                    android:id="@+id/signUpActivity_textView_ipText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocs_PLACEHOLDER"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp"/>
 
                 <TextView
-                    android:id="@+id/textView_ugl"
+                    android:id="@+id/signUpActivity_textView_uglTitle"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="User Guidelines"
+                    android:text="@string/signUpActivity_uglTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp"/>
 
                 <TextView
-                    android:id="@+id/ugltext"
+                    android:id="@+id/signUpActivity_textView_uglText"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Placeholder text"
+                    android:text="@string/signUpActivity_tocs_PLACEHOLDER"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
                 />
 
                 <Button
-                    android:id="@+id/button_okayTOC"
+                    android:id="@+id/signUpActivity_button_okayTOC"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button"
                     android:layout_margin="5dp"
-                    android:text="Okay" />
+                    android:text="@string/signUpActivity_okayButton_LABEL" />
 
             </LinearLayout>
 
@@ -575,7 +580,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/signUpScreenSubtractTop"
+        android:id="@+id/signUpActivity_imageView_SubtractTop"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="9dp"
@@ -583,7 +588,7 @@
         android:cropToPadding="false"
         android:rotation="180"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/signUpScreenSubtractBottom"
+        app:layout_constraintBottom_toTopOf="@+id/signUpActivity_imageView_ScreenSubtractBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -591,7 +596,7 @@
         app:srcCompat="@drawable/backgroundsubtract" />
 
     <ImageView
-        android:id="@+id/signUpScreenSubtractBottom"
+        android:id="@+id/signUpActivity_imageView_ScreenSubtractBottom"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:adjustViewBounds="true"
@@ -602,7 +607,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/subtractshape" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

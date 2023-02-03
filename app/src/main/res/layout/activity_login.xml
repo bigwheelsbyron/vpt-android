@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/roboto"
-            android:text="V"
+            android:text="@string/vptSign_v"
             android:textColor="@color/baby_blue"
             android:textSize="85dp" />
 
@@ -66,7 +66,7 @@
             android:layout_marginLeft="-15dp"
             android:layout_weight="1"
             android:fontFamily="@font/roboto"
-            android:text="P"
+            android:text="@string/vptSign_P"
             android:textColor="@color/baby_blue"
             android:textSize="85dp" />
 
@@ -77,7 +77,7 @@
             android:layout_marginLeft="-32dp"
             android:layout_weight="1"
             android:fontFamily="@font/roboto"
-            android:text="T"
+            android:text="@string/vptSign_T"
             android:textColor="@color/baby_blue"
             android:textSize="85dp" />
 
@@ -88,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="31dp"
         android:fontFamily="@font/roboto"
-        android:text="@string/text_loginSignUp"
+        android:text="@string/loginActivity_loginOrSignUp_LABEL"
         android:textColor="@color/Rich_Black_FOGRA_39"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/loginActivity_linearLayout_loginDetails"
@@ -122,7 +122,7 @@
             android:layout_marginEnd="20dp"
             android:alpha=".7"
             android:fontFamily="@font/roboto"
-            android:hint="@string/prompt_email"
+            android:hint="@string/loginActivity_emailHint_LABEL"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -141,8 +141,7 @@
             android:layout_marginEnd="20dp"
             android:alpha=".7"
             android:fontFamily="@font/roboto"
-            android:hint="@string/prompt_password"
-            android:imeActionLabel="@string/action_sign_in_short"
+            android:hint="@string/loginActivity_passwordHint_LABEL"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:selectAllOnFocus="true"
@@ -164,7 +163,7 @@
             android:background="@drawable/button"
             android:enabled="true"
             android:fontFamily="@font/roboto"
-            android:text="@string/action_sign_in"
+            android:text="@string/loginActivity_signIn_BUTTONLABEL"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -181,7 +180,7 @@
             android:layout_marginBottom="5dp"
             android:background="@drawable/button"
             android:fontFamily="@font/roboto"
-            android:text="@string/action_sign_up" />
+            android:text="@string/loginActivity_signUp_BUTTONLABEL" />
 
         <TextView
             android:id="@+id/loginActivity_button_forgotPassword"
@@ -192,7 +191,7 @@
             android:clickable="true"
             android:gravity="center_horizontal"
             android:fontFamily="@font/roboto"
-            android:text="@string/action_forgot_password"
+            android:text="@string/loginActivity_forgotPassword_BUTTONLABEL"
             android:textColor="@color/Rich_Black_FOGRA_39"
             android:textSize="16dp" />
 

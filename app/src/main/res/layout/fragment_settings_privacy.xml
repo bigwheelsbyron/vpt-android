@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".settings_privacy">
+
+    <LinearLayout
+        android:id="@+id/settingsFragment_linearLayout_privacy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="200dp"
+        android:alpha="0"
+        android:background="@drawable/exerciseviewborder"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tex123tView123"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Privacy"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView123_opening"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:justificationMode="inter_word"
+                    android:padding="5dp"
+                    android:scrollbars="vertical"
+                    android:text="The data provided by users for account creation, such as email addresses, Apple, or Google accounts, is not used by VPT for any purposes other than account verifaction. VPT uses Google to authenticate all account information and does not have access to passwords. VPT does not give away or sell your information in any shape or form. User provided information is purely for the use of the users, this includes workouts and any personal information given.
+VPT is a tool provided for the benefit of the users and is not monetised in any way. The user's data is not utilised for any purpose other than lets trainers and athletes track their workouts. Data is owned by VPT however will never be given to any third parties, with the exception of Apple and Google for the purposes of account verification, data storage and data use."
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

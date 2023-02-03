@@ -78,7 +78,6 @@ public class Coach_Workout_Activity_fragment extends Fragment implements newWork
     private Button commitExerciseButton;
     private Button saveTemplateButton;
     private TextView dateTextView;
-    private TextView killTextView;
     private Spinner athleteIDSpinner;
     private Button backButton;
 
@@ -131,7 +130,6 @@ public class Coach_Workout_Activity_fragment extends Fragment implements newWork
         athleteIDSpinner=view.findViewById(R.id.spinnerAthlete);
         dateTextView=view.findViewById(R.id.dateTextView);
         backButton=view.findViewById(R.id.button_coach_workout_fragment);
-        killTextView=view.findViewById(R.id.editText_kill);
         findAthletes();
         getTemplateSpinnerInfo();
         setListeners();

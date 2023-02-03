@@ -33,7 +33,7 @@ public class NotesActivity extends AppCompatActivity implements View.OnTouchList
 
     private static final String TAG = "NotesActivity";
 
-    private EditText mEditText;
+    private EditText mNoteEditText;
     private EditText mRepsEditText;
     private EditText mWeightEditText;
     private EditText mRPEEditText;
@@ -50,16 +50,14 @@ public class NotesActivity extends AppCompatActivity implements View.OnTouchList
 
     private AutoCompleteTextView mExerciseNameEditText;
 
-
-    private TextView mWeightOrRpe;
-    private String username = "Byron";
-    private String workoutVariable = "WxnB4sEqJVrHDLZF0S9x";
-    private String exerciseID = "IE78anCsFfCRsLpAljyC";
-    private String [] exerciseNameSuggestions;
+    private String mUsername = "Byron";
+    private String mWorkoutVariable = "WxnB4sEqJVrHDLZF0S9x";
+    private String mExerciseID = "IE78anCsFfCRsLpAljyC";
+    private String [] mExerciseNameSuggestions;
 
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private DocumentReference exerciseRef = db.collection("users").document(username).collection("workouts").document(workoutVariable).collection("exercises").document(exerciseID);
+    private DocumentReference exerciseRef = db.collection("users").document(mUsername).collection("workouts").document(mWorkoutVariable).collection("exercises").document(mExerciseID);
 
 
     
@@ -78,40 +76,39 @@ public class NotesActivity extends AppCompatActivity implements View.OnTouchList
     }
 
     private void addNameSuggestions(){
-        exerciseNameSuggestions = new String[]{
+        mExerciseNameSuggestions = new String[]{
                 "Front Squat","Bench","Deadlift","Bent Over Rows","Pull Ups"
         };
-        ArrayAdapter<String> adapater = new ArrayAdapter<String>(this, R.layout.spinner_item,exerciseNameSuggestions);
+        ArrayAdapter<String> adapater = new ArrayAdapter<String>(this, R.layout.spinner_item,mExerciseNameSuggestions);
         mExerciseNameEditText.setAdapter(adapater);
     }
 
     private void updateVariables() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        username = user.getUid();
-        workoutVariable = mInitialExercise.getExercise_id();
-        exerciseID = mInitialExercise.getExercise_id();
-        exerciseRef = db.collection("users").document(username).collection("workouts").document(workoutVariable).collection("exercises").document(exerciseID);
+        mUsername = user.getUid();
+        mWorkoutVariable = mInitialExercise.getExercise_id();
+        mExerciseID = mInitialExercise.getExercise_id();
+        exerciseRef = db.collection("users").document(mUsername).collection("workouts").document(mWorkoutVariable).collection("exercises").document(mExerciseID);
     }
 
     private void setIds(){
-        mEditText=findViewById(R.id.ExerciseNote);
-        mBackArrow=findViewById(R.id.toolbar_back_arrow);
-        mCommitNotes=findViewById(R.id.ButtonCommitNotes);
-        mRepsEditText=findViewById(R.id.repsEditText);
-        mWeightEditText=findViewById(R.id.weightEditText);
-        mWeightOrRpe=findViewById(R.id.kgorrpetextView);
-        mExerciseNameEditText=findViewById(R.id.editTextNewExerciseName);
-        mCameraButton=findViewById(R.id.activity_notes_button_camera);
-        mNotesShowHideButton=findViewById(R.id.activity_notes_button_noteshow);
-        mDifficultyEditText=findViewById(R.id.difficultyEditText);
-        mRPEEditText=findViewById(R.id.rpeEditText);
+        mNoteEditText=findViewById(R.id.notesActivity_editText_exerciseNote);
+        mBackArrow=findViewById(R.id.notesActivity_imageButton_backArrow);
+        mCommitNotes=findViewById(R.id.notesActivity_button_update);
+        mRepsEditText=findViewById(R.id.notesActivity_editText_exerciseReps);
+        mWeightEditText=findViewById(R.id.notesActivity_editText_exerciseWeight);
+        mExerciseNameEditText=findViewById(R.id.notesActivity_autoCompleteTextView_exerciseName);
+        mCameraButton=findViewById(R.id.notesActivity_button_camera);
+        mNotesShowHideButton=findViewById(R.id.notesActivity_button_exerciseNotesShow);
+        mDifficultyEditText=findViewById(R.id.notesActivity_editText_exerciseDifficulty);
+        mRPEEditText=findViewById(R.id.notesActivity_editText_exerciseRPE);
     }
     
     private void setExerciseProperties(Exercise exercise){
         if (exercise.getExercise_note()==null){
 
         } else {
-            mEditText.setText(exercise.getExercise_note());
+            mNoteEditText.setText(exercise.getExercise_note());
         }
         mRepsEditText.setText(""+exercise.getExercise_reps());
         mExerciseNameEditText.setText(exercise.getExercise_name());
@@ -180,7 +177,7 @@ public class NotesActivity extends AppCompatActivity implements View.OnTouchList
     };
 
     private void setListeners(){
-        mEditText.setOnTouchListener(this);
+        mNoteEditText.setOnTouchListener(this);
         mGestureDectector = new GestureDetector(this,this);
         mBackArrow.setOnClickListener(this);
         mCommitNotes.setOnClickListener(this);
@@ -189,7 +186,7 @@ public class NotesActivity extends AppCompatActivity implements View.OnTouchList
     }
     private void updateExercise(){
         mInitialExercise.setExercise_reps(Integer.parseInt(String.valueOf(mRepsEditText.getText())));
-        mInitialExercise.setExercise_note(String.valueOf(mEditText.getText()));
+        mInitialExercise.setExercise_note(String.valueOf(mNoteEditText.getText()));
         mInitialExercise.setExercise_weight(Float.parseFloat(String.valueOf(mWeightEditText.getText())));
         mInitialExercise.setExercise_name(String.valueOf(mExerciseNameEditText.getText()));
         individual_workout_activity.updateMainActivityFragmentExercise(mInitialExercise);
@@ -202,25 +199,25 @@ public class NotesActivity extends AppCompatActivity implements View.OnTouchList
                 finish();
                 break;
             }
-            case R.id.ButtonCommitNotes:{
+            case R.id.notesActivity_button_update:{
                 updateExercise();
                 finish();
                 break;
             }
-            case R.id.activity_notes_button_camera:{
+            case R.id.notesActivity_button_camera:{
                 Log.d(TAG, "onClick: camera button");
                 break;
             }
-            case R.id.activity_notes_button_noteshow:{
+            case R.id.notesActivity_button_exerciseNotesShow:{
                 Log.d(TAG, "onClick: notes show or hide button");
-                ViewGroup.LayoutParams params = mEditText.getLayoutParams();
+                ViewGroup.LayoutParams params = mNoteEditText.getLayoutParams();
                 if (params.height == 0){
-                    ViewGroup.LayoutParams params1 = mEditText.getLayoutParams();
+                    ViewGroup.LayoutParams params1 = mNoteEditText.getLayoutParams();
                     params1.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                    mEditText.setLayoutParams(params1);
+                    mNoteEditText.setLayoutParams(params1);
                 } else {
                     params.height=0;
-                    mEditText.setLayoutParams(params);
+                    mNoteEditText.setLayoutParams(params);
                 }
                 break;
             }

@@ -77,15 +77,15 @@ public class templateActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.overrideButton: {
+            case R.id.templateActivity_button_overrideTemplate: {
                 overrideFunction();
                 break;
             }
-            case R.id.saveAsNewButton: {
+            case R.id.templateActivity_button_newTemplate: {
                 saveFunction();
                 break;
             }
-            case R.id.openTemplateButton: {
+            case R.id.templateActivity_button_openTemplate: {
                 ColorStateList colorStateListB = ColorStateList.valueOf(Color.BLACK);
                 ViewCompat.setBackgroundTintList(mTemplatesSpinner,colorStateListB);
                 if (mTemplatesSpinner.getSelectedItemPosition() == 0) {
@@ -100,7 +100,7 @@ public class templateActivity extends AppCompatActivity implements View.OnClickL
                 }
                 break;
             }
-            case R.id.dismissButton: {
+            case R.id.templateActivity_button_dismiss: {
                 finish();
                 break;
             }
@@ -150,12 +150,12 @@ public class templateActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void setIds() {
-        mTemplatesSpinner=findViewById(R.id.templateSpinnerChooser);
-        mOverrideButton=findViewById(R.id.overrideButton);
-        mSaveNewButton=findViewById(R.id.saveAsNewButton);
-        mOpenTemplateButton=findViewById(R.id.openTemplateButton);
-        cancelButton=findViewById(R.id.dismissButton);
-        templateNameEditText=findViewById(R.id.editTextTextPersonName);
+        mTemplatesSpinner=findViewById(R.id.templateActivity_spinner_existingTemplate);
+        mOverrideButton=findViewById(R.id.templateActivity_button_overrideTemplate);
+        mSaveNewButton=findViewById(R.id.templateActivity_button_newTemplate);
+        mOpenTemplateButton=findViewById(R.id.templateActivity_button_openTemplate);
+        cancelButton=findViewById(R.id.templateActivity_button_dismiss);
+        templateNameEditText=findViewById(R.id.templateActivity_editText_templateName);
     }
 
     private void getIncomingIntent(){

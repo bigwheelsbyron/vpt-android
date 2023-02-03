@@ -44,11 +44,6 @@ import zxc.studio.vpt.ui.login.LoginActivity;
 import zxc.studio.vpt.utilities.DateFunctions;
 import zxc.studio.vpt.utilities.ItemDeco;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Workout_Activity_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Workout_Activity_Fragment extends Fragment implements WorkoutRecyclerAdapter.OnNoteListenerWorkout, View.OnClickListener {
 
     private static final String TAG = "workout_activity_fragt";

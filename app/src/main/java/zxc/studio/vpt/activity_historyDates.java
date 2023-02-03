@@ -120,24 +120,24 @@ public class activity_historyDates extends AppCompatActivity implements View.OnC
     }
 
     private void setIDS(){
-        startDateTextView = findViewById(R.id.historyDates_activity_TextView_pickStart);
-        endDateTextView = findViewById(R.id.historyDates_activity_TextView_pickEnd);
-        periodOptionsTextView = findViewById(R.id.historyDates_activity_TextView_periodOptions);
-        periodOptionsLinearLayout = findViewById(R.id.historyDates_activity_LinearLayout_periodOptionsExpandable);
-        periodOptionLastMonth = findViewById(R.id.historyDates_activity_TextView_periodOptionsLastMonth);
-        periodoptionLastTwoMonths = findViewById(R.id.historyDates_activity_TextView_periodOptionsLastTwoMonth);
-        periodOptionLastQuarter = findViewById(R.id.historyDates_activity_TextView_periodOptionsLastQuarter);
-        periodOptionLastHalfYear = findViewById(R.id.historyDates_activity_TextView_periodOptionsLastHalfYear);
-        periodOptionLastYear = findViewById(R.id.historyDates_activity_TextView_periodOptionsLastYear);
-        periodOptionAll = findViewById(R.id.historyDates_activity_TextView_periodOptionsAll);
-        frequencyOptionsTextView = findViewById(R.id.historyDates_activity_TextView_frequencyOptions);
-        frequencyOptionsLinearLayout = findViewById(R.id.historyDates_activity_LinearLayout_frequencyOptionsExpandable);
-        frequencyOptionDaily = findViewById(R.id.historyDates_activity_TextView_frequencyOptionsDaily);
-        frequencyOptionWeekly = findViewById(R.id.historyDates_activity_TextView_frequencyOptionsWeekly);
-        frequencyOptionFortnightly = findViewById(R.id.historyDates_activity_TextView_frequencyOptionsFortnightly);
-        frequencyOptionMonthly = findViewById(R.id.historyDates_activity_TextView_frequencyOptionsMonthly);
-        frequencyOptionQuarterly = findViewById(R.id.historyDates_activity_TextView_frequencyOptionsQuarterly);
-        exerciseOptionsRecyclerView = findViewById(R.id.historyDates_activity_recyclerView_exercises);
+        startDateTextView = findViewById(R.id.historyDatesActivity_TextView_pickStart);
+        endDateTextView = findViewById(R.id.historyDatesActivity_TextView_pickEnd);
+        periodOptionsTextView = findViewById(R.id.historyDatesActivity_TextView_periodOptions);
+        periodOptionsLinearLayout = findViewById(R.id.historyDatesActivity_LinearLayout_periodOptionsExpandable);
+        periodOptionLastMonth = findViewById(R.id.historyDatesActivity_TextView_periodOptionsLastMonth);
+        periodoptionLastTwoMonths = findViewById(R.id.historyDatesActivity_TextView_periodOptionsLastTwoMonth);
+        periodOptionLastQuarter = findViewById(R.id.historyDatesActivity_TextView_periodOptionsLastQuarter);
+        periodOptionLastHalfYear = findViewById(R.id.historyDatesActivity_TextView_periodOptionsLastHalfYear);
+        periodOptionLastYear = findViewById(R.id.historyDatesActivity_TextView_periodOptionsLastYear);
+        periodOptionAll = findViewById(R.id.historyDatesActivity_TextView_periodOptionsAll);
+        frequencyOptionsTextView = findViewById(R.id.historyDatesActivity_TextView_frequencyOptions);
+        frequencyOptionsLinearLayout = findViewById(R.id.historyDatesActivity_LinearLayout_frequencyOptionsExpandable);
+        frequencyOptionDaily = findViewById(R.id.historyDatesActivity_TextView_frequencyOptionsDaily);
+        frequencyOptionWeekly = findViewById(R.id.historyDatesActivity_TextView_frequencyOptionsWeekly);
+        frequencyOptionFortnightly = findViewById(R.id.historyDatesActivity_TextView_frequencyOptionsFortnightly);
+        frequencyOptionMonthly = findViewById(R.id.historyDatesActivity_TextView_frequencyOptionsMonthly);
+        frequencyOptionQuarterly = findViewById(R.id.historyDatesActivity_TextView_frequencyOptionsQuarterly);
+        exerciseOptionsRecyclerView = findViewById(R.id.historyDatesActivity_recyclerView_exercises);
     }
 
     private void setRecyclerView(){
@@ -153,63 +153,63 @@ public class activity_historyDates extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
-            case R.id.historyDates_activity_TextView_pickStart: {
+            case R.id.historyDatesActivity_TextView_pickStart: {
                 pickANewStartDate();
                 break;
             }
-            case R.id.historyDates_activity_TextView_pickEnd: {
+            case R.id.historyDatesActivity_TextView_pickEnd: {
                 pickANewEndDate();
                 break;
             }
-            case R.id.historyDates_activity_TextView_periodOptions: {
+            case R.id.historyDatesActivity_TextView_periodOptions: {
                 showPeriodOptions();
                 break;
             }
-            case R.id.historyDates_activity_TextView_periodOptionsLastMonth: {
+            case R.id.historyDatesActivity_TextView_periodOptionsLastMonth: {
                 periodOptionsLastMonth();
                 break;
             }
-            case R.id.historyDates_activity_TextView_periodOptionsLastTwoMonth: {
+            case R.id.historyDatesActivity_TextView_periodOptionsLastTwoMonth: {
                 periodOptionsLastTwoMonth();
                 break;
             }
-            case R.id.historyDates_activity_TextView_periodOptionsLastQuarter: {
+            case R.id.historyDatesActivity_TextView_periodOptionsLastQuarter: {
                 periodOptionsLastQuarter();
                 break;
             }
-            case R.id.historyDates_activity_TextView_periodOptionsLastHalfYear: {
+            case R.id.historyDatesActivity_TextView_periodOptionsLastHalfYear: {
                 periodOptionsLastHalfYear();
                 break;
             }
-            case R.id.historyDates_activity_TextView_periodOptionsLastYear: {
+            case R.id.historyDatesActivity_TextView_periodOptionsLastYear: {
                 periodOptionsLastYear();
                 break;
             }
-            case R.id.historyDates_activity_TextView_periodOptionsAll: {
+            case R.id.historyDatesActivity_TextView_periodOptionsAll: {
                 periodOptionsAll();
                 break;
             }
-            case R.id.historyDates_activity_TextView_frequencyOptions: {
+            case R.id.historyDatesActivity_TextView_frequencyOptions: {
                 showFrequencyOptions();
                 break;
             }
-            case R.id.historyDates_activity_TextView_frequencyOptionsDaily: {
+            case R.id.historyDatesActivity_TextView_frequencyOptionsDaily: {
                 frequencyOptionsDaily();
                 break;
             }
-            case R.id.historyDates_activity_TextView_frequencyOptionsWeekly: {
+            case R.id.historyDatesActivity_TextView_frequencyOptionsWeekly: {
                 frequencyOptionsWeekly();
                 break;
             }
-            case R.id.historyDates_activity_TextView_frequencyOptionsFortnightly: {
+            case R.id.historyDatesActivity_TextView_frequencyOptionsFortnightly: {
                 frequencyOptionsFortnightly();
                 break;
             }
-            case R.id.historyDates_activity_TextView_frequencyOptionsMonthly: {
+            case R.id.historyDatesActivity_TextView_frequencyOptionsMonthly: {
                 frequencyOptionsMonthly();
                 break;
             }
-            case R.id.historyDates_activity_TextView_frequencyOptionsQuarterly: {
+            case R.id.historyDatesActivity_TextView_frequencyOptionsQuarterly: {
                 frequencyOptionsQuarterly();
                 break;
             }

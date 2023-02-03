@@ -6,10 +6,10 @@
     android:layout_width="350dp"
     android:layout_height="210dp"
     android:background="@drawable/singleexerciseview"
-    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-    tools:context="zxc.studio.vpt.CoachFrontPage">
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
     <LinearLayout
+        android:id="@+id/requestFormActivity_linearLayout_requestDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -23,67 +23,69 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Spinner
-            android:id="@+id/spinnerCoachAthleteRequest"
+            android:id="@+id/requestFormActivity_spinner_coachAthleteRequest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Placeholder" />
+            android:text="@string/requestFormActivity_spinner_PLACEHOLDER" />
 
         <LinearLayout
+            android:id="@+id/requestFormActivity_linearLayout_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/requestFormActivity_linearLayout_receiverDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/editTextCoachNameRequestForm"
+                    android:id="@+id/requestFormActivity_editText_userEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="User's Email"
-                    android:inputType="textPersonName" />
+                    android:hint="@string/requestFormActivity_usersEmailHint_LABEL"
+                    android:inputType="textEmailAddress" />
 
                 <EditText
-                    android:id="@+id/editviewCoachFirstname"
+                    android:id="@+id/requestFormActivity_editText_userFirstname"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="User's First Name"
+                    android:hint="@string/requestFormActivity_usersFirstNameHint_LABEL"
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editTextCoachLastName"
+                    android:id="@+id/requestFormActivity_editText_userLastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="User's Last Name"
+                    android:hint="@string/requestFormActivity_usersLastNameHint_LABEL"
                     android:inputType="textPersonName" />
 
             </LinearLayout>
 
             <Button
-                android:id="@+id/buttonRequestFormRequest"
-                android:layout_width="wrap_content"
+                android:id="@+id/requestFormActivity_button_requestFormRequest"
+                android:layout_width="0dp"
                 android:background="@drawable/button"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:rotationY="0"
                 android:layout_margin="5dp"
-                android:text="Request" />
+                android:text="@string/requestFormActivity_requestButton_LABEL" />
 
         </LinearLayout>
 
         <TextView
-            android:id="@+id/errorMessageTextView"
+            android:id="@+id/requestFormActivity_textView_errorMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:alpha="0"
             android:gravity="center"
-            android:text="No Such User Exists"
+            android:text="@string/requestFormActivity_noUser_LABEL"
             android:textColor="#FF0000" />
 
     </LinearLayout>

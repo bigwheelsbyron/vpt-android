@@ -1,0 +1,1163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pallette">
+
+    <LinearLayout
+        android:id="@+id/settingsFragment_linearLayout_userPalette"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="200dp"
+        android:alpha="1"
+        android:background="@drawable/exerciseviewborder"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/settingsFragment_textView_paletteTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="@string/settingsFragment_palette_LABEL"
+            android:textColor="#000000"
+            android:textSize="20sp"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/settingsFragment_textView_presetPalletes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/settingsFragment_presetColourSchemes_label"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:background="@drawable/exerciseviewborder"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="@string/settingsFragment_presetPalletsLeftButton_LABEL"
+                        android:id="@+id/settingsFragment_button_presetLeft"
+                        android:layout_marginEnd="10dp"
+                        android:layout_width="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:text="@string/settingsFragment_presetPalletsPlaceholder_LABEL"
+                        android:id="@+id/presetName"
+                        android:textSize="16sp"
+                        android:layout_width="100dp"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:text="@string/settingsFragment_presetPalletsRightButton_LABEL"
+                        android:id="@+id/settingsFragment_button_presetRight"
+                        android:textSize="12sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/settingsFragment_textView_customColours"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/settingsFragment_customColours_LABEL"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:id="@+id/settingsFragment_linearLayout_headerColours"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/exerciseviewborder"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:id="@+id/settingsFragment_linearLayout_headerColour"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/settingFragment_textView_changeColoursTextViewHeader"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
+                            android:text="@string/settingFragment_headerColour_LABEL"
+                            android:textColor="#000000"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:id="@+id/settingFragment_textView_changeColoursTextViewHeaderExpand"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:paddingEnd="15dp"
+                            android:text="@string/settingFragment_plusSign"
+                            android:textColor="#000000"
+                            tools:ignore="RtlSymmetry" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/settingFragment_linearLayout_changeColoursLayoutHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:paddingBottom="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceRedButtonHeader"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:text="@string/settingFragment_minusSign" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/settingFrament_red_LABEL"
+                                    android:gravity="center"/>
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_redProgressTextViewHeader"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseRedButtonHeader"
+                                android:text="@string/settingFragment_plusSign"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"/>
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_redSeekBarHeader"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceGreenButtonHeader"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/settingFrament_green_LABEL"
+                                    android:gravity="center"/>
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_greenProgressTextViewHeader"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseGreenButtonHeader"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_greenSeekBarHeader"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceBlueButtonHeader"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/settingFrament_blue_LABEL" />
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_blueProgressTextViewHeader"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseBlueButtonHeader"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_blueSeekBarHeader"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/exerciseviewborder"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/settingFragment_textView_changeColoursTextViewTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
+                            android:text="@string/settingFrament_titleColour_LABEL"
+                            android:textColor="#000000"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:id="@+id/settingFragment_textView_changeColoursTextViewTitleExpand"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:paddingEnd="15dp"
+                            android:text="@string/settingFragment_plusSign"
+                            android:textColor="#000000"
+                            tools:ignore="RtlSymmetry" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/settingFragment_linearLayout_changeColoursLayoutTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:paddingBottom="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceRedButtonTitle"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/settingFrament_red_LABEL"
+                                    android:gravity="center"/>
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_redProgressTextViewTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseRedButtonTitle"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_redSeekBarTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceGreenButtonTitle"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/settingFrament_green_LABEL" />
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_greenProgressTextViewTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseGreenButtonTitle"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign"/>
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_greenSeekBarTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceBlueButtonTitle"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/settingFrament_blue_LABEL" />
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_blueProgressTextViewTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseBlueButtonTitle"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_blueSeekBarTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/exerciseviewborder"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/settingFragment_textView_changeColoursTextViewBorder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
+                            android:text="@string/settingsFragment_borderColour_title"
+                            android:textColor="#000000"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:id="@+id/settingFragment_textView_changeColoursTextViewBorderExpand"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:paddingEnd="15dp"
+                            android:text="@string/settingFragment_plusSign"
+                            android:textColor="#000000"
+                            tools:ignore="RtlSymmetry" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/settingFragment_linearLayout_changeColoursLayoutBorder"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:paddingBottom="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceRedButtonBorder"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/settingFrament_red_LABEL" />
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_redProgressTextViewBorder"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseRedButtonBorder"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_redSeekBarBorder"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceGreenButtonBorder"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/settingFrament_green_LABEL" />
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_greenProgressTextViewBorder"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseGreenButtonBorder"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_greenSeekBarBorder"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceBlueButtonBorder"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/settingFrament_blue_LABEL" />
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_blueProgressTextViewBorder"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseBlueButtonBorder"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_blueSeekBarBorder"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/exerciseviewborder"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textColor="#000000"
+                    tools:ignore="RtlSymmetry">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/settingFragment_textView_changeColoursTextViewSubtract"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
+                            android:text="@string/settingFragment_subtractColour_LABEL"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:id="@+id/settingFragment_textView_changeColoursTextViewSubtractExpand"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:paddingEnd="15dp"
+                            android:text="@string/settingFragment_plusSign"
+                            android:textColor="#000000" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/settingFragment_linearLayout_changeColoursLayoutSubtract"
+                        android:layout_height="0dp"
+                        android:paddingBottom="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceRedButtonSubtract"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/settingFrament_red_LABEL"
+                                    android:gravity="center"/>
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_redProgressTextViewSubtract"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseRedButtonSubtract"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_redSeekBarSubtract"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceGreenButtonSubtract"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/settingFrament_green_LABEL" />
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_greenProgressTextViewSubtract"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseGreenButtonSubtract"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_greenSeekBarSubtract"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceBlueButtonSubtract"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/settingFrament_blue_LABEL" />
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_blueProgressTextViewSubtract"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseBlueButtonSubtract"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_blueSeekBarSubtract"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/exerciseviewborder"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textColor="#000000"
+                    tools:ignore="RtlSymmetry">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/settingFragment_textView_changeColoursTextViewBackground"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
+                            android:text="@string/settingFragment_backgroundColour_LABEL"
+                            android:textColor="#000000"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:id="@+id/settingFragment_textView_changeColoursTextViewBackgroundExpand"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:paddingEnd="15dp"
+                            android:text="@string/settingFragment_plusSign"
+                            android:textColor="#000000"
+                            tools:ignore="RtlSymmetry" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/settingFragment_linearLayout_changeColoursLayoutBackground"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:paddingBottom="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceRedButtonBackground"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/settingFrament_red_LABEL" />
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_redProgressTextViewBackground"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseRedButtonBackground"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_redSeekBarBackground"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceGreenButtonBackground"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:gravity="center"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/settingFrament_green_LABEL" />
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_greenProgressTextViewBackground"
+                                    android:layout_width="match_parent"
+                                    android:gravity="center"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseGreenButtonBackground"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_greenSeekBarBackground"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/settingFragment_button_reduceBlueButtonBackground"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_minusSign" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/settingFrament_blue_LABEL" />
+
+                                <TextView
+                                    android:id="@+id/settingFragment_textView_blueProgressTextViewBackground"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/settingFragment_button_increaseBlueButtonBackground"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="22dp"
+                                android:background="@drawable/increasedecreasebutton"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:text="@string/settingFragment_plusSign" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/settingFragment_seekBar_blueSeekBarBackground"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"
+                            android:progress="0" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

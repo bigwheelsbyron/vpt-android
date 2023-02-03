@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,7 +17,6 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import zxc.studio.vpt.CoachMainActivity;
 import zxc.studio.vpt.Coach_Workout_Activity_fragment;
 import zxc.studio.vpt.R;
 import zxc.studio.vpt.models.Exercise;
@@ -205,10 +203,11 @@ public class newWorkoutRecyclerAdapter extends RecyclerView.Adapter<newWorkoutRe
 
     @Override
     public void onItemSwiped(int position) {
-        int id = mExercises.get(position).getExercise_sequence();
-        mExercises.remove(position);
-        CoachMainActivity.removeSet(id);
-        notifyItemRemoved(position);
+//        int id = mExercises.get(position).getExercise_sequence();
+//        mExercises.remove(position);
+//        CoachMainActivity.removeSet(id);
+//        notifyItemRemoved(position);
+        //TODO: fix removal of items in coach new workout
     }
 
 }

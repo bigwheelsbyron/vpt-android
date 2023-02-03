@@ -2,18 +2,15 @@ package zxc.studio.vpt.adapters;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import zxc.studio.vpt.CoachFrontPage;
 import zxc.studio.vpt.R;
 import zxc.studio.vpt.models.Athlete;
 import zxc.studio.vpt.models.coachRequest;
@@ -24,8 +21,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
-
-import static android.content.ContentValues.TAG;
 
 public class incomingRequestAdapter extends RecyclerView.Adapter<incomingRequestAdapter.ViewHolder> {
 

@@ -6,147 +6,145 @@
     android:layout_height="match_parent"
     tools:context=".Coach_Workout_Activity_fragment">
 
-
-    <Button
-        android:id="@+id/button_coach_workout_fragment"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:background="@drawable/bakcarrow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.027"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewCoachMain"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/exerciseviewborder"
-        android:padding="9dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
-
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/coachWorkoutActivity_linearLayout_coachNewWorkout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <Button
-            android:id="@+id/saveTemplateButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/button"
-            android:text="Template"
-            android:textSize="10sp" />
-
-        <Button
-            android:id="@+id/commitExerciseButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/button"
-            android:text="Send"
-            android:textSize="10sp" />
-
-        <Button
-            android:id="@+id/exerciseAddButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/button"
-            android:text="Add Exercise"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/commitExerciseButton"
-            app:layout_constraintTop_toBottomOf="@+id/linearlayout_recyclerview" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            android:id="@+id/coachWorkoutActivity_button_coachMainReturn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:background="@drawable/bakcarrow"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="50dp"/>
 
         <LinearLayout
+            android:id="@+id/coachWorkoutActivity_linearLayout_coachNewWorkoutDateAndAthlete"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="15dp">
 
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:gravity="center|right"
-                android:padding="8dp"
-                android:text="Athlete:" />
+            <LinearLayout
+                android:id="@+id/coachWorkoutActivity_linearLayout_coachNewWorkoutAthlete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="15dp"
+                android:layout_gravity="start">
 
-            <Spinner
-                android:id="@+id/spinnerAthlete"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="left"
-                android:padding="15dp"
-                android:textColor="@color/Rich_Black_FOGRA_39" />
+                <TextView
+                    android:id="@+id/coachWorkoutActivity_textView_coachNewWorkoutAthlete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/coachWorkoutActivity_athlete_LABEL" />
+
+                <Spinner
+                    android:id="@+id/coachWorkoutActivity_spinner_coachNewWorkoutAthlete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="150dp"
+                    android:textColor="@color/Rich_Black_FOGRA_39" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/coachWorkoutActivity_linearLayout_coachNewWorkoutDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="15dp"
+                android:layout_gravity="start">
+
+                <TextView
+                    android:id="@+id/coachWorkoutActivity_textView_coachNewWorkoutDateLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/coachWorkoutActivity_date_LABEL" />
+
+                <TextView
+                    android:id="@+id/coachWorkoutActivity_textView_coachNewWorkoutDateSelector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="145dp"
+                    android:clickable="true"
+                    android:text="@string/coachWorkoutActivity_pickADate_PLACEHOLDER"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+
         </LinearLayout>
 
-        <LinearLayout
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/coachWorkoutActivity_recyclerView_coachNewWorkoutExercises"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="15dp"
+            android:background="@drawable/exerciseviewborder"
+            android:padding="9dp" />
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:gravity="center|right"
-                android:padding="8dp"
-                android:text="Date:" />
+        <LinearLayout
+            android:id="@+id/coachWorkoutActivity_linearLayout_templateSendAddButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:id="@+id/dateTextView"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:clickable="true"
-                android:padding="15dp"
-                android:text="Pick a date"
-                android:textColor="@color/Rich_Black_FOGRA_39" />
+            <Button
+                android:id="@+id/coachWorkoutActivity_button_templates"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:text="@string/coachWorkoutActivity_templateButton_LABEL"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/coachWorkoutActivity_button_send"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:text="@string/coachWorkoutActivity_sendButton_LABEL"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/coachWorkoutActivity_button_addExercise"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:text="@string/coachWorkoutActivity_addExercise_LABEL"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/commitExerciseButton"
+                app:layout_constraintTop_toBottomOf="@+id/linearlayout_recyclerview" />
         </LinearLayout>
 
     </LinearLayout>

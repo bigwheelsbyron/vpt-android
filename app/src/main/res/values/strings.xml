@@ -1,44 +1,153 @@
 <resources>
-    <string name="app_name">vpt</string>
-    <string name="add_note">Update</string>
-    <string name="welcome_message">Hello Byron</string>
-    <string name="coaches_notes">Hello Byron</string>
-    <string name="finish_workout">Finish Workout</string>
-    <string name="title_activity_login">Sign in</string>
 
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="app_name">vpt</string>
+
     <string-array name="requestFormOptions">
         <item>Request Coach</item>
         <item>Request Athlete</item>
     </string-array>
-    <string name="title_activity_sign_up">sign_up</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="title_activity_template">templateActivity</string>
-    <string name="title_activity_settings">settingsActivity</string>
-    <string name="title_activity_userstats">userstats</string>
-    <string name="title_activity_workoutout_details">workoutoutDetails</string>
+    <string name="historyDateActivity_date_options">Date Options:</string>
+    <string name="historyDateActivity_pick_a_date_range_LABEL">Pick a Date Range:</string>
+    <string name="historyDateActivity_start_LABEL">Start</string>
+    <string name="historyDateActivity_start_date_PLACEHOLDER">start_Date</string>
+    <string name="historyDateActivity_end_LABEL">End</string>
+    <string name="historyDateActivity_end_date_PLACEHOLDER">end_Date</string>
+    <string name="historyDateActivity_pick_a_date_period_LABEL">Pick a Date Period:</string>
+    <string name="historyDateActivity_period_PLACEHOLDER">PLACEHOLDER</string>
+    <string name="historyDateActivity_last_month_LABEL">Last Month</string>
+    <string name="historyDateActivity_last_two_months_LABEL">Last Two Months</string>
+    <string name="historyDateActivity_last_quarter_LABEL">Last Quarter</string>
+    <string name="historyDateActivity_last_half_year_LABEL">Last Half Year</string>
+    <string name="historyDateActivity_last_year_LABEL">Last Year</string>
+    <string name="historyDateActivity_all_LABEL">All</string>
+    <string name="historyDateActivity_chart_frequency_LABEL">Frequency:</string>
+    <string name="historyDateActivity_frequency_PLACEHOLDER">PLACEHOLDER</string>
+    <string name="historyDateActivity_frequency_daily">Daily</string>
+    <string name="historyDateActivity_frequency_weekly">Weekly</string>
+    <string name="historyDateActivity_frequency_fortnightly">Fortnightly</string>
+    <string name="historyDateActivity_frequency_monthly">Monthly</string>
+    <string name="historyDateActivity_frequency_quarterly">Quarterly</string>
+    <string name="historyDateActivity_chart_options_LABEL">Chart Options:</string>
+
+    <string name="historyChartFormat_exercise_name">exercise_name</string>
+
+    <string name="notesActivity_name_editTextHint">Name</string>
+    <string name="notesActivity_weight_label">Weight</string>
+    <string name="notesActivity_uom_label">(kg)</string>
+
+    <string name="notesActivity_weight_PLACEHOLDER">100</string>
+    <string name="notesActivity_reps_label">Reps</string>
+    <string name="notesActivity_reps_PLACEHOLDER">100</string>
+    <string name="notesActivity_difficulty_label">Difficulty</string>
+    <string name="notesActivity_difficulty_PLACEHOLDER">100</string>
+    <string name="notesActivity_RPE_label">RPE</string>
+    <string name="notesActivity_RPE_PLACHOLDER">100</string>
+    <string name="notesActivity_notes_label">Notes</string>
+    <string name="notesActivity_notesExpand_buttonLabel">+</string>
+    <string name="notesActivity_note_editTextHint">Add notes here</string>
+    <string name="notesActivity_update_button">Update</string>
+    <string name="notesActivity_help_button">\?</string>
+
+    <string name="dataClassificationSelectionActivity_chart_breakdown">Chart Breakdown</string>
+
+    <string name="loginActivity_loginOrSignUp_LABEL">Login or Signup</string>
+    <string name="loginActivity_emailHint_LABEL">Email</string>
+    <string name="loginActivity_passwordHint_LABEL">Password</string>
+    <string name="loginActivity_signIn_BUTTONLABEL">Sign in</string>
+    <string name="loginActivity_signUp_BUTTONLABEL">Sign up</string>
+    <string name="loginActivity_forgotPassword_BUTTONLABEL">Forgot password</string>
+    <string name="requestFormActivity_spinner_PLACEHOLDER">PLACEHOLDER</string>
+    <string name="requestFormActivity_usersEmailHint_LABEL">User\'s Email</string>
+    <string name="requestFormActivity_usersFirstNameHint_LABEL">User\'s First Name</string>
+    <string name="requestFormActivity_usersLastNameHint_LABEL">User\'s Last Name</string>
+    <string name="requestFormActivity_requestButton_LABEL">Request</string>
+    <string name="requestFormActivity_noUser_LABEL">No Such User Exists</string>
+    <string name="signUpActivity_signUp_LABEL">Sign Up</string>
+    <string name="signUpActivity_email_LABEL">Email</string>
+    <string name="vptSign_v">V</string>
+    <string name="vptSign_P">P</string>
+    <string name="vptSign_T">T</string>
+    <string name="signUpActivity_emailAddressHint_LABEL">Email address</string>
+    <string name="signUpActivity_password_label">Password</string>
+    <string name="signUpActivity_passwordHint_LABEL">Password</string>
+    <string name="signUpActivity_firstName_LABEL">First Name</string>
+    <string name="signUpActivity_firstNameHint_LABEL">First Name</string>
+    <string name="signUpActivity_lastName_LABEL">Last Name</string>
+    <string name="signUpActivity_lastNameHint_LABEL">Last Name</string>
+    <string name="signUpActivity_iAgreeToThe_LABEL">I agree to the</string>
+    <string name="signUpActivity_theTermsAndConditions_LABEL">the terms and conditions.</string>
+    <string name="signUpActivity_iAgreeCheckBox_LABEL">I agree</string>
+    <string name="signUpActivity_cancelButton_LABEL">Cancel</string>
+    <string name="signUpActivity_signUpButton_LABEL">Sign Up</string>
+    <string name="signUpActivity_userAgreement">User Agreement</string>
+    <string name="signUpActivity_tocsOpening_LABEL">Placeholder text</string>
+    <string name="signUpActivity_changesTitle_LABEL">Changes to the Agreement</string>
+    <string name="signUpActivity_thirdPartyTitle_LABEL">Third Party Agreements</string>
+    <string name="signUpActivity_entireAgreementTitle_LABEL">Entire Agreement</string>
+    <string name="signUpActivity_offerAndAcceptanceTitle_LABEL">Offer and Acceptance</string>
+    <string name="signUpActivity_terminationTitle_LABEL">Account Termination</string>
+    <string name="signUpActivity_banningTitle_LABEL">Temporary and Permanent Banning</string>
+    <string name="signUpActivity_dataTitle_LABEL">Data</string>
+    <string name="signUpActivity_costTitle_LABEL">Cost</string>
+    <string name="signUpActivity_commercialTitle_LABEL">Commercial Use</string>
+    <string name="signUpActivity_warrantyTitle_LABEL">Warranty</string>
+    <string name="signUpActivity_aclTitle_LABEL">Australian Consumer Law</string>
+    <string name="signUpActivity_ipTitle_LABEL">Intellectual Property Rights</string>
+    <string name="signUpActivity_uglTitle_LABEL">User Guidelines</string>
+    <string name="signUpActivity_okayButton_LABEL">Okay</string>
+    <string name="signUpActivity_tocs_PLACEHOLDER">Placeholder text</string>
+    <string name="templateActivity_templateTitle_LABEL">Templates</string>
+    <string name="templateActivity_templateNAME_LABEL">Template Name</string>
+    <string name="templateActivity_templateNameHint_LABEL">Template Name</string>
+    <string name="templateActivity_existingTemplateTitle_LABEL">Pick an existing template</string>
+    <string name="templateActivity_cancelButton_LABEL">Cancel</string>
+    <string name="templateActivity_openButton_LABEL">Open Template</string>
+    <string name="coachMainActivity_outgoingRequests_LABEL">Outgoing Requests</string>
+    <string name="coachMainActivity_noOutgoingRequests_LABEL">Looks like you don\'t have any outgoing requests...</string>
+    <string name="coachMainActivity_sendRequestButton_LABEL">Send Request</string>
+    <string name="coachMainActivity_incomingRequests_Label">Incoming Requests</string>
+    <string name="coachMainActivity_noIncomingRequests_LABEL">Looks like you don\'t have any incoming requests...</string>
+    <string name="coachMainActivity_currentAthletes_LABEL">Current Athletes</string>
+    <string name="coachMainActivity_noCurrentAthletes_LABEL">Looks like you don\'t have any athletes...</string>
+    <string name="coachWorkoutActivity_athlete_LABEL">Athlete:</string>
+    <string name="coachWorkoutActivity_date_LABEL">Date:</string>
+    <string name="coachWorkoutActivity_pickADate_PLACEHOLDER">Pick a date</string>
+    <string name="coachWorkoutActivity_templateButton_LABEL">Template</string>
+    <string name="coachWorkoutActivity_sendButton_LABEL">Send</string>
+    <string name="coachWorkoutActivity_addExercise_LABEL">Add Exercise</string>
+    <string name="historyFragment_calendarViewButton_LABEL">Calendar View</string>
+    <string name="historyFragment_history_LABEL">History</string>
+    <string name="historyFragment_manageChart_LABEL">Manage Chart</string>
+    <string name="individualWorkoutActivity_datePlaceholder_LABEL">PLACEHOLDER</string>
+    <string name="individualWorkoutActivity_mood_LABEL">Mood</string>
+    <string name="individualWorkoutActivity_detailsPlaceholder_LABEL">0</string>
+    <string name="individualWorkoutActivity_sleep_LABEL">Sleep</string>
+    <string name="individualWorkoutActivity_weight_LABEL">Weight</string>
+    <string name="individualWorkoutActivity_calories_LABEL">Calories</string>
+    <string name="individualWorkoutActivity_noExercisesYet_LABEL">Looks like you don\'t have any exercises yet...</string>
+    <string name="individualWorkoutActivity_finishWorkoutButton_LABEL">Finish Workout</string>
+    <string name="individualWorkoutActivity_addExerciseButton_LABEL">Add Exercise</string>
+    <string name="individualWorkoutActivity_backButton_DESCRIPTION">Back button</string>
+    <string name="settingsFragment_palette_LABEL">Palette</string>
+    <string name="settingsFragment_presetColourSchemes_label">Preset Colour Schemes</string>
+    <string name="settingsFragment_presetPalletsLeftButton_LABEL">Left</string>
+    <string name="settingsFragment_presetPalletsPlaceholder_LABEL">Placeholder</string>
+    <string name="settingsFragment_presetPalletsRightButton_LABEL">Right</string>
+    <string name="settingsFragment_customColours_LABEL">Custom Colours</string>
+    <string name="settingFrament_red_LABEL">Red</string>
+    <string name="settingFrament_green_LABEL">Green</string>
+    <string name="settingFrament_blue_LABEL">Blue</string>
+    <string name="settingFrament_titleColour_LABEL">Title Colour</string>
+    <string name="settingsFragment_borderColour_title">Border Colour</string>
+    <string name="settingFragment_headerColour_LABEL">Header Colour</string>
+    <string name="settingFragment_plusSign">+</string>
+    <string name="settingFragment_minusSign">-</string>
+    <string name="settingFragment_subtractColour_LABEL">Subtract Colour</string>
+    <string name="settingFragment_backgroundColour_LABEL">Background Colour</string>
+    <string name="settingsFragment_yourDetails_LABEL">Your Details</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="text_loginSignUp">Log In or Sign Up</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign In</string>
-    <string name="action_sign_up">Sign Up</string>
-    <string name="action_forgot_password">Forgot Password</string>
-
-    <string name="workoutFragment_thisWeeksWorkout">This Week\'s Workout</string>
 
 
 </resources>

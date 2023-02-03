@@ -6,141 +6,223 @@
     android:layout_height="match_parent"
     tools:context=".Coach_Main_Activity_Fragmenet">
 
+    <LinearLayout
+        android:id="@+id/coachMainActivity_linearLayout_requestsAndAthletes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewOutgoingRequests"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/exerciseviewborder"
-        android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSendRequest"
-        app:layout_constraintEnd_toStartOf="@+id/textView14"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textviewOutgoingRequests"
-        app:layout_constraintVertical_bias="0.0" />
+        <LinearLayout
+            android:id="@+id/coachMainActivity_linearLayout_requests"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.4"
+            android:orientation="horizontal">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewRequestsIncoming"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/exerciseviewborder"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewOutgoingRequests"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toTopOf="@+id/recyclerViewOutgoingRequests" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/coachMainActivity_constraintLayout_outRequests"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="7dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewAthlete"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/exerciseviewborder"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
-        app:layout_constraintVertical_bias="1.0" />
+                <TextView
+                    android:id="@+id/coachMainActivity_textview_outgoingRequests"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="95dp"
+                    android:text="@string/coachMainActivity_outgoingRequests_LABEL"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@+id/coachMainActivity_recyclerView_outgoingRequests"
+                    app:layout_constraintStart_toStartOf="@+id/coachMainActivity_recyclerView_outgoingRequests"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-    <Button
-        android:id="@+id/buttonSendRequest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/button"
-        android:padding="10dp"
-        android:text="Send Request"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerViewOutgoingRequests"
-        app:layout_constraintStart_toStartOf="@+id/recyclerViewOutgoingRequests" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/coachMainActivity_recyclerView_outgoingRequests"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/exerciseviewborder"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/coachMainActivity_button_sendRequest"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/coachMainActivity_textview_outgoingRequests" />
+
+                <TextView
+                    android:id="@+id/coachMainActivity_textView_noOut"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/coachMainActivity_noOutgoingRequests_LABEL"
+                    app:layout_constraintBottom_toBottomOf="@+id/coachMainActivity_recyclerView_outgoingRequests"
+                    app:layout_constraintEnd_toEndOf="@+id/coachMainActivity_recyclerView_outgoingRequests"
+                    app:layout_constraintStart_toStartOf="@+id/coachMainActivity_recyclerView_outgoingRequests"
+                    app:layout_constraintTop_toTopOf="@+id/coachMainActivity_recyclerView_outgoingRequests" />
+
+                <Button
+                    android:id="@+id/coachMainActivity_button_sendRequest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight=".3"
+                    android:background="@drawable/button"
+                    android:padding="10dp"
+                    android:text="@string/coachMainActivity_sendRequestButton_LABEL"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
 
-    <TextView
-        android:id="@+id/textviewOutgoingRequests"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="95dp"
-        android:text="Outgoing Requests"
-        android:textColor="@color/Rich_Black_FOGRA_39"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerViewOutgoingRequests"
-        app:layout_constraintStart_toStartOf="@+id/recyclerViewOutgoingRequests"
-        app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textviewIncomingRequests"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Incoming Requests"
-        android:textColor="@color/Rich_Black_FOGRA_39"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerViewRequestsIncoming"
-        app:layout_constraintStart_toStartOf="@+id/recyclerViewRequestsIncoming"
-        app:layout_constraintTop_toTopOf="@+id/textviewOutgoingRequests" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/coachMainActivity_constraintLayout_inRequests"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="7dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/coachMainActivity_textview_incomingRequests"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/coachMainActivity_incomingRequests_Label"
+                    android:textColor="@color/Rich_Black_FOGRA_39"
+                    android:textSize="18sp"
+                    android:layout_marginTop="95dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/coachMainActivity_recyclerView_requestsIncoming"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/exerciseviewborder"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/coachMainActivity_textView_placeholder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/coachMainActivity_textview_incomingRequests" />
+
+                <TextView
+                    android:id="@+id/coachMainActivity_textView_noIn"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/coachMainActivity_noIncomingRequests_LABEL"
+                    app:layout_constraintBottom_toBottomOf="@+id/coachMainActivity_recyclerView_requestsIncoming"
+                    app:layout_constraintEnd_toEndOf="@+id/coachMainActivity_recyclerView_requestsIncoming"
+                    app:layout_constraintStart_toStartOf="@+id/coachMainActivity_recyclerView_requestsIncoming"
+                    app:layout_constraintTop_toTopOf="@+id/coachMainActivity_recyclerView_requestsIncoming" />
+
+                <Button
+                    android:id="@+id/coachMainActivity_textView_placeholder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight=".3"
+                    android:alpha="0"
+                    android:background="@drawable/button"
+                    android:clickable="false"
+                    android:padding="10dp"
+                    android:text="@string/coachMainActivity_sendRequestButton_LABEL"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:text="Current Athletes"
-        android:textColor="@color/Rich_Black_FOGRA_39"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".62" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textViewNoOut"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Looks like you don't have any outgoing requests..."
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewOutgoingRequests"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerViewOutgoingRequests"
-        app:layout_constraintStart_toStartOf="@+id/recyclerViewOutgoingRequests"
-        app:layout_constraintTop_toTopOf="@+id/recyclerViewOutgoingRequests" />
 
-    <TextView
-        android:id="@+id/textViewNoIn"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Looks like you don't have any incoming requests..."
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewRequestsIncoming"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerViewRequestsIncoming"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toTopOf="@+id/recyclerViewRequestsIncoming" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/textViewNoAthlete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Looks like you don't have any athletes..."
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewAthlete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/recyclerViewAthlete"
-        app:layout_constraintTop_toTopOf="@+id/recyclerViewAthlete" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/coachMainActivity_constraintLayout_athletes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="10dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/textView11"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        tools:layout_editor_absoluteY="173dp" />
+            <TextView
+                android:id="@+id/coachMainActivity_textView_currentAthletes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/coachMainActivity_currentAthletes_LABEL"
+                android:textColor="@color/Rich_Black_FOGRA_39"
+                android:textSize="18sp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/coachMainActivity_recyclerView_athlete"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/exerciseviewborder"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coachMainActivity_textView_currentAthletes" />
+
+            <TextView
+                android:id="@+id/coachMainActivity_textView_noAthlete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/coachMainActivity_noCurrentAthletes_LABEL"
+                app:layout_constraintBottom_toBottomOf="@+id/coachMainActivity_recyclerView_athlete"
+                app:layout_constraintEnd_toEndOf="@+id/coachMainActivity_recyclerView_athlete"
+                app:layout_constraintStart_toStartOf="@+id/coachMainActivity_recyclerView_athlete"
+                app:layout_constraintTop_toTopOf="@+id/coachMainActivity_recyclerView_athlete" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,16 +41,16 @@ public class requestForm extends AppCompatActivity implements View.OnClickListen
 
     private static final String TAG = "requestForm";
     private Spinner mSpinnerAthleteOrCoach;
-    private EditText mEditTextAthleteOrCoach;
+    private EditText mEditTextEmail;
     private EditText mEditTextFirstName;
     private EditText mEditTextLastName;
-    private TextView mErrorMessageTextView;
-    private Button requestButton;
+    private TextView mTextViewErrorMessage;
+    private Button mButtonRequest;
 
-    private String firstName;
-    private String lastName;
+    private String mStringFirstName;
+    private String mStringLastName;
 
-    private ArrayList<String> spinnerOptions = new ArrayList<>();
+    private ArrayList<String> mArraySpinnerOptions = new ArrayList<>();
 
     private coachRequest mRequest = new coachRequest();
 
@@ -71,22 +71,22 @@ public class requestForm extends AppCompatActivity implements View.OnClickListen
     }
 
     private void setIDs() {
-        mSpinnerAthleteOrCoach=findViewById(R.id.spinnerCoachAthleteRequest);
-        mEditTextAthleteOrCoach=findViewById(R.id.editTextCoachNameRequestForm);
-        mEditTextFirstName=findViewById(R.id.editviewCoachFirstname);
-        mEditTextLastName=findViewById(R.id.editTextCoachLastName);
-        requestButton=findViewById(R.id.buttonRequestFormRequest);
-        mErrorMessageTextView=findViewById(R.id.errorMessageTextView);
+        mSpinnerAthleteOrCoach=findViewById(R.id.requestFormActivity_spinner_coachAthleteRequest);
+        mEditTextEmail=findViewById(R.id.requestFormActivity_editText_userEmail);
+        mEditTextFirstName=findViewById(R.id.requestFormActivity_editText_userFirstname);
+        mEditTextLastName=findViewById(R.id.requestFormActivity_editText_userLastName);
+        mButtonRequest=findViewById(R.id.requestFormActivity_button_requestFormRequest);
+        mTextViewErrorMessage=findViewById(R.id.requestFormActivity_textView_errorMessage);
     }
 
     private void setListeners() {
-        requestButton.setOnClickListener(this);
+        mButtonRequest.setOnClickListener(this);
     }
 
     private void spinnerAdapter() {
-        spinnerOptions.add("Request Coach");
-        spinnerOptions.add("Request Athlete");
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item,spinnerOptions);
+        mArraySpinnerOptions.add("Request Coach");
+        mArraySpinnerOptions.add("Request Athlete");
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item,mArraySpinnerOptions);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinnerAthleteOrCoach.setAdapter(spinnerArrayAdapter);
     }
@@ -94,7 +94,7 @@ public class requestForm extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.buttonRequestFormRequest: {
+            case R.id.requestFormActivity_button_requestFormRequest: {
                 requestProcess();
                 break;
             }
@@ -103,10 +103,10 @@ public class requestForm extends AppCompatActivity implements View.OnClickListen
 
     private void requestProcess(){
         ColorStateList colorStateList = ColorStateList.valueOf(Color.LTGRAY);
-        ViewCompat.setBackgroundTintList(mEditTextAthleteOrCoach,colorStateList);
+        ViewCompat.setBackgroundTintList(mEditTextEmail,colorStateList);
         ViewCompat.setBackgroundTintList(mEditTextFirstName,colorStateList);
         ViewCompat.setBackgroundTintList(mEditTextLastName,colorStateList);
-        String email = mEditTextAthleteOrCoach.getText().toString();
+        String email = mEditTextEmail.getText().toString();
         String name_first = mEditTextFirstName.getText().toString();
         String name_last = mEditTextLastName.getText().toString();
         if (email.length() != 0 && name_first.length() != 0 && name_last.length() != 0){
@@ -122,8 +122,8 @@ public class requestForm extends AppCompatActivity implements View.OnClickListen
                 mEditTextFirstName.requestFocus();
             }
             if (email.length() == 0) {
-                ViewCompat.setBackgroundTintList(mEditTextAthleteOrCoach,colorStateListRed);
-                mEditTextAthleteOrCoach.requestFocus();
+                ViewCompat.setBackgroundTintList(mEditTextEmail,colorStateListRed);
+                mEditTextEmail.requestFocus();
             }
         }
 
@@ -135,8 +135,8 @@ public class requestForm extends AppCompatActivity implements View.OnClickListen
         doc.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                firstName = (documentSnapshot.getString("Name_First"));
-                lastName = (documentSnapshot.getString("Name_Last"));
+                mStringFirstName = (documentSnapshot.getString("Name_First"));
+                mStringLastName = (documentSnapshot.getString("Name_Last"));
             }
         });
     }
@@ -156,8 +156,8 @@ public class requestForm extends AppCompatActivity implements View.OnClickListen
             mRequest.setRequesterFBRequestID(senderDocument.getId());
             mRequest.setAthlete_Name_First(mEditTextFirstName.getText().toString());
             mRequest.setAthlete_Name_Last(mEditTextLastName.getText().toString());
-            mRequest.setCoach_Name_First(firstName);
-            mRequest.setCoach_Name_Last(lastName);
+            mRequest.setCoach_Name_First(mStringFirstName);
+            mRequest.setCoach_Name_Last(mStringLastName);
             mRequest.setPreviousCoach("");
         }
         else if (mSpinnerAthleteOrCoach.getSelectedItem().toString().equals("Request Coach")){
@@ -170,8 +170,8 @@ public class requestForm extends AppCompatActivity implements View.OnClickListen
             mRequest.setRequesterFBRequestID(senderDocument.getId());
             mRequest.setCoach_Name_First(mEditTextFirstName.getText().toString());
             mRequest.setCoach_Name_Last(mEditTextLastName.getText().toString());
-            mRequest.setAthlete_Name_First(firstName);
-            mRequest.setAthlete_Name_Last(lastName);
+            mRequest.setAthlete_Name_First(mStringFirstName);
+            mRequest.setAthlete_Name_Last(mStringLastName);
             mRequest.setPreviousCoach(userDetails.getString("coach",""));
         }
         else{return;}
@@ -201,17 +201,17 @@ public class requestForm extends AppCompatActivity implements View.OnClickListen
 
     private void documentSorter(List<DocumentSnapshot> documents) {
         if (documents.size() > 1){
-            mErrorMessageTextView.setText("Error");
-            mErrorMessageTextView.setAlpha(1);
+            mTextViewErrorMessage.setText("Error");
+            mTextViewErrorMessage.setAlpha(1);
         } else if (documents.size() == 1){
             updateRequestDetails(documents.get(0).getId());
             Toast.makeText(this, "Request Sent", Toast.LENGTH_SHORT).show();
-            mErrorMessageTextView.setText("Successful");
-            mErrorMessageTextView.setTextColor(Color.parseColor("#006775"));
-            mErrorMessageTextView.setAlpha(1);
+            mTextViewErrorMessage.setText("Successful");
+            mTextViewErrorMessage.setTextColor(Color.parseColor("#006775"));
+            mTextViewErrorMessage.setAlpha(1);
             finish();
         } else {
-            mErrorMessageTextView.setAlpha(1);
+            mTextViewErrorMessage.setAlpha(1);
         }
     }
 }

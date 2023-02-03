@@ -10,21 +10,20 @@
     android:background="@drawable/singleexerciseview">
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/templateActivity_textView_templateTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Templates"
+        android:text="@string/templateActivity_templateTitle_LABEL"
         android:textColor="@color/Rich_Black_FOGRA_39"
-        android:textSize="23dp"
+        android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.060000002" />
 
-
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/templateActivity_linearLayout_templateDetails"
         android:layout_width="348dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -33,72 +32,63 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/templateActivity_textView_templateTitle"
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/templateActivity_textView_templateName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:text="Template Name"
+            android:text="@string/templateActivity_templateNAME_LABEL"
             android:textColor="@color/Rich_Black_FOGRA_39"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/templateActivity_editText_templateName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:ems="10"
-            android:hint="Template Name"
+            android:hint="@string/templateActivity_templateNameHint_LABEL"
             android:inputType="textPersonName"
-            android:textSize="17dp" />
+            android:textSize="17sp" />
 
         <LinearLayout
+            android:id="@+id/templateActivity_linearLayout_templateNameButtons"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_gravity="center"
+            android:padding="5dp"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/overrideButton"
+                android:id="@+id/templateActivity_button_overrideTemplate"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginRight="4dp"
                 android:layout_weight="1"
                 android:background="@drawable/button"
                 android:text="Override Template"
                 android:textSize="10dp" />
 
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:alpha="0"
-                android:text="12" />
-
             <Button
-                android:id="@+id/saveAsNewButton"
+                android:id="@+id/templateActivity_button_newTemplate"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="4dp"
                 android:layout_weight="1"
                 android:background="@drawable/button"
                 android:text="Save as New"
                 android:textSize="10dp" />
         </LinearLayout>
+
     </LinearLayout>
 
-
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/templateActivity_linearLayout_existingTemplate"
         android:layout_width="348dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
@@ -108,33 +98,34 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/templateActivity_linearLayout_templateDetails"
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/templateActivity_textView_existingName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:text="Pick an existing template"
+            android:text="@string/templateActivity_existingTemplateTitle_LABEL"
             android:textColor="@color/Rich_Black_FOGRA_39"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <Spinner
-            android:id="@+id/templateSpinnerChooser"
+            android:id="@+id/templateActivity_spinner_existingTemplate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp" />
 
         <LinearLayout
+            android:id="@+id/templateActivity_linearLayout_existingButtons"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/dismissButton"
+                android:id="@+id/templateActivity_button_dismiss"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
@@ -142,18 +133,18 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/button"
-                android:text="Cancel" />
+                android:text="@string/templateActivity_cancelButton_LABEL" />
 
             <Button
-                android:id="@+id/openTemplateButton"
+                android:id="@+id/templateActivity_button_openTemplate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 android:layout_weight="1"
                 android:background="@drawable/button"
-                android:text="Open Template"
-                android:textSize="10dp" />
+                android:text="@string/templateActivity_openButton_LABEL"
+                android:textSize="10sp" />
 
         </LinearLayout>
     </LinearLayout>
