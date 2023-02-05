@@ -134,53 +134,53 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void setIds() {
-        mViewText_toc=findViewById(R.id.textView_toc);
-        mOkayButton=findViewById(R.id.button_okayTOC);
-        mLayoutSignUp=findViewById(R.id.linearlayout_signup);
-        mLayoutTOC=findViewById(R.id.linearlayout_toc);
-        mCheckBox=findViewById(R.id.checkBox_toc);
-        mSignUpButton=findViewById(R.id.button_agree);
-        mEdittext_Email=findViewById(R.id.editText_email);
-        mEdittext_Password=findViewById(R.id.editText_password);
-        mEdittext_FirstName=findViewById(R.id.editText_firstname);
-        mEdittext_LastName=findViewById(R.id.editText_lastname);
-        mCancelButton=findViewById(R.id.button_cancel);
-        mViewText_opening=findViewById(R.id.textView_opening);
-        mViewText_changes=findViewById(R.id.textView_changesText);
-        mViewText_thirdparty=findViewById(R.id.textView_thirdparty);
-        mViewText_entire=findViewById(R.id.textView_entireagreementtext);
-        mViewText_offer=findViewById(R.id.textView_tocoffertext);
-        mViewText_termination=findViewById(R.id.textView_tocterminationtext);
-        mViewText_banning=findViewById(R.id.textView_banningtext);
-        mViewText_data=findViewById(R.id.textView_dattext);
-        mViewText_cost=findViewById(R.id.textView_costtext);
-        mViewText_commercial=findViewById(R.id.textView_commercialtext);
-        mViewText_warranty=findViewById(R.id.textView_warrantytext);
-        mViewText_acl=findViewById(R.id.textView_acltext);
-        mViewText_ip=findViewById(R.id.iptext);
-        mViewText_userguide=findViewById(R.id.ugltext);
+        mViewText_toc=findViewById(R.id.signUpActivity_textView_toc);
+        mOkayButton=findViewById(R.id.signUpActivity_button_okayTOC);
+        mLayoutSignUp=findViewById(R.id.signUpActivity_linearLayout_signUpDetails);
+        mLayoutTOC=findViewById(R.id.signUpActivity_linearlayout_toc);
+        mCheckBox=findViewById(R.id.signUpActivity_checkBox_toc);
+        mSignUpButton=findViewById(R.id.signUpActivity_button_agree);
+        mEdittext_Email=findViewById(R.id.signUpActivity_editText_email);
+        mEdittext_Password=findViewById(R.id.signUpActivity_editText_password);
+        mEdittext_FirstName=findViewById(R.id.signUpActivity_editText_firstname);
+        mEdittext_LastName=findViewById(R.id.signUpActivity_editText_lastname);
+        mCancelButton=findViewById(R.id.signUpActivity_button_cancel);
+        mViewText_opening=findViewById(R.id.signUpActivity_textView_openingText);
+        mViewText_changes=findViewById(R.id.signUpActivity_textView_changesText);
+        mViewText_thirdparty=findViewById(R.id.signUpActivity_textView_thirdPartyText);
+        mViewText_entire=findViewById(R.id.signUpActivity_textView_entireAgreementText);
+        mViewText_offer=findViewById(R.id.signUpActivity_textView_offerText);
+        mViewText_termination=findViewById(R.id.signUpActivity_textView_terminationText);
+        mViewText_banning=findViewById(R.id.signUpActivity_textView_banningText);
+        mViewText_data=findViewById(R.id.signUpActivity_textView_dataText);
+        mViewText_cost=findViewById(R.id.signUpActivity_textView_costText);
+        mViewText_commercial=findViewById(R.id.signUpActivity_textView_commercialText);
+        mViewText_warranty=findViewById(R.id.signUpActivity_textView_warrantyText);
+        mViewText_acl=findViewById(R.id.signUpActivity_textView_aclText);
+        mViewText_ip=findViewById(R.id.signUpActivity_textView_ipText);
+        mViewText_userguide=findViewById(R.id.signUpActivity_textView_uglText);
         mLayoutSignUp.bringToFront();
     }
 
     public void onClick(View v) {
         switch(v.getId()){
-            case R.id.textView_toc:{
+            case R.id.signUpActivity_textView_toc:{
                 displayTOCs();
                 break;
             }
-            case R.id.button_okayTOC:{
+            case R.id.signUpActivity_button_okayTOC:{
                 displaySignUp();
                 break;
             }
-            case R.id.checkBox_toc:{
+            case R.id.signUpActivity_checkBox_toc:{
                 checkboxClicked();
                 break;
             }
-            case R.id.button_agree:{
+            case R.id.signUpActivity_button_agree:{
                 signUpProcess();
                 break;
             }
-            case R.id.button_cancel:{
+            case R.id.signUpActivity_button_cancel:{
                 moveToLoginScreen();
             }
         }

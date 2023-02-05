@@ -61,7 +61,7 @@
         android:layout_marginTop="158dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="158dp"
-        android:alpha="0"
+        android:alpha="1"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -118,7 +118,7 @@
             android:text="@string/signUpActivity_firstName_LABEL" />
 
         <EditText
-            android:id="@+id/editText_firstname"
+            android:id="@+id/signUpActivity_editText_firstname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -126,14 +126,14 @@
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/textView_lastname"
+            android:id="@+id/signUpActivity_textView_lastname"
             android:layout_width="match_parent"
             android:textColor="#3E3E3E"
             android:layout_height="wrap_content"
             android:text="@string/signUpActivity_lastName_LABEL" />
 
         <EditText
-            android:id="@+id/editText_lastname"
+            android:id="@+id/signUpActivity_editText_lastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -167,7 +167,7 @@
                 android:focusable="true" />
 
             <CheckBox
-                android:id="@+id/checkBox_toc"
+                android:id="@+id/signUpActivity_checkBox_toc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -192,7 +192,7 @@
                 android:text="@string/signUpActivity_cancelButton_LABEL" />
 
             <Button
-                android:id="@+id/button_agree"
+                android:id="@+id/signUpActivity_button_agree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -215,7 +215,7 @@
         android:layout_marginTop="167dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="167dp"
-        android:alpha="1"
+        android:alpha="0"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
