@@ -6,25 +6,26 @@
     tools:context=".settings_security">
 
     <LinearLayout
-        android:id="@+id/settingsFragment_linearLayout_security"
+        android:id="@+id/accountSettingsFragment_linearLayout_security"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="15dp"
         android:layout_marginTop="95dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="200dp"
-        android:alpha="0"
+        android:alpha="1"
         android:background="@drawable/exerciseviewborder"
         android:orientation="vertical"
-        android:padding="5dp">
+        android:padding="5dp"
+        tools:ignore="UselessParent">
 
         <TextView
-            android:id="@+id/tex123tVi12ew123"
+            android:id="@+id/accountSettingsFragment_textView_accountSettingTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="Account Settings"
+            android:text="@string/accountSettingsFragment_settingsTitle_LABEL"
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -38,7 +39,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -47,16 +49,18 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/accountSettingsFragment_textView_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Email" />
+                        android:text="@string/accountSettingsFragment_emailTitle_LABEL" />
 
                     <EditText
-                        android:id="@+id/accountSettings_emailEditText"
+                        android:id="@+id/accountSettingsFragment_editText_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:inputType="textEmailAddress"
+                        android:hint="@string/accountSettingsFragment_yourEmailHint_LABEL"
+                        android:autofillHints="emailAddress"/>
 
                 </LinearLayout>
 
@@ -67,27 +71,30 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/accountSettingsFragment_textView_password"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Password" />
+                        android:text="@string/accountSettingsFragment_passwordTitle_LABEL" />
 
                     <EditText
-                        android:id="@+id/accountSettings_passwordEditText"
+                        android:id="@+id/accountSettingsFragment_editText_password"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:hint="@string/accountSettingsFragment_yourPasswordHint_LABEL"
+                        android:autofillHints="password"
+                        android:inputType="textPassword" />
 
                 </LinearLayout>
-
 
             </LinearLayout>
 
             <TextView
-                android:id="@+id/incorrectDetailsAccountSettings"
+                android:id="@+id/accountSettingsFragment_textView_incorrectDetails"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:alpha="0"
                 android:gravity="center"
-                android:text="Incorrect Details"
+                android:text="@string/accountSettingsFragment_incorrectDetails_LABEL"
                 android:textColor="@color/opaque_red" />
 
         </LinearLayout>
@@ -99,13 +106,11 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/exerciseviewborder"
                 android:orientation="vertical"
                 android:padding="10dp">
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -117,7 +122,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Change email" />
+                        android:text="@string/accountSettingsFragment_changeEmailTitle_LABEL" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -127,25 +132,28 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="New email" />
+                            android:text="@string/accountSettingsFragment_newEmailTitle_LABEL" />
 
                         <EditText
-                            android:id="@+id/editText_accountsettings_newemail"
+                            android:id="@+id/accountSettingsFragment_editText_newEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="27dp" />
+                            android:layout_marginStart="27dp"
+                            android:inputType="textEmailAddress"
+                            android:hint="@string/accountSettingsFragment_newEmailHint_LABEL"
+                            android:autofillHints="emailAddress" />
 
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/changeEmailButton_accountsettings"
+                        android:id="@+id/accountSettingsFragment_button_changeEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="5dp"
                         android:background="@drawable/button"
                         android:padding="15dp"
-                        android:text="Change Email" />
+                        android:text="@string/accountSettingsFragment_changeEmailButton_LABEL" />
 
                 </LinearLayout>
 
@@ -161,7 +169,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Change password" />
+                        android:text="@string/accountSettingsFragment_changePasswordTitle_LABEL" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -171,24 +179,27 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="New Password" />
+                            android:text="@string/accountSettingsFragment_newPasswordText_LABEL" />
 
                         <EditText
-                            android:id="@+id/editText_accountsettings_newpassword"
+                            android:id="@+id/accountSettingsFragment_editText_newPassword"
+                            android:hint="@string/accountSettingsFragment_newPasswordHint_LABEL"
+                            android:autofillHints="password"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"/>
 
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/changePasswordButton_accountsettings"
+                        android:id="@+id/accountSettingsFragment_button_changePassword"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="5dp"
                         android:background="@drawable/button"
                         android:padding="15dp"
-                        android:text="Change Password" />
+                        android:text="@string/accountSettingsFragment_changePasswordButton_LABEL" />
 
                 </LinearLayout>
 
@@ -204,7 +215,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Delete Account" />
+                        android:text="@string/accountSettingsFragment_deleteAccountTitle_LABEL" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -216,37 +227,26 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight=".5"
                             android:gravity="center_vertical"
-                            android:text="I am sure I want to delete my account."
+                            android:text="@string/accountSettingsFragment_deleteAccountText_LABEL"
                             android:textAlignment="viewEnd"
+                            android:layout_gravity="center"
                             tools:ignore="RtlCompat" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                        <CheckBox
+                            android:id="@+id/accountSettingsFragment_checkbox_deleteAccount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_weight="1.5"
-                            android:gravity="center">
-
-
-                            <CheckBox
-                                android:id="@+id/deleteAccount_checkbox"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_weight="1.5"
-                                android:gravity="center" />
-
-                        </LinearLayout>
+                            android:gravity="center" />
 
 
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/deleteAccountButton_accountsettings"
+                        android:id="@+id/accountSettingsFragment_button_deleteAccount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -254,7 +254,7 @@
                         android:background="@drawable/button"
                         android:enabled="false"
                         android:padding="15dp"
-                        android:text="Delete Account"
+                        android:text="@string/accountSettingsFragment_deleteAccountTitle_LABEL"
                         android:textColor="@color/grayedout" />
 
                 </LinearLayout>

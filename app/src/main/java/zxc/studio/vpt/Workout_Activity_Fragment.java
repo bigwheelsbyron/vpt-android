@@ -268,7 +268,7 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.button_workout_activity_fragment:{
+            case R.id.workoutsFragment_button_back:{
                 NavController navController = Navigation.findNavController(getActivity(), R.id.mainDetailsFragment);
                 navController.navigate(R.id.action_workout_Activity_Fragment_to_individual_workout_activity);
             }

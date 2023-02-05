@@ -104,17 +104,17 @@ public class individual_workout_activity extends Fragment implements ExerciseRec
     }
 
     private void setIDS(View view){
-        backButton=view.findViewById(R.id.button_workout_activity_fragment);
-        recyclerView=view.findViewById(R.id.recyclerView_exercises);
-        finishWorkoutButton=view.findViewById(R.id.button_finish_workout);
-        mCoach_Notes=view.findViewById(R.id.coaches_notes);
-        addNewExerciseButton=view.findViewById(R.id.button_add_new_exercise_fragment);
-        noexercises=view.findViewById(R.id.noexercises_text);
-        mMood=view.findViewById(R.id.textview_Mood);
-        mWeight=view.findViewById(R.id.textview_Weight);
-        mSleep=view.findViewById(R.id.textview_Sleep);
-        mCalories=view.findViewById(R.id.textview_Calories);
-        mWorkoutDetails=view.findViewById(R.id.layout_details);
+        backButton=view.findViewById(R.id.individualWorkoutActivity_button_workoutsReturn);
+        recyclerView=view.findViewById(R.id.individualWorkoutActivity_recyclerView_exercises);
+        finishWorkoutButton=view.findViewById(R.id.individualWorkoutActivity_button_finishWorkout);
+        mCoach_Notes=view.findViewById(R.id.individualWorkoutActivity_textView_dateplaceholder);
+        addNewExerciseButton=view.findViewById(R.id.individualWorkoutActivity_button_addNewExercise);
+        noexercises=view.findViewById(R.id.individualWorkoutActivity_textView_noExercises);
+        mMood=view.findViewById(R.id.individualWorkoutActivity_textView_moodValue);
+        mWeight=view.findViewById(R.id.individualWorkoutActivity_textView_weightValue);
+        mSleep=view.findViewById(R.id.individualWorkoutActivity_textView_sleepValue);
+        mCalories=view.findViewById(R.id.individualWorkoutActivity_textView_caloriesValue);
+        mWorkoutDetails=view.findViewById(R.id.individualWorkoutActivity_linearLayout_workoutDetails);
     }
 
     private void setProperties(){
@@ -255,19 +255,19 @@ public class individual_workout_activity extends Fragment implements ExerciseRec
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.button_add_new_exercise_fragment:{
+            case R.id.individualWorkoutActivity_button_addNewExercise:{
                 addNewExercise();
                 break;
             }
-            case R.id.button_finish_workout:{
+            case R.id.individualWorkoutActivity_button_finishWorkout:{
                 finishWorkout();
                 break;
             }
-            case R.id.button_workout_activity_fragment:{
+            case R.id.individualWorkoutActivity_button_workoutsReturn:{
                 moveToWorkoutFragment();
                 break;
             }
-            case R.id.layout_details:{
+            case R.id.individualWorkoutActivity_linearLayout_workoutDetailsAndDate:{
                 Intent intent = new Intent(getContext(),workoutoutDetails.class);
                 SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
                 sdf.applyPattern("E MMM dd yyyy");

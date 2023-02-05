@@ -143,7 +143,7 @@
                         <TextView
                             android:id="@+id/individualWorkoutActivity_textView_weightValue"
                             android:layout_width="60dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:gravity="left"
                             android:text="@string/individualWorkoutActivity_detailsPlaceholder_LABEL"
                             android:textColor="@color/Rich_Black_FOGRA_39"
@@ -239,7 +239,7 @@
                 android:text="@string/individualWorkoutActivity_finishWorkoutButton_LABEL"/>
 
             <Button
-                android:id="@+id/button_add_new_exercise_fragment"
+                android:id="@+id/individualWorkoutActivity_button_addNewExercise"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="13dp"

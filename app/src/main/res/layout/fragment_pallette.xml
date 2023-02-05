@@ -6,7 +6,7 @@
     tools:context=".pallette">
 
     <LinearLayout
-        android:id="@+id/settingsFragment_linearLayout_userPalette"
+        android:id="@+id/palletteFragment_linearLayout_userPalette"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="15dp"
@@ -19,7 +19,7 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/settingsFragment_textView_paletteTitle"
+            android:id="@+id/palletteFragment_textView_paletteTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -38,7 +38,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/settingsFragment_textView_presetPalletes"
+                    android:id="@+id/palletteFragment_textView_presetPalletes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
@@ -56,7 +56,7 @@
 
                     <TextView
                         android:text="@string/settingsFragment_presetPalletsLeftButton_LABEL"
-                        android:id="@+id/settingsFragment_button_presetLeft"
+                        android:id="@+id/palletteFragment_button_presetLeft"
                         android:layout_marginEnd="10dp"
                         android:layout_width="wrap_content"
                         android:textSize="12sp"
@@ -64,7 +64,7 @@
 
                     <TextView
                         android:text="@string/settingsFragment_presetPalletsPlaceholder_LABEL"
-                        android:id="@+id/presetName"
+                        android:id="@+id/palletteFragment_textView_presetName"
                         android:textSize="16sp"
                         android:layout_width="100dp"
                         android:gravity="center"
@@ -72,7 +72,7 @@
 
                     <TextView
                         android:text="@string/settingsFragment_presetPalletsRightButton_LABEL"
-                        android:id="@+id/settingsFragment_button_presetRight"
+                        android:id="@+id/palletteFragment_button_presetRight"
                         android:textSize="12sp"
                         android:layout_marginStart="10dp"
                         android:layout_width="wrap_content"
@@ -81,7 +81,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/settingsFragment_textView_customColours"
+                    android:id="@+id/palletteFragment_textView_customColours"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -92,7 +92,7 @@
                     android:textSize="18sp" />
 
                 <LinearLayout
-                    android:id="@+id/settingsFragment_linearLayout_headerColours"
+                    android:id="@+id/palletteFragment_linearLayout_headerColours"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -101,7 +101,7 @@
                     android:padding="5dp">
 
                     <LinearLayout
-                        android:id="@+id/settingsFragment_linearLayout_headerColour"
+                        android:id="@+id/palletteFragment_linearLayout_headerColour"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -109,7 +109,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/settingFragment_textView_changeColoursTextViewHeader"
+                            android:id="@+id/palletteFragment_textView_changeColoursTextViewHeader"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingStart="10dp"
@@ -118,7 +118,7 @@
                             tools:ignore="RtlSymmetry" />
 
                         <TextView
-                            android:id="@+id/settingFragment_textView_changeColoursTextViewHeaderExpand"
+                            android:id="@+id/palletteFragment_textView_changeColoursTextViewHeaderExpand"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
@@ -130,7 +130,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/settingFragment_linearLayout_changeColoursLayoutHeader"
+                        android:id="@+id/palletteFragment_linearLayout_changeColoursLayoutHeader"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:paddingBottom="10dp"
@@ -142,7 +142,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceRedButtonHeader"
+                                android:id="@+id/palletteFragment_button_reduceRedButtonHeader"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -163,7 +163,7 @@
                                     android:gravity="center"/>
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_redProgressTextViewHeader"
+                                    android:id="@+id/palletteFragment_textView_redProgressTextViewHeader"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -173,7 +173,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseRedButtonHeader"
+                                android:id="@+id/palletteFragment_button_increaseRedButtonHeader"
                                 android:text="@string/settingFragment_plusSign"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
@@ -185,7 +185,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_redSeekBarHeader"
+                            android:id="@+id/palletteFragment_seekBar_redSeekBarHeader"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -197,7 +197,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceGreenButtonHeader"
+                                android:id="@+id/palletteFragment_button_reduceGreenButtonHeader"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -218,7 +218,7 @@
                                     android:gravity="center"/>
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_greenProgressTextViewHeader"
+                                    android:id="@+id/palletteFragment_textView_greenProgressTextViewHeader"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -228,7 +228,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseGreenButtonHeader"
+                                android:id="@+id/palletteFragment_button_increaseGreenButtonHeader"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -240,7 +240,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_greenSeekBarHeader"
+                            android:id="@+id/palletteFragment_seekBar_greenSeekBarHeader"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -252,7 +252,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceBlueButtonHeader"
+                                android:id="@+id/palletteFragment_button_reduceBlueButtonHeader"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -273,7 +273,7 @@
                                     android:text="@string/settingFrament_blue_LABEL" />
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_blueProgressTextViewHeader"
+                                    android:id="@+id/palletteFragment_textView_blueProgressTextViewHeader"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -283,7 +283,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseBlueButtonHeader"
+                                android:id="@+id/palletteFragment_button_increaseBlueButtonHeader"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -295,7 +295,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_blueSeekBarHeader"
+                            android:id="@+id/palletteFragment_seekBar_blueSeekBarHeader"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -321,7 +321,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/settingFragment_textView_changeColoursTextViewTitle"
+                            android:id="@+id/palletteFragment_textView_changeColoursTextViewTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingStart="10dp"
@@ -330,7 +330,7 @@
                             tools:ignore="RtlSymmetry" />
 
                         <TextView
-                            android:id="@+id/settingFragment_textView_changeColoursTextViewTitleExpand"
+                            android:id="@+id/palletteFragment_textView_changeColoursTextViewTitleExpand"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
@@ -342,7 +342,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/settingFragment_linearLayout_changeColoursLayoutTitle"
+                        android:id="@+id/palletteFragment_linearLayout_changeColoursLayoutTitle"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:paddingBottom="10dp"
@@ -354,7 +354,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceRedButtonTitle"
+                                android:id="@+id/palletteFragment_button_reduceRedButtonTitle"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -375,7 +375,7 @@
                                     android:gravity="center"/>
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_redProgressTextViewTitle"
+                                    android:id="@+id/palletteFragment_textView_redProgressTextViewTitle"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -385,7 +385,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseRedButtonTitle"
+                                android:id="@+id/palletteFragment_button_increaseRedButtonTitle"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -397,7 +397,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_redSeekBarTitle"
+                            android:id="@+id/palletteFragment_seekBar_redSeekBarTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -409,7 +409,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceGreenButtonTitle"
+                                android:id="@+id/palletteFragment_button_reduceGreenButtonTitle"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -431,7 +431,7 @@
                                     android:text="@string/settingFrament_green_LABEL" />
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_greenProgressTextViewTitle"
+                                    android:id="@+id/palletteFragment_textView_greenProgressTextViewTitle"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -441,7 +441,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseGreenButtonTitle"
+                                android:id="@+id/palletteFragment_button_increaseGreenButtonTitle"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -453,7 +453,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_greenSeekBarTitle"
+                            android:id="@+id/palletteFragment_seekBar_greenSeekBarTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -465,7 +465,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceBlueButtonTitle"
+                                android:id="@+id/palletteFragment_button_reduceBlueButtonTitle"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -486,7 +486,7 @@
                                     android:text="@string/settingFrament_blue_LABEL" />
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_blueProgressTextViewTitle"
+                                    android:id="@+id/palletteFragment_textView_blueProgressTextViewTitle"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -496,7 +496,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseBlueButtonTitle"
+                                android:id="@+id/palletteFragment_button_increaseBlueButtonTitle"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -508,7 +508,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_blueSeekBarTitle"
+                            android:id="@+id/palletteFragment_seekBar_blueSeekBarTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -534,7 +534,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/settingFragment_textView_changeColoursTextViewBorder"
+                            android:id="@+id/palletteFragment_textView_changeColoursTextViewBorder"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingStart="10dp"
@@ -543,7 +543,7 @@
                             tools:ignore="RtlSymmetry" />
 
                         <TextView
-                            android:id="@+id/settingFragment_textView_changeColoursTextViewBorderExpand"
+                            android:id="@+id/palletteFragment_textView_changeColoursTextViewBorderExpand"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
@@ -555,7 +555,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/settingFragment_linearLayout_changeColoursLayoutBorder"
+                        android:id="@+id/palletteFragment_linearLayout_changeColoursLayoutBorder"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:paddingBottom="10dp"
@@ -567,7 +567,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceRedButtonBorder"
+                                android:id="@+id/palletteFragment_button_reduceRedButtonBorder"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -587,7 +587,7 @@
                                     android:text="@string/settingFrament_red_LABEL" />
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_redProgressTextViewBorder"
+                                    android:id="@+id/palletteFragment_textView_redProgressTextViewBorder"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="0"
@@ -596,7 +596,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseRedButtonBorder"
+                                android:id="@+id/palletteFragment_button_increaseRedButtonBorder"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -608,7 +608,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_redSeekBarBorder"
+                            android:id="@+id/palletteFragment_seekBar_redSeekBarBorder"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -620,7 +620,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceGreenButtonBorder"
+                                android:id="@+id/palletteFragment_button_reduceGreenButtonBorder"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -640,16 +640,16 @@
                                     android:text="@string/settingFrament_green_LABEL" />
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_greenProgressTextViewBorder"
+                                    android:id="@+id/palletteFragment_textView_greenProgressTextViewBorder"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="0"
-                                    tools:ignore="HardcodedText" />
+                                    tools:ignore="HardcodedText,TooManyViews" />
 
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseGreenButtonBorder"
+                                android:id="@+id/palletteFragment_button_increaseGreenButtonBorder"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -661,7 +661,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_greenSeekBarBorder"
+                            android:id="@+id/palletteFragment_seekBar_greenSeekBarBorder"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -673,7 +673,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceBlueButtonBorder"
+                                android:id="@+id/palletteFragment_button_reduceBlueButtonBorder"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -693,7 +693,7 @@
                                     android:text="@string/settingFrament_blue_LABEL" />
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_blueProgressTextViewBorder"
+                                    android:id="@+id/palletteFragment_textView_blueProgressTextViewBorder"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="0"
@@ -702,7 +702,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseBlueButtonBorder"
+                                android:id="@+id/palletteFragment_button_increaseBlueButtonBorder"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -714,7 +714,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_blueSeekBarBorder"
+                            android:id="@+id/palletteFragment_seekBar_blueSeekBarBorder"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -743,7 +743,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/settingFragment_textView_changeColoursTextViewSubtract"
+                            android:id="@+id/palletteFragment_textView_changeColoursTextViewSubtract"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingStart="10dp"
@@ -751,7 +751,7 @@
                             android:textColor="#000000" />
 
                         <TextView
-                            android:id="@+id/settingFragment_textView_changeColoursTextViewSubtractExpand"
+                            android:id="@+id/palletteFragment_textView_changeColoursTextViewSubtractExpand"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
@@ -763,7 +763,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:id="@+id/settingFragment_linearLayout_changeColoursLayoutSubtract"
+                        android:id="@+id/palletteFragment_linearLayout_changeColoursLayoutSubtract"
                         android:layout_height="0dp"
                         android:paddingBottom="10dp"
                         android:orientation="vertical">
@@ -774,7 +774,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceRedButtonSubtract"
+                                android:id="@+id/palletteFragment_button_reduceRedButtonSubtract"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -795,7 +795,7 @@
                                     android:gravity="center"/>
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_redProgressTextViewSubtract"
+                                    android:id="@+id/palletteFragment_textView_redProgressTextViewSubtract"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -805,7 +805,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseRedButtonSubtract"
+                                android:id="@+id/palletteFragment_button_increaseRedButtonSubtract"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -817,7 +817,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_redSeekBarSubtract"
+                            android:id="@+id/palletteFragment_seekBar_redSeekBarSubtract"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -829,7 +829,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceGreenButtonSubtract"
+                                android:id="@+id/palletteFragment_button_reduceGreenButtonSubtract"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -851,7 +851,7 @@
                                     android:text="@string/settingFrament_green_LABEL" />
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_greenProgressTextViewSubtract"
+                                    android:id="@+id/palletteFragment_textView_greenProgressTextViewSubtract"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -861,7 +861,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseGreenButtonSubtract"
+                                android:id="@+id/palletteFragment_button_increaseGreenButtonSubtract"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -873,7 +873,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_greenSeekBarSubtract"
+                            android:id="@+id/palletteFragment_seekBar_greenSeekBarSubtract"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -885,7 +885,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceBlueButtonSubtract"
+                                android:id="@+id/palletteFragment_button_reduceBlueButtonSubtract"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -906,7 +906,7 @@
                                     android:text="@string/settingFrament_blue_LABEL" />
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_blueProgressTextViewSubtract"
+                                    android:id="@+id/palletteFragment_textView_blueProgressTextViewSubtract"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -916,7 +916,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseBlueButtonSubtract"
+                                android:id="@+id/palletteFragment_button_increaseBlueButtonSubtract"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -928,7 +928,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_blueSeekBarSubtract"
+                            android:id="@+id/palletteFragment_seekBar_blueSeekBarSubtract"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -957,7 +957,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/settingFragment_textView_changeColoursTextViewBackground"
+                            android:id="@+id/palletteFragment_textView_changeColoursTextViewBackground"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingStart="10dp"
@@ -966,7 +966,7 @@
                             tools:ignore="RtlSymmetry" />
 
                         <TextView
-                            android:id="@+id/settingFragment_textView_changeColoursTextViewBackgroundExpand"
+                            android:id="@+id/palletteFragment_textView_changeColoursTextViewBackgroundExpand"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
@@ -978,7 +978,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/settingFragment_linearLayout_changeColoursLayoutBackground"
+                        android:id="@+id/palletteFragment_linearLayout_changeColoursLayoutBackground"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:paddingBottom="10dp"
@@ -990,7 +990,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceRedButtonBackground"
+                                android:id="@+id/palletteFragment_button_reduceRedButtonBackground"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -1011,7 +1011,7 @@
                                     android:text="@string/settingFrament_red_LABEL" />
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_redProgressTextViewBackground"
+                                    android:id="@+id/palletteFragment_textView_redProgressTextViewBackground"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -1021,7 +1021,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseRedButtonBackground"
+                                android:id="@+id/palletteFragment_button_increaseRedButtonBackground"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -1033,7 +1033,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_redSeekBarBackground"
+                            android:id="@+id/palletteFragment_seekBar_redSeekBarBackground"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -1045,7 +1045,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceGreenButtonBackground"
+                                android:id="@+id/palletteFragment_button_reduceGreenButtonBackground"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -1067,7 +1067,7 @@
                                     android:text="@string/settingFrament_green_LABEL" />
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_greenProgressTextViewBackground"
+                                    android:id="@+id/palletteFragment_textView_greenProgressTextViewBackground"
                                     android:layout_width="match_parent"
                                     android:gravity="center"
                                     android:layout_height="wrap_content"
@@ -1077,7 +1077,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseGreenButtonBackground"
+                                android:id="@+id/palletteFragment_button_increaseGreenButtonBackground"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -1089,7 +1089,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_greenSeekBarBackground"
+                            android:id="@+id/palletteFragment_seekBar_greenSeekBarBackground"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"
@@ -1101,7 +1101,7 @@
                             android:gravity="center_horizontal">
 
                             <Button
-                                android:id="@+id/settingFragment_button_reduceBlueButtonBackground"
+                                android:id="@+id/palletteFragment_button_reduceBlueButtonBackground"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginEnd="22dp"
@@ -1122,7 +1122,7 @@
                                     android:text="@string/settingFrament_blue_LABEL" />
 
                                 <TextView
-                                    android:id="@+id/settingFragment_textView_blueProgressTextViewBackground"
+                                    android:id="@+id/palletteFragment_textView_blueProgressTextViewBackground"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -1132,7 +1132,7 @@
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/settingFragment_button_increaseBlueButtonBackground"
+                                android:id="@+id/palletteFragment_button_increaseBlueButtonBackground"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="22dp"
@@ -1144,7 +1144,7 @@
                         </LinearLayout>
 
                         <SeekBar
-                            android:id="@+id/settingFragment_seekBar_blueSeekBarBackground"
+                            android:id="@+id/palletteFragment_seekBar_blueSeekBarBackground"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:max="255"

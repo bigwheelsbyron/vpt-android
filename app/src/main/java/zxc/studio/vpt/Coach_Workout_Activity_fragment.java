@@ -123,13 +123,13 @@ public class Coach_Workout_Activity_fragment extends Fragment implements newWork
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_coach__workout__activity_fragment, container, false);
-        insertExerciseButton=view.findViewById(R.id.exerciseAddButton);
-        commitExerciseButton=view.findViewById(R.id.commitExerciseButton);
-        saveTemplateButton=view.findViewById(R.id.saveTemplateButton);
-        mRecyclerView=view.findViewById(R.id.recyclerViewCoachMain);
-        athleteIDSpinner=view.findViewById(R.id.spinnerAthlete);
-        dateTextView=view.findViewById(R.id.dateTextView);
-        backButton=view.findViewById(R.id.button_coach_workout_fragment);
+        insertExerciseButton=view.findViewById(R.id.coachWorkoutActivity_button_addExercise);
+        commitExerciseButton=view.findViewById(R.id.coachWorkoutActivity_button_send);
+        saveTemplateButton=view.findViewById(R.id.coachWorkoutActivity_button_templates);
+        mRecyclerView=view.findViewById(R.id.coachWorkoutActivity_recyclerView_coachNewWorkoutExercises);
+        athleteIDSpinner=view.findViewById(R.id.coachWorkoutActivity_spinner_coachNewWorkoutAthlete);
+        dateTextView=view.findViewById(R.id.coachWorkoutActivity_textView_coachNewWorkoutDateSelector);
+        backButton=view.findViewById(R.id.coachWorkoutActivity_button_coachMainReturn);
         findAthletes();
         getTemplateSpinnerInfo();
         setListeners();
@@ -445,17 +445,17 @@ public class Coach_Workout_Activity_fragment extends Fragment implements newWork
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.exerciseAddButton:{
+            case R.id.coachWorkoutActivity_button_addExercise:{
                 dateTextView.requestFocus();
                 insertExerciseButtonAction();
                 break;
             }
-            case R.id.commitExerciseButton:{
+            case R.id.coachWorkoutActivity_button_send:{
                 dateTextView.requestFocus();
                 sequenceUpdate();
                 break;
             }
-            case R.id.saveTemplateButton:{
+            case R.id.coachWorkoutActivity_button_templates:{
                 dateTextView.requestFocus();
                 Intent intent = new Intent(getContext(),templateActivity.class);
                 intent.putParcelableArrayListExtra("exercises",mExercises);
@@ -465,12 +465,12 @@ public class Coach_Workout_Activity_fragment extends Fragment implements newWork
                 intent.putExtra("templateName", (String) currentTemplate.get("templateName"));
                 startActivity(intent);
                 break;
-            } case R.id.dateTextView:{
+            } case R.id.coachWorkoutActivity_textView_coachNewWorkoutDateSelector:{
                 DialogFragment datePicker = new DatePickerFragmat();
                 datePicker.setTargetFragment(Coach_Workout_Activity_fragment.this, 0);
                 datePicker.show(getFragmentManager(), "date picker");
                 break;
-            } case R.id.button_coach_workout_fragment:{
+            } case R.id.coachWorkoutActivity_button_coachMainReturn:{
                 NavController navController = Navigation.findNavController(getActivity(), R.id.mainDetailsFragment);
                 navController.navigate(R.id.action_coach_Workout_Activity_fragment_to_coach_Main_Activity_Fragmenet);
             }

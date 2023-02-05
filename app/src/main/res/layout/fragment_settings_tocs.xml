@@ -6,24 +6,25 @@
     tools:context=".settings_tocs">
 
     <LinearLayout
-        android:id="@+id/settingsFragment_linearLayout_TOCs"
+        android:id="@+id/userAgreementFragment_linearLayout_TOCs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="15dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="200dp"
-        android:alpha="0"
+        android:alpha="1"
         android:background="@drawable/exerciseviewborder"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        tools:ignore="UselessParent">
 
         <TextView
-            android:id="@+id/textwqqView_title"
+            android:id="@+id/userAgreementFragment_textView_userAgreementTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="User Agreement"
+            android:text="@string/userAgreementFragment_userAgreementTitle_LABEL"
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -34,11 +35,11 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView_open15151ing"
+                    android:id="@+id/userAgreementFragment_textView_preamble"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -46,24 +47,24 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="Please carefully read the entire agreement (the “Agreement”) prior to accepting the terms of service and using VPT (the “App”, “Web App”, “the service”). If you do not agree with the entire Agreement, do not accept these Terms of Use, and do not use the App or Web App or otherwise engage with the service. To agree to the Agreement, you must be of the age of majority in your country and state of residence. If you are not age of majority your legal guardian or parent must accept the Terms. "
+                    android:text="@string/userAgreementFragment_preambleText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_ChangesTextView"
+                    android:id="@+id/userAgreementFragment_textView_ChangesTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Changes to the Agreement"
+                    android:text="@string/userAgreementFragment_changesTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_changesText"
+                    android:id="@+id/userAgreementFragment_textView_changesText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -71,24 +72,24 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="Where required, VPT will make amendments to the Agreement. Upon changes to the Agreement, VPT will advise you inside the app or webapp of the changes made. When this occurs, ongoing use of the app or webapp will constitute acceptance of the terms of the Agreement."
+                    android:text="@string/userAgreementFragment_changesText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_ThirdPartyText"
+                    android:id="@+id/userAgreementFragment_textView_ThirdPartyText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Third Party Agreements"
+                    android:text="@string/userAgreementFragment_thirdPartyTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_thirdparty"
+                    android:id="@+id/userAgreementFragment_textView_thirdparty"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -96,24 +97,24 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="VPT uses third party products, programs, and services to produce the App. By agreeing to the Agreement, you are also agreeing that some of your data will be covered by these third-party Agreements. These third parties include, but are not limited to, Google, Samsung, and Apple. "
+                    android:text="@string/userAgreementFragment_thirdPartyText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_entireagreement"
+                    android:id="@+id/userAgreementFragment_textView_entireagreement"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Entire Agreement"
+                    android:text="@string/userAgreementFragment_entireAgreementTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_entireagreementtext"
+                    android:id="@+id/userAgreementFragment_textView_entireagreementtext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -121,24 +122,24 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="This Agreement, and associated third party agreements, constitutes the entire Agreement. No other agreements or amendments, in writing by any representative or agent of VPT or otherwise, constitute any amendments to this Agreement."
+                    android:text="@string/userAgreementFragment_entireAgreementText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_offer"
+                    android:id="@+id/userAgreementFragment_textView_offer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Offer and Acceptance"
+                    android:text="@string/userAgreementFragment_offerTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_tocoffertext"
+                    android:id="@+id/userAgreementFragment_textView_tocoffertext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -146,24 +147,24 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="This Agreement is an invitation to treat. By creating an account, you are producing an offer to utilise the platform. VPT will accept your offer upon the finalisation of your account."
+                    android:text="@string/userAgreementFragment_offerText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_toctermination"
+                    android:id="@+id/userAgreementFragment_textView_toctermination"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Account Termination"
+                    android:text="@string/userAgreementFragment_terminationTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_tocterminationtext"
+                    android:id="@+id/userAgreementFragment_textView_tocterminationtext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -171,24 +172,24 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="This Agreement; the associated contract; the associated service provided; and any other potential relationship between VPT and you can be terminated by either party at either time, without notice and without explanation. For a user to end terminate the contract, they must delete their account. Upon deletion of an account, the Agreement will end, and all associated services provided for the user will cease."
+                    android:text="@string/userAgreementFragment_terminiationText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_banning"
+                    android:id="@+id/userAgreementFragment_textView_banning"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Temporary and Permanent Banning"
+                    android:text="@string/userAgreementFragment_removalTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_banningtext"
+                    android:id="@+id/userAgreementFragment_textView_banningtext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -196,24 +197,24 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="VPT can, at their own discretion and without cause or notice, in addition to terminating a user’s account also temporarily or permanent ban them from VPT."
+                    android:text="@string/userAgreementFragment_removalText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_data"
+                    android:id="@+id/userAgreementFragment_textView_data"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Data"
+                    android:text="@string/userAgreementFragment_dataTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_dattext"
+                    android:id="@+id/userAgreementFragment_textView_dattext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -221,24 +222,24 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="VPT may use third party programs to store data. Where the data is stored by a third party, the associated data ownership rules of that third party will be considered for all VPT users’ data. Notwithstanding this, all data associated with VPT belongs to VPT. Users are allowed access to data associated with their account under this Agreement. Without limiting termination clause, the termination of the account will cease any use of data associated with the account. VPT does not share your data with any third parties for any purposes other than the purpose of storage. VPT does not use your data for any purpose other than providing the service."
+                    android:text="@string/userAgreementFragment_dataText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_cost"
+                    android:id="@+id/userAgreementFragment_textView_cost"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Cost"
+                    android:text="@string/userAgreementFragment_costTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_costtext"
+                    android:id="@+id/userAgreementFragment_textView_costtext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -246,24 +247,24 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="VPT is a free service."
+                    android:text="@string/userAgreementFragment_costText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_commercial"
+                    android:id="@+id/userAgreementFragment_textView_commercial"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Commercial Use"
+                    android:text="@string/userAgreementFragment_commercialTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_commercialtext"
+                    android:id="@+id/userAgreementFragment_textView_commercialtext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -271,24 +272,24 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="VPT is free for commercial use. There is no separate written agreement for commercial use. Without limiting any other section within the Agreement; Businesses, Governments, and other organisations can use VPT without any need for an additional express agreement."
+                    android:text="@string/userAgreementFragment_commercialText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_warranty"
+                    android:id="@+id/userAgreementFragment_textView_warranty"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Warranty"
+                    android:text="@string/userAgreementFragment_warrantyTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_warrantytext"
+                    android:id="@+id/userAgreementFragment_textView_warrantytext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -296,24 +297,24 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="VPT provides no warranties for the service or your data. VPT does not provide any representations that the service is fit for any particular purpose, nor is it free of defects."
+                    android:text="@string/userAgreementFragment_warrantyText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_acl"
+                    android:id="@+id/userAgreementFragment_textView_acl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Australian Consumer Law"
+                    android:text="@string/userAgreementFragment_aclTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_acltext"
+                    android:id="@+id/userAgreementFragment_textView_acltext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -321,24 +322,24 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="All rights under Australian Consumer Law are full and not infringed by this Agreement. Where there is any inconsistency between the two, Australia Consumer Law will be prioritised."
+                    android:text="@string/userAgreementFragment_aclText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_ip"
+                    android:id="@+id/userAgreementFragment_textView_ip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="Intellectual Property Rights"
+                    android:text="@string/userAgreementFragment_ipTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/iptext"
+                    android:id="@+id/userAgreementFragment_textView_iptext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -346,24 +347,24 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="All property of VPT, including but not limited to, the VPT logo and branding, are property of VPT."
+                    android:text="@string/userAgreementFragment_ipText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textView_ugl"
+                    android:id="@+id/userAgreementFragment_textView_ugl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
-                    android:text="User Guidelines"
+                    android:text="@string/userAgreementFragment_userGuidelinesTitle_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/ugltext"
+                    android:id="@+id/userAgreementFragment_textView_ugltext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -371,10 +372,9 @@
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:scrollbars="vertical"
-                    android:text="Without limiting any other part of the Agreement, the user agrees to use VPT without harassing, threatening, or otherwise acting in an anti-social manner to other users. The user agrees to not participate in any offensive, illegal, or other behaviour on the platform. Without limiting termination clause, failure to act in line with these guidelines will be grounds for the termination of a users’ account without notice or explanation."
+                    android:text="@string/userAgreementFragment_userGuidelinesText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
-                />
 
             </LinearLayout>
 

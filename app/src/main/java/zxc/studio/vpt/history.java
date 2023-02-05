@@ -106,7 +106,7 @@ public class  history extends Fragment implements historyExerciseListRecyclerAdp
 
     private void setIDS(View view){
         combinedChart=view.findViewById(R.id.historyFragment_LineChart_exerciseGraph);
-        exerciseDateRangeExerciseTextView = view.findViewById(R.id.historyFragment_textView_dateRangeLabel);
+        exerciseDateRangeExerciseTextView = view.findViewById(R.id.historyFragment_textView_manage);
     }
 
     private void setListeners(){
@@ -213,7 +213,7 @@ public class  history extends Fragment implements historyExerciseListRecyclerAdp
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
-            case R.id.historyFragment_textView_dateRangeLabel: {
+            case R.id.historyFragment_textView_manage: {
                 showDateRangeActivity();
                 break;
             }

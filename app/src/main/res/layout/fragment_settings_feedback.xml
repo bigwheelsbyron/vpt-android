@@ -6,14 +6,14 @@
     tools:context=".settings_feedback">
 
     <LinearLayout
-        android:id="@+id/settingsFragment_linearLayout_feedback"
+        android:id="@+id/feedbackFragment_linearLayout_feedback"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="15dp"
         android:layout_marginTop="95dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="200dp"
-        android:alpha="0"
+        android:alpha="1"
         android:background="@drawable/exerciseviewborder"
         android:orientation="vertical"
         android:padding="10dp">
@@ -22,25 +22,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Feedback"
+            android:text="@string/feedbackFragment_feedbackTitle_LABEL"
             android:textColor="#000000"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/suggestionText"
+            android:id="@+id/feedbackFragment_editText_suggestionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Suggestion"
+            android:hint="@string/feedbackFragment_suggestionHint_LABEL"
             android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/submitButton"
+            android:id="@+id/feedbackFragment_button_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/button"
-            android:text="Submit" />
+            android:text="@string/feedbackFragment_submitButton_LABEL" />
 
     </LinearLayout>
 

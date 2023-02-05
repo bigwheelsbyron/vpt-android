@@ -49,12 +49,12 @@ public class workoutoutDetails extends AppCompatActivity implements View.OnClick
     }
 
     private void setIDs(){
-        moodValue=findViewById(R.id.moodValue);
-        sleepValue=findViewById(R.id.sleepValue);
-        weightValue=findViewById(R.id.weightValue);
-        caloriesValue=findViewById(R.id.caloriesValue);
-        dateValue=findViewById(R.id.dateValue);
-        updateButton=findViewById(R.id.updateButton);
+        moodValue=findViewById(R.id.workoutDetailsActivity_editText_moodValue);
+        sleepValue=findViewById(R.id.workoutDetailsActivity_editText_sleepValue);
+        weightValue=findViewById(R.id.workoutDetailsActivity_editText_weightValue);
+        caloriesValue=findViewById(R.id.workoutDetailsActivity_editText_foodValue);
+        dateValue=findViewById(R.id.workoutDetailsActivity_textView_date);
+        updateButton=findViewById(R.id.workoutDetailsActivity_button_workoutUpdate);
     }
 
     private void setData(){
@@ -148,7 +148,7 @@ public class workoutoutDetails extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
-            case R.id.updateButton: {
+            case R.id.workoutDetailsActivity_button_workoutUpdate: {
                 updateValues();
                 break;
             }

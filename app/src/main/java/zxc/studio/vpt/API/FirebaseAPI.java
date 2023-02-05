@@ -124,9 +124,12 @@ public class FirebaseAPI {
 
     static public void newSuggestion(Suggestion suggestion){
         DocumentReference newSuggestion =  db.collection("community").document("suggestion").collection("suggestions").document();
-
-
         newSuggestion.set(suggestion);
     }
+
+    static public boolean authenticateUser(String username, String password){
+        return true;
+    }
+
 
 }

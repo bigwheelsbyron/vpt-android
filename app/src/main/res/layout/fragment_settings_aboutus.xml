@@ -6,24 +6,24 @@
     tools:context=".settings_aboutus">
 
     <LinearLayout
-        android:id="@+id/settingsFragment_linearLayout_aboutUs"
+        android:id="@+id/aboutUsFragment_linearLayout_aboutUs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="15dp"
         android:layout_marginTop="95dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="200dp"
-        android:alpha="0"
+        android:alpha="1"
         android:background="@drawable/exerciseviewborder"
         android:orientation="vertical"
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/textView123"
+            android:id="@+id/aboutUsFragment_textView_aboutUsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="About Us"
+            android:text="@string/aboutusFragment_aboutUsTitle_LABEL"
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -35,20 +35,20 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView_opening"
+                    android:id="@+id/aboutUsFragment_textView_opening"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:justificationMode="inter_word"
                     android:padding="5dp"
                     android:scrollbars="vertical"
-                    android:text="VPT is a for free platform that facilitates easy, fast and smart sharing, tracking and reviewing of workouts. The platform was designed as a thank you to the weightlifting and powerlifting communities that give so much without asking for anything in return. Sporting communities are often made up by volunteers who gives thousands of hours for the benefit of others, and this app is a way for me to give and to support those who give. VPT's conception was made when my former weightlifting coach showed how he used excel to create and track workouts for over ten athletes. Asking powerlifting friends who coached, they all had similar methods because no free and simple app allowed them to do it. VPT is a gift to the lifting community and the sporting community as a whole. It is free and always will be. We don't use your data in anyway, we don't profit out of this app at all. It is a gift to those who want to use it. A thank you to the community that has helped so many find a home and will continue to do so in the future. "
+                    android:text="@string/aboutusFragment_aboutUsText_LABEL"
                     android:textColor="@color/Rich_Black_FOGRA_39"
                     android:textSize="13sp" />
 

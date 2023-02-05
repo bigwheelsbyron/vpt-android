@@ -6,7 +6,7 @@
     tools:context=".userDetails">
 
     <LinearLayout
-        android:id="@+id/settingsFragment_linearLayout_userDetails"
+        android:id="@+id/userDetailsFragment_linearLayout_userDetails"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="15dp"
@@ -19,7 +19,7 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/settingsFragment_textView_yourDetailsTitle"
+            android:id="@+id/userDetailsFragment_textView_yourDetailsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -41,18 +41,19 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/settingsFragment_textView_firstName"
+                    android:id="@+id/userDetailsFragment_textView_firstName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="First Name:" />
+                    android:text="@string/userDetailsFragment_firstNameTitle_LABEL" />
 
                 <EditText
-                    android:id="@+id/settingsFragment_editText_FirstName"
+                    android:id="@+id/userDetailsFragment_editText_FirstName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:autofillHints="name"
                     android:inputType="textPersonName"
-                    android:text="Name" />
+                    android:text="@string/userDetailsFragment_firstNameHint_LABEL" />
 
             </LinearLayout>
 
@@ -64,27 +65,28 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Last Name:" />
+                    android:text="@string/userDetailsFragment_lastNameTitle_LABEL" />
 
                 <EditText
-                    android:id="@+id/user_editText_LastName"
+                    android:id="@+id/userDetailsFragment_editText_LastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name" />
+                    android:text="@string/userDetailsFragment_firstNameHint_LABEL"
+                    android:autofillHints="name" />
 
             </LinearLayout>
 
             <Button
-                android:id="@+id/user_savechangesbutton"
+                android:id="@+id/userDetailsFragment_button_saveChanges"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:background="@drawable/button"
                 android:padding="10dp"
-                android:text="Save Changes" />
+                android:text="@string/userDetailsFragment_saveChangeButton_LABEL" />
 
         </LinearLayout>
 
@@ -106,7 +108,7 @@
                     android:layout_width="75dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Email:" />
+                    android:text="@string/userDetailsFragment_emailTitle_LABEL" />
 
                 <TextView
                     android:id="@+id/textViewEmail"
@@ -114,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:text="Name" />
+                    android:text="@string/userDetailsFragment_PLACEHOLDER" />
 
                 <Button
                     android:id="@+id/accountSettings_changeemail"
@@ -124,7 +126,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/button"
                     android:padding="10dp"
-                    android:text="Change" />
+                    android:text="@string/userDetailsFragment_changeEmailButton_LABEL" />
 
             </LinearLayout>
 
@@ -138,7 +140,7 @@
                     android:layout_width="75dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Coach:" />
+                    android:text="@string/userDetailsFragment_coachTitle_LABEL" />
 
                 <TextView
                     android:id="@+id/textViewCoach"
@@ -146,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:text="Name" />
+                    android:text="@string/userDetailsFragment_PLACEHOLDER" />
 
                 <Button
                     android:id="@+id/accountSettings_removeCoach"
@@ -156,7 +158,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/button"
                     android:padding="10dp"
-                    android:text="Remove" />
+                    android:text="@string/userDetailsFragment_removeButton_LABEL" />
 
             </LinearLayout>
 

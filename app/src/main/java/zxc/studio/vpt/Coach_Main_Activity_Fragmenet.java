@@ -92,13 +92,13 @@ public class Coach_Main_Activity_Fragmenet extends Fragment implements View.OnCl
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_coach__main__activity__fragmenet, container, false);
-        mRecyclerViewRequestsOutgoing=view.findViewById(R.id.recyclerViewOutgoingRequests);
-        mRecyclerViewRequestsIncoming=view.findViewById(R.id.recyclerViewRequestsIncoming);
-        mRecyclerViewAthletes=view.findViewById(R.id.recyclerViewAthlete);
-        requestOutgoingButton=view.findViewById(R.id.buttonSendRequest);
-        athletesLabel=view.findViewById(R.id.textViewNoAthlete);
-        outgoingLabel=view.findViewById(R.id.textViewNoOut);
-        incomingLabel=view.findViewById(R.id.textViewNoIn);
+        mRecyclerViewRequestsOutgoing=view.findViewById(R.id.coachMainActivity_recyclerView_outgoingRequests);
+        mRecyclerViewRequestsIncoming=view.findViewById(R.id.coachMainActivity_recyclerView_requestsIncoming);
+        mRecyclerViewAthletes=view.findViewById(R.id.coachMainActivity_recyclerView_athlete);
+        requestOutgoingButton=view.findViewById(R.id.coachMainActivity_button_sendRequest);
+        athletesLabel=view.findViewById(R.id.coachMainActivity_textView_noAthlete);
+        outgoingLabel=view.findViewById(R.id.coachMainActivity_textView_noOut);
+        incomingLabel=view.findViewById(R.id.coachMainActivity_textView_noIn);
         clearArrays();
         setListeners();
         initRecyclerViewOutgoing();
@@ -262,7 +262,7 @@ public class Coach_Main_Activity_Fragmenet extends Fragment implements View.OnCl
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.buttonSendRequest: {
+            case R.id.coachMainActivity_button_sendRequest: {
                 Intent intent = new Intent(getContext(),requestForm.class);
                 startActivity(intent);
                 break;

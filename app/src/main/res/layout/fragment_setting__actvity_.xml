@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Setting_Actvity_Fragment">
 
-    <fragment
-        android:id="@+id/settingsFragment__fragment_settingsFragment"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/settingsFragment_fragment_settingsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/settings_nav" />
 
-    <LinearLayout
+    <ScrollView
         android:id="@+id/settingsFragment_linearLayout_optionsButtons"
         android:layout_width="match_parent"
         android:layout_height="170dp"
@@ -25,83 +25,77 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="15dp">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <Button
+                android:id="@+id/settingsFragment_button_UserDetails_View"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_margin="5dp"
+                android:background="@drawable/button"
+                android:text="@string/settingsFragment_userDetailsButton_LABEL" />
 
-                <Button
-                    android:id="@+id/button_UserDetails_View"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/button"
-                    android:text="User Details" />
+            <Button
+                android:id="@+id/settingsFragment_button_Palette_View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button"
+                android:text="@string/settingsFragment_paletteButton_LABEL" />
 
-                <Button
-                    android:id="@+id/button_Palette_View"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/button"
-                    android:text="Palette" />
+            <Button
+                android:id="@+id/settingsFragment_button_Help_View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button"
+                android:text="@string/settingsFragment_helpButton_LABEL" />
 
-                <Button
-                    android:id="@+id/button_Help_View"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/button"
-                    android:text="Help" />
+            <Button
+                android:id="@+id/settingsFragment_button_Feedback_View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button"
+                android:text="@string/settingsFragment_feedbackAndSuggestionsButton_LABEL" />
 
-                <Button
-                    android:id="@+id/button_Feedback_View"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/button"
-                    android:text="Feedback and Suggestions" />
+            <Button
+                android:id="@+id/settingsFragment_button_About_View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button"
+                android:text="@string/settingsFragment_aboutUsButton_LABEL" />
 
-                <Button
-                    android:id="@+id/button_About_View"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/button"
-                    android:text="About Us" />
+            <Button
+                android:id="@+id/settingsFragment_button_TOC_View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button"
+                android:text="@string/settingsFragment_termsAndConditionsButton_LABEL" />
 
-                <Button
-                    android:id="@+id/button_TOC_View"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/button"
-                    android:text="Terms and Conditions" />
+            <Button
+                android:id="@+id/settingsFragment_button_Privacy_View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button"
+                android:text="@string/settingsFragment_privacyPolicyButton_LABEL" />
 
-                <Button
-                    android:id="@+id/button_Privacy_View"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/button"
-                    android:text="Privacy Policy" />
+            <Button
+                android:id="@+id/settingsFragment_button_Account_View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button"
+                android:text="@string/settingsFragment_accountSecurityButton_LABEL" />
 
-                <Button
-                    android:id="@+id/button_Account_View"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/button"
-                    android:text="Account Security" />
+        </LinearLayout>
 
-            </LinearLayout>
-
-        </ScrollView>
-
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

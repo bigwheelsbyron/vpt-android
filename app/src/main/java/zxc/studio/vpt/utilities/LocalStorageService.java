@@ -13,7 +13,7 @@ import zxc.studio.vpt.models.User;
 
 public class LocalStorageService {
 
-    private Context context;
+    private static Context context;
 
     public LocalStorageService(Context context){
         this.context = context;
@@ -75,6 +75,12 @@ public class LocalStorageService {
         String subtractColorString = sharedPreferences.getString("subtractColor","#73D5FF");
         int subtractColor = Color.parseColor(subtractColorString);
         return subtractColor;
+    }
+
+    public static long mostRecentAuthentication(){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("userDetails",Context.MODE_PRIVATE);
+        long mostRecent = sharedPreferences.getLong("authenticationLong",0);
+        return mostRecent;
     }
 
 
