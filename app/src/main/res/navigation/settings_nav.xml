@@ -10,4 +10,9 @@
         android:name="zxc.studio.vpt.pallette"
         android:label="fragment_pallette"
         tools:layout="@layout/fragment_pallette" />
+
+
+
+
+
 </navigation>

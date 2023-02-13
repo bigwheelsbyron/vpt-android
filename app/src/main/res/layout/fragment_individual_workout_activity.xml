@@ -13,6 +13,8 @@
         android:orientation="vertical">
 
         <Button
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="15dp"
             android:id="@+id/individualWorkoutActivity_button_workoutsReturn"
             android:layout_gravity="start"
             android:background="@drawable/bakcarrow"
@@ -24,6 +26,7 @@
             android:id="@+id/individualWorkoutActivity_linearLayout_workoutDetailsAndDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="39dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:background="@drawable/exerciseviewborder"

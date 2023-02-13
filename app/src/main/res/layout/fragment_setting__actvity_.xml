@@ -9,7 +9,9 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/settingsFragment_fragment_settingsFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/settingsFragment_linearLayout_optionsButtons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,7 +21,6 @@
         android:id="@+id/settingsFragment_linearLayout_optionsButtons"
         android:layout_width="match_parent"
         android:layout_height="170dp"
-        android:alpha="1"
         android:orientation="vertical"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"

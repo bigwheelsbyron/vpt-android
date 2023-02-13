@@ -99,7 +99,7 @@ public class workout_activity extends AppCompatActivity implements View.OnClickL
         return (FirebaseAuth.getInstance().getCurrentUser() != null);
     }
 
-    public void setUpUI(){
+    private void setUpUI(){
         setIDS();
         setListeners();
         applyUserColorSchemeForegroundObjects();
@@ -107,18 +107,22 @@ public class workout_activity extends AppCompatActivity implements View.OnClickL
         setUpNavBar();
     }
 
-    public void setIDS(){
+    private void setIDS(){
         logoutButton = findViewById(R.id.logout_button_main);
     }
-    public void setListeners(){
+
+    private void setListeners(){
         logoutButton.setOnClickListener(this);
     }
+
     private void applyUserColorSchemeBackgroundObjects(){
         colourManager.applyColourSchemeSubtractCustom(this);
     }
+
     private void applyUserColorSchemeForegroundObjects(){
         colourManager.applyColourSchemeCustom(this);
     }
+
     private void resizeSubtract(){
         Display display = getWindowManager().getDefaultDisplay();
         DisplayMetrics outMetrics = new DisplayMetrics();
@@ -130,11 +134,13 @@ public class workout_activity extends AppCompatActivity implements View.OnClickL
         mSubstractTop.getLayoutParams().width = outMetrics.widthPixels;
         mSubstractTop.getLayoutParams().height = (int) (outMetrics.heightPixels*.2);
     }
+
     private void setUpNavBar(){
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         NavController navController = Navigation.findNavController(this,R.id.mainDetailsFragment);
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
     }
+
     private void getUserDetailsFirebase(){
         DocumentReference userDocument = db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
         userDocument.get().addOnFailureListener(new OnFailureListener() {
@@ -152,14 +158,17 @@ public class workout_activity extends AppCompatActivity implements View.OnClickL
         });
 
     }
+
     public void hideLogout(){
         logoutButton.setAlpha(0);
         logoutButton.setEnabled(false);
     }
+
     public void showLogout(){
         logoutButton.setAlpha(1);
         logoutButton.setEnabled(true);
     }
+
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
@@ -176,15 +185,19 @@ public class workout_activity extends AppCompatActivity implements View.OnClickL
     public void changeHeaderColour(Color colour){
         colourManager.applyColourSchemeHeaderTemporary(this, colour);
     }
+
     public void changeTitleColour(Color colour){
         colourManager.applyColourSchemeTitleTemporary(this, colour);
     }
+
     public void changeBorderColour(Color colour){
         colourManager.applyColourSchemeBorderTemporary(this, colour);
     }
+
     public void changeSubtractColour(Color colour){
         colourManager.applyColourSchemeSubtractTemporary(this, colour);
     }
+
     public void changeBackgroundColour(Color colour){
         colourManager.applyColourSchemeBackgroundTemporary(this, colour);
     }

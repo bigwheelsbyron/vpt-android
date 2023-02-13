@@ -51,7 +51,6 @@ import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventList
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "Login_activity";
-//    private LoginViewModel loginViewModel;
     private FirebaseAuth mAuth;
     private EditText usernameEditText;
     private EditText passwordEditText;

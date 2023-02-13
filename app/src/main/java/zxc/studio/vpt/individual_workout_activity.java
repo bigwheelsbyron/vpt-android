@@ -114,7 +114,7 @@ public class individual_workout_activity extends Fragment implements ExerciseRec
         mWeight=view.findViewById(R.id.individualWorkoutActivity_textView_weightValue);
         mSleep=view.findViewById(R.id.individualWorkoutActivity_textView_sleepValue);
         mCalories=view.findViewById(R.id.individualWorkoutActivity_textView_caloriesValue);
-        mWorkoutDetails=view.findViewById(R.id.individualWorkoutActivity_linearLayout_workoutDetails);
+        mWorkoutDetails=view.findViewById(R.id.individualWorkoutActivity_linearLayout_workoutDetailsAndDate);
     }
 
     private void setProperties(){
@@ -272,6 +272,7 @@ public class individual_workout_activity extends Fragment implements ExerciseRec
                 SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
                 sdf.applyPattern("E MMM dd yyyy");
                 String a = sdf.format(mWorkout.getWorkout_dateFor());
+                Log.d(TAG, "onClick: workout details show");
                 intent.putExtra("workout_date",a);
                 intent.putExtra("workout_weight",mWorkout.getWorkout_weight());
                 intent.putExtra("workout_sleep",mWorkout.getWorkout_sleep());
