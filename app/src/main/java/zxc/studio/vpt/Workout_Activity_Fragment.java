@@ -101,8 +101,9 @@ public class Workout_Activity_Fragment extends Fragment implements WorkoutRecycl
     }
 
     private void hideLogout(){
-        workout_activity activity = (workout_activity) getActivity();
-        activity.hideLogout();
+//        workout_activity activity = (workout_activity) getActivity();
+//        activity.hideLogout();
+        //todo: re hide logout
     }
 
     private boolean firebaseSignedIn(){

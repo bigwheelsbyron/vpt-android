@@ -220,5 +220,7 @@
     <string name="userDetailsFragment_coachTitle_LABEL">Coach:</string>
     <string name="userDetailsFragment_removeButton_LABEL">Remove</string>
 
+    <string name="LoginActivity_TOAST_invalidEmail">Invalid email</string>
+
 
 </resources>

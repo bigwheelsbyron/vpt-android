@@ -1,36 +1,119 @@
 package zxc.studio.vpt.API;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Executor;
 
+import zxc.studio.vpt.R;
 import zxc.studio.vpt.models.Exercise;
 import zxc.studio.vpt.models.Suggestion;
-import zxc.studio.vpt.models.User;
 import zxc.studio.vpt.models.Workout;
-import zxc.studio.vpt.utilities.DateFunctions;
+import zxc.studio.vpt.sign_up;
+import zxc.studio.vpt.ui.login.LoginActivity;
 
 
 public class FirebaseAPI {
 
     private static final String TAG = "firebaseAPI";
     private static FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseAuth mAuth;
+
+    public void login(String username, String password, LoginActivity context){
+        mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener((Executor) this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    context.successfulLogin();
+                } else {
+                    context.unsuccessfulLogin();
+                }
+            }
+        });
+    }
+
+    public void forgotPassword(String email, LoginActivity context){
+        FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(context, "Email sent", Toast.LENGTH_LONG).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(context, R.string.LoginActivity_TOAST_invalidEmail, Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    public Task<DocumentSnapshot> getTOCs() {
+        return FirebaseFirestore.getInstance()
+                .collection("community")
+                .document("tos")
+                .get();
+    }
+
+
+    public Boolean[] signup(final String email, final String password, final String first, final String last){
+        Boolean[] rValue = {null, false};
+        mAuth.createUserWithEmailAndPassword(email,password).
+                addOnCompleteListener((Executor) this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            rValue[0] = signUpUserSuccess(first,last,email);
+                            rValue[1] = true;
+                        } else {
+                            signUpUserFailure(task);
+                        }
+                    }
+                });
+        return rValue;
+    }
+
+    private String signUpUserSuccess(String first, String last, String email){
+        newFirebaseDocumentUser(first,last,email);
+    }
+
+    private void signUpUserFailure(Task<AuthResult> task){
+        Log.w(TAG, "signupithEmail:failure", task.getException());
+    }
+
+
+
+
+
+    private String newFirebaseDocumentUser(String first, String last, String email){
+        FirebaseUser user = mAuth.getCurrentUser();
+        Map<String,Object> userinfo = new HashMap<>();
+        userinfo.put("Name_First",first);
+        userinfo.put("Name_Last",last);
+        userinfo.put("email",email);
+        userinfo.put("uid",mAuth.getUid());
+        db.collection("users").document(user.getUid()).set(userinfo);
+        return uid;
+    }
+
+
+
+
 
     static public void updateExistingWorkout(ArrayList<Exercise> mExercise, Workout mWorkout){
         String username = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -130,6 +213,10 @@ public class FirebaseAPI {
     static public boolean authenticateUser(String username, String password){
         return true;
     }
+
+
+
+
 
 
 }

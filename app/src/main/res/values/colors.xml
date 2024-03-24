@@ -20,7 +20,22 @@
     <color name="my_spinner_text_color">#000000</color>
     <color name="grayedout">#a6a6a6</color>
 
-    <color name="expected_text_color">#FF0000</color>
+    <color name="border_color">#FF0000</color>
+    <color name="expected_border_color">#ffff0000</color>
+    <color name="border_color1">#7f060076</color>
+    <color name="border_color1a">#7f06007a</color>
+    <color name="border_color1b">#7f06007b</color>
+    <color name="border_color1c">#7f06007c</color>
+    <color name="border_color1d">#7f06007d</color>
+    <color name="border_color1e">#7f06007e</color>
+    <color name="border_color1f">#7f06007f</color>
+    <color name="border_color2">#7f060077</color>
+    <color name="border_color3">#7f060078</color>
+    <color name="border_color4">#7f060079</color>
+
+    <color name="expected_text_color">#060074</color>
+
+
 
 
 

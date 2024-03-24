@@ -17,7 +17,7 @@
             android:name=".activity_dataclassification_selection"
             android:exported="false" />
 
-        <activity android:name=".SplashScreenActivity" />
+<!--        <activity android:name=".SplashScreenActivity" />-->
 
         <activity
             android:name=".workoutoutDetails"

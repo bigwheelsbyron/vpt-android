@@ -5,6 +5,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import zxc.studio.vpt.controllers.SignUpController;
 import zxc.studio.vpt.ui.login.LoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,8 +41,6 @@ import java.util.Map;
 public class sign_up extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "signup";
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private EditText mEdittext_Email;
     private EditText mEdittext_Password;
     private EditText mEdittext_FirstName;
@@ -68,6 +67,7 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
     private LinearLayout mLayoutTOC;
     private LinearLayout mLayoutSignUp;
     private ImageView vptSign;
+    private SignUpController signUpController = new SignUpController(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,30 +75,7 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_sign_up);
         setIds();
         setListeners();
-        getTOCs();
-    }
-
-    private void getTOCs() {
-        DocumentReference doc = db.collection("community").document("tos");
-        doc.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                mViewText_opening.setText(documentSnapshot.getString("opening"));
-                mViewText_changes.setText(documentSnapshot.getString("changes"));
-                mViewText_thirdparty.setText(documentSnapshot.getString("thirdparty"));
-                mViewText_entire.setText(documentSnapshot.getString("entireagreement"));
-                mViewText_offer.setText(documentSnapshot.getString("offerandacceptance"));
-                mViewText_termination.setText(documentSnapshot.getString("termination"));
-                mViewText_banning.setText(documentSnapshot.getString("banning"));
-                mViewText_data.setText(documentSnapshot.getString("data"));
-                mViewText_cost.setText(documentSnapshot.getString("cost"));
-                mViewText_commercial.setText(documentSnapshot.getString("commercialuse"));
-                mViewText_warranty.setText(documentSnapshot.getString("warranty"));
-                mViewText_acl.setText(documentSnapshot.getString("acl"));
-                mViewText_ip.setText(documentSnapshot.getString("ip"));
-                mViewText_userguide.setText(documentSnapshot.getString("userguideline"));
-            }
-        });
+        setupTOCs();
     }
 
     private void setListeners() {
@@ -198,20 +175,6 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
         mLayoutSignUp.bringToFront();
     }
 
-    private void signUpProcess() {
-        resetBorderColours();
-        String email = mEdittext_Email.getText().toString();
-        String password = mEdittext_Password.getText().toString();
-        String first = mEdittext_FirstName.getText().toString();
-        String last = mEdittext_LastName.getText().toString();
-        if (validEntries(email,password,first,last)) {
-            SignUp(email,password,first,last);
-        }
-        else {
-            missingEntries();
-        }
-    }
-
     private void resetBorderColours(){
         ColorStateList colorStateList = ColorStateList.valueOf(Color.LTGRAY);
         ViewCompat.setBackgroundTintList(mEdittext_Email,colorStateList);
@@ -244,45 +207,13 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    private void SignUp(final String email, final String password, final String first, final String last){
-        mAuth.createUserWithEmailAndPassword(email,password).
-                addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            signUpUserSuccess(first,last,email);
-                        } else {
-                            signUpUserFailure(task);
-                        }
-                    }
-                });
-    }
-
-    private void signUpUserSuccess(String first, String last, String email){
-        Toast.makeText(sign_up.this, "Success", Toast.LENGTH_SHORT).show();
-        newFirebaseDocumentUser(first,last,email);
-        navigate();
-    }
-
-    private void newFirebaseDocumentUser(String first, String last, String email){
-        FirebaseUser user = mAuth.getCurrentUser();
-        Map<String,Object> userinfo = new HashMap<>();
-        userinfo.put("Name_First",first);
-        userinfo.put("Name_Last",last);
-        userinfo.put("email",email);
-        userinfo.put("uid",mAuth.getUid());
-        db.collection("users").document(user.getUid()).set(userinfo);
-    }
 
     private void navigate(){
         Intent intent = new Intent(this, workout_activity.class);
         startActivity(intent);
     }
 
-    private void signUpUserFailure(Task<AuthResult> task){
-        Log.w(TAG, "signupithEmail:failure", task.getException());
-        Toast.makeText(sign_up.this, "Failure", Toast.LENGTH_SHORT).show();
-    }
+
 
     private void checkboxClicked() {
         if (mCheckBox.isChecked()){
@@ -314,4 +245,48 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+
+
+    private void setupTOCs() {
+        signUpController.fetchTOCs().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot != null) {
+                mViewText_opening.setText(documentSnapshot.getString("opening"));
+                mViewText_changes.setText(documentSnapshot.getString("changes"));
+                mViewText_thirdparty.setText(documentSnapshot.getString("thirdparty"));
+                mViewText_entire.setText(documentSnapshot.getString("entireagreement"));
+                mViewText_offer.setText(documentSnapshot.getString("offerandacceptance"));
+                mViewText_termination.setText(documentSnapshot.getString("termination"));
+                mViewText_banning.setText(documentSnapshot.getString("banning"));
+                mViewText_data.setText(documentSnapshot.getString("data"));
+                mViewText_cost.setText(documentSnapshot.getString("cost"));
+                mViewText_commercial.setText(documentSnapshot.getString("commercialuse"));
+                mViewText_warranty.setText(documentSnapshot.getString("warranty"));
+                mViewText_acl.setText(documentSnapshot.getString("acl"));
+                mViewText_ip.setText(documentSnapshot.getString("ip"));
+                mViewText_userguide.setText(documentSnapshot.getString("userguideline"));
+            } else {
+                // Handle the case where the document does not exist or is null
+            }
+        }).addOnFailureListener(e -> {
+            // Handle any errors here
+        });
+    }
+
+
+    private void signUpProcess() {
+        resetBorderColours();
+        String email = mEdittext_Email.getText().toString();
+        String password = mEdittext_Password.getText().toString();
+        String first = mEdittext_FirstName.getText().toString();
+        String last = mEdittext_LastName.getText().toString();
+        if (validEntries(email,password,first,last)) {
+            boolean success = signUpController.signup(email, password, first, last);
+
+        }
+        else {
+            missingEntries();
+        }
+    }
+
+
 }
